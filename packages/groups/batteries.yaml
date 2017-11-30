@@ -1,0 +1,79 @@
+###############################################################
+## Packages / Groups / Batteries
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'batteries'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Group
+    ################################################
+
+    group.batteries:
+      <<: *customize
+      friendly_name: "Batteries"
+      icon: mdi:battery
+
+    ################################################
+    ## Sensor
+    ################################################
+
+    sensor.battery_nexus5x:
+      <<: *customize
+      friendly_name: "Nexus5X Battery Level"
+      hidden: true
+      icon: mdi:battery
+
+    sensor.battery_samsunga3:
+      <<: *customize
+      friendly_name: "Samsung A3 Battery Level"
+      hidden: true
+      icon: mdi:battery
+
+    sensor.tradfri_remote_control:
+      <<: *customize
+      friendly_name: "Trådfri controll Bedroom"
+      hidden: true
+      icon: mdi:battery
+
+    sensor.tradfri_remote_control_2:
+      <<: *customize
+      friendly_name: "Trådfri controll Bedoom"
+      hidden: true
+      icon: mdi:battery
+
+    sensor.tradfri_motion_sensor:
+      <<: *customize
+      friendly_name: "Motion Sensor Walk-in Closet"
+      hidden: true
+      icon: mdi:battery
+
+################################################
+## Group
+################################################
+
+group:
+  batteries:
+    control: hidden
+    entities:
+      - sensor.battery_nexus5x
+      - sensor.battery_samsunga3
+      - sensor.tradfri_remote_control
+      - sensor.tradfri_remote_control_2
+      - sensor.tradfri_motion_sensor

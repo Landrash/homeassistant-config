@@ -1,0 +1,216 @@
+################################################################
+## Packages / System
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'system'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Automation
+    ################################################
+
+    automation.startup_notification:
+      <<: *customize
+      friendly_name: "Startup Notification"
+      icon: mdi:message-text
+
+    automation.update_notification:
+      <<: *customize
+      friendly_name: "Update Notification"
+      icon: mdi:message-text
+
+    ################################################
+    ## Device Tracker
+    ################################################
+
+    device_tracker.tracked:
+      <<: *customize
+      hidden: false
+
+    device_tracker.tracked_hidden:
+      <<: *customize
+      hidden: false
+
+    ################################################
+    ## Group
+    ################################################
+
+    group.system:
+      <<: *customize
+      friendly_name: "System"
+      icon: mdi:settings-box
+
+    ################################################
+    ## Sensor
+    ################################################
+
+    sensor.date:
+      <<: *customize
+      friendly_name: "System Date"
+      icon: mdi:calendar
+
+    sensor.ha_github_version:
+      <<: *customize
+      friendly_name: "GitHub Version"
+      icon: mdi:github-box
+
+    sensor.ha_pypi_version:
+      <<: *customize
+      friendly_name: "PyPi Version"
+      icon: mdi:language-python
+
+    sensor.ha_startup_time:
+      <<: *customize
+      friendly_name: "Startup Time"
+      icon: mdi:clock-start
+
+    sensor.ha_uptime:
+      <<: *customize
+      friendly_name: "Upime"
+      icon: mdi:clock-start
+
+    sensor.ha_version:
+      <<: *customize
+      friendly_name: "Installed Version"
+      icon: mdi:settings-box
+
+    sensor.time:
+      <<: *customize
+      friendly_name: "System Time"
+      icon: mdi:clock
+
+################################################
+## Group
+################################################
+
+group:
+  system:
+    control: hidden
+    entities:
+      - sensor.date
+      - sensor.time
+      - sensor.uptime
+      - sensor.ha_startup_time
+      - sensor.ha_version
+      - sensor.ha_github_version
+      - sensor.ha_pypi_version
+
+################################################
+## Automation
+################################################
+
+automation:
+  - alias: startup_notification
+    initial_state: 'on'
+    trigger:
+      - platform: homeassistant
+        event: start
+      - platform: time
+        seconds: '/5'
+    action:
+      - service: automation.turn_off
+        data:
+          entity_id: automation.startup_notification
+      - service: notify.telegram_house
+        data:
+          message: "Home Assistant is now up and running."
+
+  - alias: update_notification
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: sensor.ha_github_version
+      - platform: state
+        entity_id: sensor.ha_pypi_version
+    condition:
+      - condition: template
+        value_template: >-
+          {{ trigger.to_state.state }}
+      - condition: template
+        value_template: >-
+          {{ trigger.to_state.state != states('sensor.ha_version') }}
+      - condition: template
+        value_template: >-
+          {{ trigger.to_state.state != 'unknown' }}
+    action:
+      - service: notify.telegram_house
+        data_template:
+          message: >-
+            Home Assistant {{ trigger.to_state.state }} is now available on {{ trigger.to_state.name.split(' ')[0] }}.
+
+################################################
+## Sensor
+################################################
+
+sensor:
+  - platform: time_date
+    display_options:
+      - date
+      - time
+
+  - platform: uptime
+
+  - platform: template
+    sensors:
+      ha_startup_time:
+        entity_id: automation.startup_notification
+        value_template: >-
+          {{ as_timestamp((states.automation.startup_notification.attributes|default).last_triggered|default(None))|timestamp_local or 'unknown' }}
+
+  - platform: version
+    name: ha_version
+    scan_interval: 86400
+
+  - platform: rest
+    name: ha_github_version
+    resource: 'https://api.github.com/repos/home-assistant/home-assistant/releases/latest'
+    headers:
+      accept: application/vnd.github.v3+json
+      content-type: application/json
+      user-agent: home-assistant/rest-sensor
+    value_template: >-
+      {{ value_json.tag_name if value_json.tag_name.split('.')|length != 2 else value_json.tag_name ~ '.0' }}
+    scan_interval: 1800
+
+  - platform: rest
+    name: ha_pypi_version
+    resource: 'https://pypi.python.org/pypi/homeassistant/json'
+    value_template: >-
+      {{ value_json.info.version }}
+    scan_interval: 1800
+
+################################################
+## DNS & SSL
+################################################
+duckdns:
+  domain: !secret duckdns_domain
+  access_token: !secret duckdns_token
+
+################################################
+## Base Components
+################################################
+
+discovery:
+  ignore:
+    - google_cast
+    - ikea_tradfri
+
+updater:
+  include_used_components: true

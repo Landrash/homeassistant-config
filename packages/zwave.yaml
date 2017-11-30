@@ -1,0 +1,98 @@
+################################################################
+## Packages / Z-Wave
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'zwave'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Binary Sensor
+    ################################################
+
+    binary_sensor.master_bathroom_sensor:
+      <<: *customize
+      friendly_name: "Master Bathroom Motion"
+      device_class: motion
+
+    ################################################
+    ## Input Select
+    ################################################
+
+    
+    ################################################
+    ## Lock
+    ################################################
+
+    
+    ################################################
+    ## Sensor
+    ################################################
+
+    sensor.master_bathroom_luminance:
+      <<: *customize
+      friendly_name: "Master Bathroom Luminance"
+      hidden: true
+      icon: mdi:theme-light-dark
+
+    sensor.master_bathroom_relative_humidity:
+      <<: *expose
+      friendly_name: "Master Bathroom Humidity"
+      icon: mdi:water-percent
+
+    sensor.master_bathroom_temperature:
+      <<: *expose
+      friendly_name: "Master Bathroom Temperature"
+      icon: mdi:thermometer
+
+    sensor.fibaro_system_fgwpef_wall_plug_energy:
+      <<: *expose
+      hidden: true
+
+    sensor.fibaro_system_fgwpef_wall_plug_exporting:
+      <<: *expose
+      hidden: true
+
+    sensor.fibaro_system_fgwpef_wall_plug_interval:
+      <<: *expose
+      hidden: true
+
+    sensor.fibaro_system_fgwpef_wall_plug_power_2:
+      <<: *expose
+      hidden: true
+
+    sensor.fibaro_system_fgwpef_wall_plug_previous_reading:
+        <<: *expose
+        hidden: true
+
+  ################################################
+  ## Customize Domain
+  ################################################
+
+  customize_domain:
+    zwave:
+      <<: *customize
+      # hidden: true
+
+################################################
+## Z-Wave
+################################################
+
+zwave:
+  usb_path: !secret zwave_usb_path 
+  network_key: !secret zwave_network_key

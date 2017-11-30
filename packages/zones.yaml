@@ -1,0 +1,53 @@
+################################################################
+## Packages / Zones
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'zones'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Zone
+    ################################################
+
+    zone.home:
+      <<: *customize
+      friendly_name: "Home"
+
+    zone.work:
+      <<: *customize
+      friendly_name: "Work"
+      icon: mdi:city
+
+    zone.parents:
+      <<: *customize
+      friendly_name: "Parents"
+      icon: mdi:cow
+
+################################################
+## Zone
+################################################
+
+zone:
+  - name: work
+    latitude: !secret work_his_latitude
+    longitude: !secret work_his_longitude
+
+  - name: parents
+    latitude: !secret parents_his_latitude
+    longitude: !secret parents_his_longitude

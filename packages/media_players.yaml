@@ -1,0 +1,50 @@
+################################################################
+## Packages / Groups / Media Players
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'groups/media_players'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Group
+    ################################################
+
+    group.media_players:
+      <<: *customize
+      friendly_name: "Media Players"
+
+################################################
+## Group
+################################################
+group:
+  media_players:
+    control: hidden
+    entities:
+      - media_player.living_room_tv
+      - media_player.master_bedroom_tv
+
+################################################
+## Media Players
+################################################
+
+media_player:
+  - platform: cast
+    host: 192.168.0.6
+  - platform: cast
+    host: 192.168.0.16

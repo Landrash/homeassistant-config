@@ -1,0 +1,60 @@
+################################################################
+## Packages / Logger
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+#  customize:
+
+################################################
+## Logger
+################################################
+
+# Log Severities: notset, debug, info, warn, warning, error, fatal, critical
+logger:
+  default: error
+  logs:
+    # debug
+    homeassistant.components.sensor.darksky: info
+
+    # info
+    homeassistant.bootstrap: info
+    homeassistant.components.websocket_api: info
+    homeassistant.core: error
+    homeassistant.helpers.script: info
+
+    # warn
+    homeassistant.components.alarm_control_panel: warn
+    homeassistant.components.alert: warn
+    homeassistant.components.api: warn
+    homeassistant.components.automation: warn
+    homeassistant.components.binary_sensor: warn
+    homeassistant.components.camera: warn
+    homeassistant.components.climate: warn
+    homeassistant.components.cover: warn
+    homeassistant.components.device_tracker: warn
+    homeassistant.components.http: warn
+    homeassistant.components.light: warn
+    homeassistant.components.lock: warn
+    homeassistant.components.media_player: warn
+    homeassistant.components.mqtt: warn
+    homeassistant.components.notify: warn
+    homeassistant.components.recorder: warn
+    homeassistant.components.remote: warn
+    homeassistant.components.sensor: warn
+    homeassistant.components.switch: warn
+    homeassistant.components.telegram_bot: warn
+    homeassistant.helpers: warn
+    homeassistant.loader: warn
+    libopenzwave: warn
+    openzwave: warn
+    pychromecast: warn
+    pytradfri: warn
+    telegram: warn
+    urllib3: warn
+
+    # error
+    homeassistant.components.zwave: error

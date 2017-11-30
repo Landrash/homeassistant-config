@@ -1,0 +1,76 @@
+################################################################
+## Packages / Groups / People
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'groups/people'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Device Tracker
+    ################################################
+
+    ################################################
+    ## Group
+    ################################################
+
+    group.family:
+      <<: *customize
+      friendly_name: "Family"
+      icon: mdi:human-male-female
+
+    group.guests:
+      <<: *customize
+      friendly_name: "Guests"
+      icon: mdi:human-male-female
+
+    group.person_landrash:
+      <<: *customize
+      friendly_name: "Landrash"
+      icon: mdi:human-male
+
+    group.person_jojo:
+      <<: *customize
+      friendly_name: "Jojo"
+      icon: mdi:human-female
+
+################################################
+## Group
+################################################
+
+group:
+  guests:
+    control: hidden
+    entities:
+      - group.person_1
+
+  family:
+    control: hidden
+    entities:
+      - group.person_landrash
+      - group.person_jojo
+
+  person_landrash:
+    control: hidden
+    entities:
+      - device_tracker.hasshibblelandrashmobile_landrash
+
+  person_jojo:
+    control: hidden
+    entities:
+      - device_tracker.hasshibblejojomobile_a3jojo

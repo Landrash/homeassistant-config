@@ -1,0 +1,230 @@
+################################################################
+## Packages / Weather
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'weather'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Group
+    ################################################
+
+    group.weather_darksky:
+      <<: *customize
+      friendly_name: "Dark Sky"
+
+    group.weather_general:
+      <<: *customize
+      friendly_name: "General"
+
+    group.weather_wunderground:
+      <<: *customize
+      friendly_name: "Weather Underground"
+
+    group.weather_yr:
+      <<: *customize
+      friendly_name: "YR"
+
+    group.weather_camera:
+      <<: *customize
+      friendly_name: "Weather Forecasts"
+
+    ################################################
+    ## Sensor
+    ################################################
+
+    sensor.dark_sky_cloud_coverage:
+      <<: *customize
+      friendly_name: "Cloud Coverage"
+      icon: mdi:weather-partlycloudy
+
+    sensor.dark_sky_humidity:
+      <<: *customize
+      friendly_name: "Humidity"
+      icon: mdi:water-percent
+
+    sensor.dark_sky_precip_probability:
+      <<: *customize
+      friendly_name: "Precipitation"
+      icon: mdi:weather-rainy
+
+    sensor.dark_sky_temperature:
+      <<: *customize
+      friendly_name: "Temperature"
+      icon: mdi:thermometer
+
+    sensor.pws_feelslike_c:
+      <<: *customize
+      friendly_name: "Feels Like"
+      icon: mdi:thermometer
+
+    sensor.pws_heat_index_c:
+      <<: *customize
+      friendly_name: "Heat Index"
+      icon: mdi:thermometer
+
+    sensor.pws_precip_today_in:
+      <<: *customize
+      friendly_name: "Precipitation"
+      icon: mdi:weather-rainy
+
+    sensor.pws_relative_humidity:
+      <<: *customize
+      friendly_name: "Humidity"
+      icon: mdi:water-percent
+
+    sensor.pws_temp_c:
+      <<: *customize
+      friendly_name: "Temperature"
+      icon: mdi:thermometer
+
+    sensor.pws_weather:
+      <<: *customize
+      friendly_name: "Current Conditions"
+
+    sensor.season:
+      <<: *customize
+      friendly_name: "Season"
+      icon: mdi:weather-snowy-rainy
+
+    sensor.yr_cloudiness:
+      <<: *customize
+      friendly_name: "Cloudiness"
+      icon: mdi:weather-partlycloudy
+
+    sensor.yr_condition:
+      <<: *customize
+      friendly_name: "Condition"
+      icon: mdi:weather-sunny
+
+    sensor.yr_humidity:
+      <<: *customize
+      friendly_name: "Humidity"
+      icon: mdi:water-percent
+
+    sensor.yr_precipitation:
+      <<: *customize
+      friendly_name: "Precipitation"
+      icon: mdi:weather-rainy
+
+    sensor.yr_temperature:
+      <<: *customize
+      friendly_name: "Temperature"
+      icon: mdi:thermometer
+
+################################################
+## Group
+################################################
+
+group:
+  weather_general:
+    control: hidden
+    entities:
+      - sun.sun
+      - sensor.season
+      - sensor.nextsunrise
+      - sensor.nextsunset
+      - sensor.moon
+
+  weather_darksky:
+    control: hidden
+    entities:
+      - sensor.dark_sky_cloud_coverage
+      - sensor.dark_sky_humidity
+      - sensor.dark_sky_precip_probability
+      - sensor.dark_sky_temperature
+
+  weather_wunderground:
+    control: hidden
+    entities:
+      - sensor.pws_feelslike_c
+      - sensor.pws_heat_index_c
+      - sensor.pws_relative_humidity
+      - sensor.pws_precip_today_in
+      - sensor.pws_temp_c
+      - sensor.pws_weather
+
+  weather_yr:
+    control: hidden
+    entities:
+      - sensor.yr_cloudiness
+      - sensor.yr_humidity
+      - sensor.yr_precipitation
+      - sensor.yr_temperature
+
+  weather_camera:
+    control: hidden
+    entities:
+      - camera.weather_forecast_advanced
+
+################################################
+## Sensor
+################################################
+
+sensor:
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    monitored_conditions:
+      - cloud_cover
+      - humidity
+      - precip_probability
+      - temperature
+
+  - platform: wunderground
+    api_key: !secret wunderground_api_key
+    monitored_conditions:
+      - feelslike_c
+      - heat_index_c
+      - precip_today_in
+      - relative_humidity
+      - temp_c
+      - weather
+
+  - platform: yr
+    monitored_conditions:
+      - cloudiness
+      - humidity
+      - precipitation
+      - temperature
+
+  - platform: season
+    type: astronomical
+
+  - platform: template
+    sensors:
+      nextsunrise:
+        friendly_name: 'Next Sunrise'
+        value_template: "{{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom('%-I:%M %P') }}"
+      nextsunset:
+        friendly_name: 'Next Sunset'
+        value_template: "{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom('%-I:%M %P') }}"
+
+  - platform: moon
+
+sun:
+
+################################################
+## Weather Forecast
+################################################
+
+camera:
+  - platform: generic
+    still_image_url: !secret forecast_home_image_advanced
+    name: Weather Forecast Advanced
+    content_type: image/svg+xml

@@ -1,0 +1,143 @@
+################################################################
+## Packages / Network Devices
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'network_devices'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Group
+    ################################################
+
+    group.network_devices_source:
+      <<: *customize
+      friendly_name: "Network Devices"
+
+    group.network_devices:
+      <<: *customize
+      friendly_name: "Network Devices"
+
+    ################################################
+    ## Device Tracker
+    ################################################
+
+    device_tracker.net_chromecast_living_room:
+      <<: *customize
+      friendly_name: "Chromecast (Living Room)"
+      hidden: true
+
+    device_tracker.net_chromecast_master_bedroom:
+      <<: *customize
+      friendly_name: "Chromecast (Master Bedroom)"
+      hidden: true
+
+
+    device_tracker.net_ikea_tradfri:
+      <<: *customize
+      friendly_name: "IKEA Trådfri"
+      hidden: true
+
+    device_tracker.net_raspberry_pi:
+      <<: *customize
+      friendly_name: "Raspberry Pi"
+      hidden: true
+
+    ################################################
+    ## Sensor
+    ################################################
+
+    sensor.net_chromecast_living_room:
+      <<: *customize
+      friendly_name: "Chromecast (Living Room)"
+
+    sensor.net_chromecast_master_bedroom:
+      <<: *customize
+      friendly_name: "Chromecast (Master Bedroom)"
+
+    sensor.net_ikea_tradfri:
+      <<: *customize
+      friendly_name: "IKEA Tradfri"
+    sensor.net_raspberry_pi:
+      <<: *customize
+      friendly_name: "Raspberry Pi"
+
+################################################
+## Group
+################################################
+
+group:
+  network_devices_source:
+    control: hidden
+    entities:
+      - device_tracker.net_chromecast_living_room
+      - device_tracker.net_chromecast_master_bedroom
+      - device_tracker.net_ikea_tradfri
+      - device_tracker.net_raspberry_pi
+      - binary_sensor.openmqttgateway1
+      - binary_sensor.openmqttgateway2
+      - device_tracker.openmqttgateway1
+      - device_tracker.openmqttgateway2
+
+
+  network_devices:
+    control: hidden
+    entities:
+      - sensor.net_chromecast_living_room
+      - sensor.net_chromecast_master_bedroom
+      - sensor.net_ikea_tradfri
+      - sensor.net_raspberry_pi
+      - sensor.net_openmqttgateway1
+      - sensor.net_openmqttgateway2
+
+  zwave:
+    control: hidden
+    entities:
+      - zwave.fibaro_system_fgwpef_wall_plug
+      - zwave.zwaveme_zme_uzb1_usb_stick
+
+################################################
+## Sensor
+################################################
+
+sensor:
+  - platform: template
+    sensors:
+      net_chromecast_living_room:
+        value_template: "{{ 'online' if is_state('device_tracker.net_chromecast_living_room', 'home') else 'offline' }}"
+        icon_template: "{{ 'mdi:check-circle-outline' if is_state('device_tracker.net_chromecast_living_room', 'home') else 'mdi:alert-circle' }}"
+
+      net_chromecast_master_bedroom:
+        value_template: "{{ 'online' if is_state('device_tracker.net_chromecast_master_bedroom', 'home') else 'offline' }}"
+        icon_template: "{{ 'mdi:check-circle-outline' if is_state('device_tracker.net_chromecast_master_bedroom', 'home') else 'mdi:alert-circle' }}"
+
+      net_ikea_tradfri:
+        value_template: "{{ 'online' if is_state('device_tracker.net_ikea_tradfri', 'home') else 'offline' }}"
+        icon_template: "{{ 'mdi:check-circle-outline' if is_state('device_tracker.net_ikea_tradfri', 'home') else 'mdi:alert-circle' }}"
+
+      net_raspberry_pi:
+        value_template: "{{ 'online' if is_state('device_tracker.net_raspberry_pi', 'home') else 'offline' }}"
+        icon_template: "{{ 'mdi:check-circle-outline' if is_state('device_tracker.net_raspberry_pi', 'home') else 'mdi:alert-circle' }}"
+
+      net_openmqttgateway1:
+        value_template: "{{ 'online' if is_state('binary_sensor.openmqttgateway1', 'on') else 'offline' }}"
+        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.openmqttgateway1', 'on') else 'mdi:alert-circle' }}"
+
+      net_openmqttgateway2:
+        value_template: "{{ 'online' if is_state('binary_sensor.openmqttgateway2', 'on') else 'offline' }}"
+        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.openmqttgateway2', 'on') else 'mdi:alert-circle' }}"

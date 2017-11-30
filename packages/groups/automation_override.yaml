@@ -1,0 +1,43 @@
+################################################################
+## Packages / Groups / Automation Override
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'groups/automation_override'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Group
+    ################################################
+
+    group.automation_override:
+      <<: *customize
+      friendly_name: "Automation Override"
+
+################################################
+## Group
+################################################
+
+group:
+  automation_override:
+    control: hidden
+    entities:
+      - automation.forward_persistent_notifications
+      - automation.startup_notification
+      - automation.update_notification
+      - automation.nightly_config_backup

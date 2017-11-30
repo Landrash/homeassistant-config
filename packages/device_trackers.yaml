@@ -1,0 +1,56 @@
+################################################################
+## Packages / Device Trackers
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+#  customize:
+    ################################################
+    ## Group
+    ################################################
+
+
+    ################################################
+    ## Sensor
+    ################################################
+
+
+################################################
+## Group
+################################################
+
+################################################
+## Device Trackers
+################################################
+
+device_tracker:
+  - platform: owntracks
+    max_gps_accuracy: 200
+    waypoints: false
+    waypoint_whitelist:
+      - landrash
+
+  - platform: nmap_tracker
+    hosts: 192.168.0.0/24
+    home_interval: 10
+    exclude:
+     - 192.168.0.1
+################################################
+## Sensor
+################################################
+
+sensor:
+  - platform: mqtt
+    state_topic: "owntracks/hassHibbleLandrashMobile/landrash"
+    unit_of_measurement: "%"
+    value_template: '{{ value_json.batt }}'
+    name: "Battery Nexus5X"
+
+  - platform: mqtt
+    state_topic: "owntracks/hassHibbleJoJoMobile/a3Jojo"
+    unit_of_measurement: "%"
+    value_template: '{{ value_json.batt }}'
+    name: "Battery SamsungA3"

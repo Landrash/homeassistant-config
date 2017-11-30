@@ -1,0 +1,113 @@
+################################################################
+## Packages / OpenMQTTGateway
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'openmqttgateway'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+################################################
+## Sensors
+################################################
+
+sensor:
+  - platform: mqtt
+    name: "OpenMQTTGateway1 Temperature"
+    state_topic: "home/DHTtoMQTT/dht1/temp"
+    unit_of_measurement: "°C"
+    value_template: '{{ value | round(2)  }}'
+
+  - platform: mqtt
+    name: "OpenMQTTGateway1 Humidity"
+    state_topic: "home/DHTtoMQTT/dht1/hum"
+    unit_of_measurement: "%"
+    value_template: '{{ value | round(2)  }}'
+
+  - platform: mqtt
+    name: "OpenMQTTGateway2 Temperature"
+    state_topic: "home/DHTtoMQTT/dht2/temp"
+    unit_of_measurement: "°C"
+    value_template: '{{ value | round(2)  }}'
+
+  - platform: mqtt
+    name: "OpenMQTTGateway2 Humidity"
+    state_topic: "home/DHTtoMQTT/dht2/hum"
+    unit_of_measurement: "%"
+    value_template: '{{ value | round(2)  }}'
+
+binary_sensor:
+  - platform: mqtt
+    name: "OpenMQTTGateway1"
+    state_topic: "home/OpenMQTTGateway1/LWT"
+    payload_on: "Online"
+    payload_off: "Offline"
+    device_class: "connectivity"
+
+  - platform: mqtt
+    name: "OpenMQTTGateway2"
+    state_topic: "home/OpenMQTTGateway2/LWT"
+    payload_on: "Online"
+    payload_off: "Offline"
+    device_class: "connectivity"
+
+  - platform: mqtt
+    name: "433 MHz Remote Button 1"
+    state_topic: "home/RF2toMQTT/CODE_33786874/UNIT_15/GROUP_0/PERIOD_259"
+    payload_on: "1"
+    payload_off: "0"
+
+  - platform: mqtt
+    name: "433 MHz Remote Button 2"
+    state_topic: "home/RF2toMQTT/CODE_33786874/UNIT_14/GROUP_0/PERIOD_259"
+    payload_on: "1"
+    payload_off: "0"
+
+  - platform: mqtt
+    name: "433 MHz Remote Button 3"
+    state_topic: "home/RF2toMQTT/CODE_33786874/UNIT_13/GROUP_0/PERIOD_259"
+    payload_on: "1"
+    payload_off: "0"
+
+################################################
+## Switches
+################################################
+
+switch:
+  - platform: mqtt
+    name: "433 MHz Outlet 1"
+    command_topic: "home/commands/MQTTtoRF2/CODE_33786874/UNIT_15/GROUP_0/PERIOD_259"
+    payload_on: "1"
+    payload_off: "0"
+    optimistic: true
+    retain: false
+
+  - platform: mqtt
+    name: "433 MHz Outlet 2"
+    command_topic: "home/commands/MQTTtoRF2/CODE_33786874/UNIT_14/GROUP_0/PERIOD_259"
+    payload_on: "1"
+    payload_off: "0"
+    optimistic: true
+    retain: false
+
+  - platform: mqtt
+    name: "433 MHz Outlet 3"
+    command_topic: "home/commands/MQTTtoRF2/CODE_33786874/UNIT_13/GROUP_0/PERIOD_259"
+    payload_on: "1"
+    payload_off: "0"
+    optimistic: true
+    retain: false
