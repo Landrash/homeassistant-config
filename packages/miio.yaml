@@ -1,0 +1,31 @@
+################################################################
+## Packages / Vacuum Xiaomi Miio
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'miio'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+################################################
+## Vacuum Xiaomi Miio
+################################################
+
+vacuum:
+  - platform: xiaomi_miio
+    host: !secret vacuum_miio_host
+    token: !secret vacuum_miio_api_key
