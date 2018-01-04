@@ -29,3 +29,35 @@ tradfri:
   host: !secret tradfri_host
   allow_tradfri_groups: false
 #  api_key: !secret tradfri_api_key
+
+scene:
+  - name: Good Night
+    entities:
+      light.tradfri_bulb_e14_ws_opal_400lm_2:
+        state: on
+        brightness: 25
+        color_temp: 455
+      light.tradfri_bulb_e14_ws_opal_400lm:
+        state: on
+        brightness: 25
+        color_temp: 455
+      light.tradfri_bulb_e27_ws_clear_950lm_6:
+        state: unavailable
+      switch.433_mhz_outlet_1:
+        state: off
+      light.tradfri_bulb_e27_ws_clear_950lm_5:
+        state: off
+      light.tradfri_bulb_e27_w_opal_1000lm:
+        state: off
+      light.tradfri_bulb_e27_ws_opal_980lm_6:
+        state: off
+      light.tradfri_bulb_e14_w_opch_400lm_2:
+        state: off
+      light.tradfri_bulb_e14_w_opch_400lm_3:
+        state: off
+      light.tradfri_bulb_e27_ws_opal_980lm_3:
+        state: off
+      light.tradfri_bulb_e27_ws_opal_980lm_7:
+        state: off
+      light.unnamed_device:
+        state: off

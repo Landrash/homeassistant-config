@@ -61,6 +61,10 @@ homeassistant:
       <<: *customize
       friendly_name: "Walk-in Closet"
 
+    group.second_bedroom:
+      <<: *customize
+      friendly_name: "Babys Room"
+
     group.geek_room:
       <<: *customize
       friendly_name: "Geek Room"
@@ -81,7 +85,7 @@ group:
   entry:
     control: hidden
     entities:
-      - light.tradfri_bulb_e27_ws_clear_950lm_4
+      - light.tradfri_bulb_e27_ws_clear_950lm_5
 
   front_porch:
     control: hidden
@@ -101,7 +105,7 @@ group:
   laundry_room:
     control: hidden
     entities:
-      - light.tradfri_bulb_e27_ws_clear_950lm_5
+      - light.floalt_panel_ws_60x60
       - switch.fibaro_system_fgwpef_wall_plug_switch
       - sensor.fibaro_system_fgwpef_wall_plug_power
 
@@ -113,6 +117,7 @@ group:
       - media_player.living_room_tv
       - sensor.openmqttgateway2_temperature
       - sensor.openmqttgateway2_humidity
+      - vacuum.xiaomi_vacuum_cleaner
 
   master_bedroom:
     control: hidden
@@ -126,9 +131,15 @@ group:
     entities:
       - light.tradfri_bulb_e27_w_opal_1000lm
 
+  second_bedroom:
+    control: hidden
+    entities:
+      - light.tradfri_bulb_e27_ws_clear_950lm_6
+
   geek_room:
     control: hidden
     entities:
       - light.tradfri_bulb_e14_w_opch_400lm_2
+      - light.tradfri_bulb_e27_ws_opal_980lm_7
       - sensor.openmqttgateway1_temperature
       - sensor.openmqttgateway1_humidity

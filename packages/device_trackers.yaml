@@ -54,3 +54,12 @@ sensor:
     unit_of_measurement: "%"
     value_template: '{{ value_json.batt }}'
     name: "Battery SamsungA3"
+
+#  - platform: template
+#    sensors:
+#      xiaomi_vacuum_cleaner_battery:
+#        friendly_name: "Xiaomi Vacuum Cleaner Battery"
+#        entity_id: xiaomi_vacuum_cleaner
+#        unit_of_measurement: '%'
+#        value_template: "{{ states.xiaomi_vacuum_cleaner.attributes.battery_level }}"
+#        icon_template: "{{ state.xiaomi_vacuum_cleaner.attributes.battery_icon if is_state('vacuum.xiaomi_vacuum_cleaner.attributes.status', 'Charging') else 'mdi:battery' }}"

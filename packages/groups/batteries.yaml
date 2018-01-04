@@ -37,31 +37,43 @@ homeassistant:
     sensor.battery_nexus5x:
       <<: *customize
       friendly_name: "Nexus5X Battery Level"
-      hidden: true
+      hidden: false
       icon: mdi:battery
 
     sensor.battery_samsunga3:
       <<: *customize
       friendly_name: "Samsung A3 Battery Level"
-      hidden: true
+      hidden: false
       icon: mdi:battery
 
     sensor.tradfri_remote_control:
       <<: *customize
       friendly_name: "Trådfri controll Bedroom"
-      hidden: true
+      hidden: false
       icon: mdi:battery
 
     sensor.tradfri_remote_control_2:
       <<: *customize
       friendly_name: "Trådfri controll Bedoom"
-      hidden: true
+      hidden: false
+      icon: mdi:battery
+
+    sensor.tradfri_remote_control_3:
+      <<: *customize
+      friendly_name: "Trådfri controll Babys Room"
+      hidden: false
       icon: mdi:battery
 
     sensor.tradfri_motion_sensor:
       <<: *customize
       friendly_name: "Motion Sensor Walk-in Closet"
-      hidden: true
+      hidden: false
+      icon: mdi:battery
+
+    sensor.tradfri_motion_sensor_2:
+      <<: *customize
+      friendly_name: "Motion Sensor Laundry Room"
+      hidden: false
       icon: mdi:battery
 
 ################################################
@@ -76,4 +88,6 @@ group:
       - sensor.battery_samsunga3
       - sensor.tradfri_remote_control
       - sensor.tradfri_remote_control_2
+      - sensor.tradfri_remote_control_3
       - sensor.tradfri_motion_sensor
+      - sensor.tradfri_motion_sensor_2
