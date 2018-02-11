@@ -105,7 +105,7 @@ group:
     control: hidden
     entities:
       - light.floalt_panel_ws_60x60
-      - switch.fibaro_system_fgwpef_wall_plug_switch
+      - switch.fibaro_system_fgwpef_wall_plug_switch_9_0
 
   living_room:
     control: hidden
