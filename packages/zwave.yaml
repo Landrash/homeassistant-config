@@ -57,25 +57,17 @@ homeassistant:
     ## Sensor
     ################################################
 
-    sensor.fibaro_system_fgwpef_wall_plug_energy:
+    sensor.fibaro_system_fgwpef_wall_plug_power_4:
       <<: *expose
       hidden: true
 
-    sensor.fibaro_system_fgwpef_wall_plug_exporting:
+    sensor.fibaro_system_fgwpef_wall_plug_exporting_2:
       <<: *expose
       hidden: true
 
-    sensor.fibaro_system_fgwpef_wall_plug_interval:
+    sensor.fibaro_system_fgwpef_wall_plug_power_3:
       <<: *expose
       hidden: true
-
-    sensor.fibaro_system_fgwpef_wall_plug_power_2:
-      <<: *expose
-      hidden: true
-
-    sensor.fibaro_system_fgwpef_wall_plug_previous_reading:
-        <<: *expose
-        hidden: true
 
   ################################################
   ## Customize Domain
