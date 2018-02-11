@@ -79,8 +79,6 @@ group:
     entities:
       - light.tradfri_bulb_e27_ws_opal_980lm_6
       - switch.433_mhz_outlet_1
-      - switch.433_mhz_outlet_2
-      - switch.433_mhz_outlet_3
 
   entry:
     control: hidden
@@ -101,6 +99,7 @@ group:
     control: hidden
     entities:
       - light.kitchen
+      - climate.danfoss_z_thermostat_014g0013_heating_1
 
   laundry_room:
     control: hidden
@@ -112,12 +111,14 @@ group:
   living_room:
     control: hidden
     entities:
-      - light.unnamed_device
+      - light.tradfri_bulb_e27_cws_opal_600lm
       - light.tradfri_bulb_e14_w_opch_400lm_3
+      - switch.433_mhz_outlet_3
       - media_player.living_room_tv
       - sensor.openmqttgateway2_temperature
       - sensor.openmqttgateway2_humidity
       - vacuum.xiaomi_vacuum_cleaner
+      - climate.danfoss_z_thermostat_014g0013_heating_1_2
 
   master_bedroom:
     control: hidden
@@ -125,6 +126,9 @@ group:
       - light.tradfri_bulb_e14_ws_opal_400lm
       - light.tradfri_bulb_e14_ws_opal_400lm_2
       - media_player.master_bedroom_tv
+      - switch.433_mhz_outlet_2
+      - scene.good_night
+
 
   walkin_closet:
     control: hidden

@@ -73,7 +73,7 @@ group:
     control: hidden
     entities:
       - persistent_notification.invalid_config
-      
+
 
 ################################################
 ## Automation
@@ -81,7 +81,7 @@ group:
 
 automation:
   - alias: nightly_config_backup
-    initial_state: 'on'
+    initial_state: 'off'
     trigger:
       - platform: time
         at: '03:00:00'

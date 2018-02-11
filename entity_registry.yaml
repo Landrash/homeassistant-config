@@ -1,0 +1,42 @@
+switch.fibaro_system_fgwpef_wall_plug_switch:
+  platform: zwave
+  unique_id: 6-72057594143391744
+sensor.fibaro_system_fgwpef_wall_plug_power:
+  platform: zwave
+  unique_id: 6-72057594143588418
+sensor.fibaro_system_fgwpef_wall_plug_energy:
+  platform: zwave
+  unique_id: 6-72057594143604738
+sensor.fibaro_system_fgwpef_wall_plug_previous_reading:
+  platform: zwave
+  unique_id: 6-72057594143604754
+sensor.fibaro_system_fgwpef_wall_plug_interval:
+  platform: zwave
+  unique_id: 6-72057594143604771
+sensor.fibaro_system_fgwpef_wall_plug_power_2:
+  platform: zwave
+  unique_id: 6-72057594143604866
+sensor.fibaro_system_fgwpef_wall_plug_exporting:
+  platform: zwave
+  unique_id: 6-72057594143605248
+climate.danfoss_z_thermostat_014g0013_heating_1:
+  platform: zwave
+  unique_id: 7-72057594160660498
+climate.danfoss_z_thermostat_014g0013_heating_1_2:
+  platform: zwave
+  unique_id: 8-72057594177437714
+switch.switch:
+  platform: zwave
+  unique_id: 9-72057594193723392
+sensor.unknown:
+  platform: zwave
+  unique_id: 9-72057594193936386
+sensor.fibaro_system_fgwpef_wall_plug_power_3:
+  platform: zwave
+  unique_id: 9-72057594193936514
+sensor.fibaro_system_fgwpef_wall_plug_exporting_2:
+  platform: zwave
+  unique_id: 9-72057594193936896
+sensor.fibaro_system_fgwpef_wall_plug_power_4:
+  platform: zwave
+  unique_id: 9-72057594193920066

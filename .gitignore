@@ -26,6 +26,7 @@ www
 __*
 *.conf
 *.db
+*.db*
 *.db-journal
 *.log
 *.moved

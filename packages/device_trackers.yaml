@@ -33,11 +33,11 @@ device_tracker:
     waypoint_whitelist:
       - landrash
 
-  - platform: nmap_tracker
-    hosts: 192.168.0.0/24
-    home_interval: 10
-    exclude:
-     - 192.168.0.1
+  - platform: unifi_direct
+    host: !secret unifi_host
+    username: !secret unifi_username
+    password: !secret unifi_password
+
 ################################################
 ## Sensor
 ################################################
@@ -54,12 +54,3 @@ sensor:
     unit_of_measurement: "%"
     value_template: '{{ value_json.batt }}'
     name: "Battery SamsungA3"
-
-#  - platform: template
-#    sensors:
-#      xiaomi_vacuum_cleaner_battery:
-#        friendly_name: "Xiaomi Vacuum Cleaner Battery"
-#        entity_id: xiaomi_vacuum_cleaner
-#        unit_of_measurement: '%'
-#        value_template: "{{ states.xiaomi_vacuum_cleaner.attributes.battery_level }}"
-#        icon_template: "{{ state.xiaomi_vacuum_cleaner.attributes.battery_icon if is_state('vacuum.xiaomi_vacuum_cleaner.attributes.status', 'Charging') else 'mdi:battery' }}"

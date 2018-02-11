@@ -9,28 +9,13 @@
 homeassistant:
   customize:
     ################################################
-    ## Node Anchors
-    ################################################
-
-    package.node_anchors:
-      customize: &customize
-        package: 'network_devices'
-
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-
-    ################################################
     ## Group
     ################################################
 
     group.network_devices_source:
-      <<: *customize
-      friendly_name: "Network Devices"
+      friendly_name: "Network Device Sources"
 
     group.network_devices:
-      <<: *customize
       friendly_name: "Network Devices"
 
     ################################################
@@ -38,23 +23,18 @@ homeassistant:
     ################################################
 
     device_tracker.net_chromecast_living_room:
-      <<: *customize
       friendly_name: "Chromecast (Living Room)"
       hidden: true
 
     device_tracker.net_chromecast_master_bedroom:
-      <<: *customize
       friendly_name: "Chromecast (Master Bedroom)"
       hidden: true
 
-
     device_tracker.net_ikea_tradfri:
-      <<: *customize
       friendly_name: "IKEA Trådfri"
       hidden: true
 
     device_tracker.net_raspberry_pi:
-      <<: *customize
       friendly_name: "Raspberry Pi"
       hidden: true
 
@@ -63,23 +43,18 @@ homeassistant:
     ################################################
 
     sensor.net_chromecast_living_room:
-      <<: *customize
       friendly_name: "Chromecast (Living Room)"
 
     sensor.net_chromecast_master_bedroom:
-      <<: *customize
       friendly_name: "Chromecast (Master Bedroom)"
 
     sensor.net_ikea_tradfri:
-      <<: *customize
-      friendly_name: "IKEA Tradfri"
+      friendly_name: "IKEA Trådfri"
 
     sensor.net_raspberry_pi:
-      <<: *customize
       friendly_name: "Raspberry Pi"
 
     net_xiaomi_miio_vacuum:
-      <<: *customize
       friendly_name: "Xiaomi Miio Vacuum"
 
 ################################################
@@ -110,12 +85,15 @@ group:
       - sensor.net_raspberry_pi
       - sensor.net_openmqttgateway1
       - sensor.net_openmqttgateway2
+      - sensor.net_xiaomi_miio_vacuum
 
   zwave:
     control: hidden
     entities:
       - zwave.fibaro_system_fgwpef_wall_plug
       - zwave.zwaveme_zme_uzb1_usb_stick
+      - zwave.danfoss_z_thermostat_014g0013
+      - zwave.danfoss_z_thermostat_014g0013_2
 
 ################################################
 ## Sensor

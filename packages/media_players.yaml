@@ -45,6 +45,6 @@ group:
 
 media_player:
   - platform: cast
-    host: 192.168.0.6
+    host: 10.0.110.46
   - platform: cast
     host: 192.168.0.16

@@ -108,6 +108,7 @@ group:
     view: yes
     entities:
       - group.network_devices
+      - group.network_devices_source
       - group.system
       - group.utilities
       - group.zwave
