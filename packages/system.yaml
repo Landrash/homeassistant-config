@@ -66,6 +66,11 @@ homeassistant:
       friendly_name: "System Date"
       icon: mdi:calendar
 
+    binary_sensor.workday_sensor:
+      <<: *customize
+      friendly_name: "Workday"
+      icon: mdi:calendar
+
     sensor.ha_github_version:
       <<: *customize
       friendly_name: "GitHub Version"
@@ -106,6 +111,7 @@ group:
     entities:
       - sensor.date
       - sensor.time
+      - binary_sensor.workday_sensor
       - sensor.uptime
       - sensor.ha_startup_time
       - sensor.ha_version
@@ -195,6 +201,14 @@ sensor:
     value_template: >-
       {{ value_json.info.version }}
     scan_interval: 1800
+
+################################################
+## DNS & SSL
+################################################
+
+binary_sensor:
+  - platform: workday
+    country: SE
 
 ################################################
 ## DNS & SSL

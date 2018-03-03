@@ -73,6 +73,7 @@ group:
     control: hidden
     entities:
       - persistent_notification.invalid_config
+      - updater.updater
 
 
 ################################################

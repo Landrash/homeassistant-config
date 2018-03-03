@@ -145,10 +145,11 @@ group:
   weather_darksky:
     control: hidden
     entities:
-      - sensor.dark_sky_cloud_coverage
-      - sensor.dark_sky_humidity
-      - sensor.dark_sky_precip_probability
-      - sensor.dark_sky_temperature
+      - weather.dark_sky
+#      - sensor.dark_sky_cloud_coverage
+#      - sensor.dark_sky_humidity
+#      - sensor.dark_sky_precip_probability
+#      - sensor.dark_sky_temperature
 
   weather_wunderground:
     control: hidden
@@ -178,13 +179,13 @@ group:
 ################################################
 
 sensor:
-  - platform: darksky
-    api_key: !secret darksky_api_key
-    monitored_conditions:
-      - cloud_cover
-      - humidity
-      - precip_probability
-      - temperature
+#  - platform: darksky
+#    api_key: !secret darksky_api_key
+#    monitored_conditions:
+#      - cloud_cover
+#      - humidity
+#      - precip_probability
+#      - temperature
 
   - platform: wunderground
     api_key: !secret wunderground_api_key
@@ -228,3 +229,7 @@ camera:
     still_image_url: !secret forecast_home_image_advanced
     name: Weather Forecast Advanced
     content_type: image/svg+xml
+
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api_key

@@ -25,12 +25,6 @@ climate.danfoss_z_thermostat_014g0013_heating_1:
 climate.danfoss_z_thermostat_014g0013_heating_1_2:
   platform: zwave
   unique_id: 8-72057594177437714
-switch.switch:
-  platform: zwave
-  unique_id: 9-72057594193723392
-sensor.unknown:
-  platform: zwave
-  unique_id: 9-72057594193936386
 sensor.fibaro_system_fgwpef_wall_plug_power_3:
   platform: zwave
   unique_id: 9-72057594193936514
@@ -40,3 +34,9 @@ sensor.fibaro_system_fgwpef_wall_plug_exporting_2:
 sensor.fibaro_system_fgwpef_wall_plug_power_4:
   platform: zwave
   unique_id: 9-72057594193920066
+switch.fibaro_system_fgwpef_wall_plug_switch_2:
+  platform: zwave
+  unique_id: 9-72057594193723392
+sensor.fibaro_system_fgwpef_wall_plug_energy_2:
+  platform: zwave
+  unique_id: 9-72057594193936386

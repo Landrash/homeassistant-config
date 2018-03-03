@@ -30,7 +30,7 @@ homeassistant:
       friendly_name: "Chromecast (Master Bedroom)"
       hidden: true
 
-    device_tracker.net_ikea_tradfri:
+    binary_sensor.tradfrigateway:
       friendly_name: "IKEA Trådfri"
       hidden: true
 
@@ -66,15 +66,14 @@ group:
     control: hidden
     entities:
       - device_tracker.net_chromecast_living_room
-      - device_tracker.chromecast1
-      - device_tracker.tradfrigateway
+      - device_tracker.net_chromecast_master_bedroom
+      - binary_sensor.tradfrigateway
       - device_tracker.net_raspberry_pi
       - binary_sensor.openmqttgateway1
       - binary_sensor.openmqttgateway2
       - device_tracker.openmqttgateway1
       - device_tracker.openmqttgateway2
       - device_tracker.xiaomi_miio_vacuum
-
 
   network_devices:
     control: hidden
@@ -107,12 +106,12 @@ sensor:
         icon_template: "{{ 'mdi:check-circle-outline' if is_state('device_tracker.net_chromecast_living_room', 'home') else 'mdi:alert-circle' }}"
 
       net_chromecast_master_bedroom:
-        value_template: "{{ 'online' if is_state('device_tracker.chromecast1', 'home') else 'offline' }}"
-        icon_template: "{{ 'mdi:check-circle-outline' if is_state('device_tracker.chromecast1', 'home') else 'mdi:alert-circle' }}"
+        value_template: "{{ 'online' if is_state('device_tracker.net_chromecast_master_bedroom', 'home') else 'offline' }}"
+        icon_template: "{{ 'mdi:check-circle-outline' if is_state('device_tracker.net_chromecast_master_bedroom', 'home') else 'mdi:alert-circle' }}"
 
       net_ikea_tradfri:
-        value_template: "{{ 'online' if is_state('device_tracker.tradfrigateway', 'home') else 'offline' }}"
-        icon_template: "{{ 'mdi:check-circle-outline' if is_state('device_tracker.tradfrigateway', 'home') else 'mdi:alert-circle' }}"
+        value_template: "{{ 'online' if is_state('binary_sensor.tradfrigateway', 'on') else 'offline' }}"
+        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.tradfrigateway', 'on') else 'mdi:alert-circle' }}"
 
       net_raspberry_pi:
         value_template: "{{ 'online' if is_state('device_tracker.net_raspberry_pi', 'home') else 'offline' }}"
@@ -129,3 +128,17 @@ sensor:
       net_xiaomi_miio_vacuum:
         value_template: "{{ 'online' if is_state('device_tracker.xiaomi_miio_vacuum', 'home') else 'offline' }}"
         icon_template: "{{ 'mdi:check-circle-outline' if is_state('device_tracker.xiaomi_miio_vacuum', 'home') else 'mdi:alert-circle' }}"
+
+#  - platform: shodan
+#    api_key: !secret shodan_api_key
+#    query: 'home-assistant'
+
+################################################
+## Sensor
+################################################
+
+
+binary_sensor:
+  - platform: ping
+    host: !secret tradfri_host
+    name: tradfrigateway
