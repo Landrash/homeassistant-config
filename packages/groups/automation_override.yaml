@@ -41,4 +41,3 @@ group:
       - automation.startup_notification
       - automation.update_notification
       - automation.nightly_config_backup
-      - switch.myflux

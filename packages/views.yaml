@@ -84,7 +84,8 @@ homeassistant:
 ################################################
 
 group:
-  house:
+  #house:
+  default_view:
     view: yes
     entities:
       - group.back_porch

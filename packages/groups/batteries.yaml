@@ -76,6 +76,12 @@ homeassistant:
       hidden: false
       icon: mdi:battery
 
+    sensor.tradfri_motion_sensor_3:
+      <<: *customize
+      friendly_name: "Motion Sensor Entry"
+      hidden: false
+      icon: mdi:battery
+
 ################################################
 ## Group
 ################################################
@@ -91,3 +97,4 @@ group:
       - sensor.tradfri_remote_control_3
       - sensor.tradfri_motion_sensor
       - sensor.tradfri_motion_sensor_2
+      - sensor.tradfri_motion_sensor_3
