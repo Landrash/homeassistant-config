@@ -58,3 +58,19 @@ media_player.living_room_tv:
   name:
   platform: cast
   unique_id: 22d90e6e-8c53-2740-982d-12d92bcf4571
+binary_sensor.sensor:
+  name:
+  platform: zwave
+  unique_id: 4-72057594110017536
+sensor.fibaro_system_fgms001_motion_sensor_temperature:
+  name:
+  platform: zwave
+  unique_id: 4-72057594110033938
+sensor.fibaro_system_fgms001_motion_sensor_luminance:
+  name:
+  platform: zwave
+  unique_id: 4-72057594110033970
+sensor.fibaro_system_fgms001_motion_sensor_general:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111787009

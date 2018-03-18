@@ -116,8 +116,6 @@ group:
       - light.tradfri_bulb_e14_w_opch_400lm_3
       - switch.433_mhz_outlet_3
       - media_player.living_room_tv
-      - sensor.openmqttgateway2_temperature
-      - sensor.openmqttgateway2_humidity
       - vacuum.xiaomi_vacuum_cleaner
       - climate.danfoss_z_thermostat_014g0013_heating_1_2
 
@@ -145,5 +143,3 @@ group:
     control: hidden
     entities:
       - light.tradfri_bulb_e14_w_opch_400lm_2
-      - sensor.openmqttgateway1_temperature
-      - sensor.openmqttgateway1_humidity

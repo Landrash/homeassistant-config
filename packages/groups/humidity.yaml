@@ -1,0 +1,58 @@
+###############################################################
+## Packages / Groups / Humidity
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'humidity'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Group
+    ################################################
+
+    group.humidity:
+      <<: *customize
+      friendly_name: "Humidity"
+      icon: mdi:thermometer
+
+    ################################################
+    ## Sensor
+    ################################################
+
+    sensor.openmqttgateway1_humidity:
+      <<: *customize
+      friendly_name: "Humidity Living Room"
+      hidden: false
+      icon: mdi:thermometer
+
+    sensor.openmqttgateway2_humidity:
+      <<: *customize
+      friendly_name: "Humidity Geek Room"
+      hidden: false
+      icon: mdi:thermometer
+
+################################################
+## Group
+################################################
+
+group:
+  humidity:
+    control: hidden
+    entities:
+      - sensor.openmqttgateway2_humidity
+      - sensor.openmqttgateway1_humidity

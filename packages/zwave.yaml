@@ -69,6 +69,18 @@ homeassistant:
       <<: *expose
       hidden: true
 
+    sensor.fibaro_system_fgms001_motion_sensor_temperature::
+      <<: *expose
+      hidden: false
+
+    sensor.fibaro_system_fgms001_motion_sensor_luminance:
+      <<: *expose
+      hidden: true
+
+    sensor.fibaro_system_fgms001_motion_sensor_general:
+      <<: *expose
+      hidden: false
+
   ################################################
   ## Customize Domain
   ################################################

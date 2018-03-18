@@ -121,6 +121,7 @@ group:
       - group.weather
       - group.batteries
       - group.temperature
+      - group.humidity
       - group.motion
       - group.occupancy
       - group.plants
