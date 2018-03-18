@@ -58,16 +58,5 @@ scene:
         state: off
       light.tradfri_bulb_e27_cws_opal_600lm:
         state: off
-
-################################################
-## Flux++
-################################################
-
-switch:
-  - platform: flux++
-    disable_brightness_adjust: true
-    init_on_turn_on: true
-    mode: mired
-    lights:
-      - light.tradfri_bulb_e14_w_opch_400lm_2
-      - light.tradfri_bulb_e27_ws_opal_980lm_7
+      light.tradfri_bulb_e27_ws_opal_980lm_7:
+        state: off

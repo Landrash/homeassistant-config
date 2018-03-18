@@ -123,6 +123,7 @@ group:
       - group.temperature
       - group.motion
       - group.occupancy
+      - group.plants
 
   media:
     view: yes

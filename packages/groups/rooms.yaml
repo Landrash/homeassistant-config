@@ -98,7 +98,9 @@ group:
   kitchen:
     control: hidden
     entities:
-      - light.kitchen
+      - light.tradfri_bulb_e27_ws_opal_980lm_7
+      - light.tradfri_bulb_e27_w_opal_1000lm_4
+      - light.tradfri_bulb_e27_cws_opal_600lm
       - climate.danfoss_z_thermostat_014g0013_heating_1
 
   laundry_room:
@@ -111,7 +113,6 @@ group:
   living_room:
     control: hidden
     entities:
-      - light.tradfri_bulb_e27_cws_opal_600lm
       - light.tradfri_bulb_e14_w_opch_400lm_3
       - switch.433_mhz_outlet_3
       - media_player.living_room_tv
@@ -144,6 +145,5 @@ group:
     control: hidden
     entities:
       - light.tradfri_bulb_e14_w_opch_400lm_2
-      - light.tradfri_bulb_e27_ws_opal_980lm_7
       - sensor.openmqttgateway1_temperature
       - sensor.openmqttgateway1_humidity

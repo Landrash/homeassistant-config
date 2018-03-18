@@ -1,0 +1,101 @@
+################################################################
+## Packages / Bluetooth
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'bluetooth'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+        hidden: true
+
+    ################################################
+    ## Group
+    ################################################
+
+    group.plants:
+      <<: *customize
+      friendly_name: "Plants"
+      hidden: false
+
+    ################################################
+    ## Plants
+    ################################################
+
+    plant.plant_1:
+      <<: *customize
+      friendly_name: "Spathiphyllum Kochii"
+      hidden: false
+
+    plant.plant_2:
+      <<: *customize
+      friendly_name: "Spathiphyllum Gold Cupid"
+      hidden: false
+
+################################################
+## Group
+################################################
+group:
+  plants:
+    control: hidden
+    entities:
+      - plant.plant_1
+      - plant.plant_2
+
+
+################################################
+## Sensors
+################################################
+
+sensor:
+  - platform: miflora
+    mac: !secret plantmonitor1
+    name: plantmonitor1
+    median: 3
+  - platform: miflora
+    mac: !secret plantmonitor2
+    name: plantmonitor2
+    median: 3
+
+################################################
+## Plants
+################################################
+
+plant:
+  plant_1:
+    sensors:
+      moisture: sensor.plantmonitor1_moisture
+      battery: sensor.plantmonitor1_battery
+      temperature: sensor.plantmonitor1_temperature
+      conductivity: sensor.plantmonitor1_conductivity
+      brightness: sensor.plantmonitor1_brightness
+    min_moisture: 20
+    max_moisture: 60
+    min_battery: 17
+    min_conductivity: 250
+    min_temperature: 15
+  plant_2:
+    sensors:
+      moisture: sensor.plantmonitor2_moisture
+      battery: sensor.plantmonitor2_battery
+      temperature: sensor.plantmonitor2_temperature
+      conductivity: sensor.plantmonitor2_conductivity
+      brightness: sensor.plantmonitor2_brightness
+    min_moisture: 20
+    max_moisture: 60
+    min_battery: 17
+    min_conductivity: 250
+    min_temperature: 15
