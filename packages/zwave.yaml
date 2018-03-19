@@ -36,6 +36,38 @@ homeassistant:
 
 
     ################################################
+    ## Light
+    ################################################
+
+    sensor.fibaro_system_fgd212_dimmer_2_exporting:
+      <<: *customize
+      hidden: true
+
+    sensor.fibaro_system_fgd212_dimmer_2_heat:
+      <<: *customize
+      hidden: true
+
+    sensor.fibaro_system_fgd212_dimmer_2_power:
+      <<: *customize
+      hidden: true
+
+    sensor.fibaro_system_fgd212_dimmer_2_power_2:
+      <<: *customize
+      hidden: true
+
+    sensor.fibaro_system_fgd212_dimmer_2_power_management:
+      <<: *customize
+      hidden: true
+
+    sensor.fibaro_system_fgd212_dimmer_2_system:
+      <<: *customize
+      hidden: true
+
+    sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid:
+      <<: *customize
+      hidden: true
+
+    ################################################
     ## Lock
     ################################################
 

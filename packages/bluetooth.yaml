@@ -45,6 +45,22 @@ homeassistant:
       friendly_name: "Spathiphyllum Gold Cupid"
       hidden: false
 
+    ################################################
+    ## Sensors
+    ################################################
+
+    sensor.plantmonitor1_temperature:
+      <<: *customize
+      friendly_name: "Temperature Spathiphyllum Kochii"
+      hidden: false
+
+    sensor.plantmonitor2_temperature:
+      <<: *customize
+      friendly_name: "Temperature Spathiphyllum Gold Cupid"
+      hidden: false
+
+
+
 ################################################
 ## Group
 ################################################
@@ -81,7 +97,7 @@ plant:
       battery: sensor.plantmonitor1_battery
       temperature: sensor.plantmonitor1_temperature
       conductivity: sensor.plantmonitor1_conductivity
-      brightness: sensor.plantmonitor1_brightness
+      brightness: sensor.plantmonitor1_light_intensity
     min_moisture: 20
     max_moisture: 60
     min_battery: 17
@@ -93,7 +109,7 @@ plant:
       battery: sensor.plantmonitor2_battery
       temperature: sensor.plantmonitor2_temperature
       conductivity: sensor.plantmonitor2_conductivity
-      brightness: sensor.plantmonitor2_brightness
+      brightness: sensor.plantmonitor2_light_intensity
     min_moisture: 20
     max_moisture: 60
     min_battery: 17

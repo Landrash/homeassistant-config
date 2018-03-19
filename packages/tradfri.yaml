@@ -58,5 +58,3 @@ scene:
         state: off
       light.tradfri_bulb_e27_cws_opal_600lm:
         state: off
-      light.tradfri_bulb_e27_ws_opal_980lm_7:
-        state: off

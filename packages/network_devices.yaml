@@ -90,6 +90,8 @@ group:
     control: hidden
     entities:
       - zwave.fibaro_system_fgwpef_wall_plug
+      - zwave.fibaro_system_fgms001_motion_sensor
+      - zwave.fibaro_system_fgd212_dimmer_2
       - zwave.zwaveme_zme_uzb1_usb_stick
       - zwave.danfoss_z_thermostat_014g0013
       - zwave.danfoss_z_thermostat_014g0013_2

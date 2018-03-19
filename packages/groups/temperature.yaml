@@ -29,6 +29,10 @@ homeassistant:
       <<: *customize
       friendly_name: "Temperature"
       icon: mdi:thermometer
+    group.thermostat:
+      <<: *customize
+      friendly_name: "Thermostat"
+      icon: mdi:nest-thermostat
 
     ################################################
     ## Sensor
@@ -46,6 +50,25 @@ homeassistant:
       hidden: false
       icon: mdi:thermometer
 
+    ################################################
+    ## Thermostat
+    ################################################
+
+    climate.danfoss_z_thermostat_014g0013_heating_1:
+      <<: *customize
+      friendly_name: "Thermostat Kitchen"
+      hidden: false
+
+    climate.danfoss_z_thermostat_014g0013_heating_1_2:
+      <<: *customize
+      friendly_name: "Thermostat Living Room Small Window"
+      hidden: false
+
+    climate.danfoss_z_thermostat_014g0013_heating_1_3:
+      <<: *customize
+      friendly_name: "Thermostat Living Room Large Window"
+      hidden: false
+
 ################################################
 ## Group
 ################################################
@@ -56,3 +79,12 @@ group:
     entities:
       - sensor.openmqttgateway2_temperature
       - sensor.openmqttgateway1_temperature
+      - sensor.fibaro_system_fgms001_motion_sensor_temperature
+      - sensor.plantmonitor1_temperature
+      - sensor.plantmonitor2_temperature
+  thermostat:
+    control: hidden
+    entities:
+      - climate.danfoss_z_thermostat_014g0013_heating_1
+      - climate.danfoss_z_thermostat_014g0013_heating_1_2
+      - climate.danfoss_z_thermostat_014g0013_heating_1_3

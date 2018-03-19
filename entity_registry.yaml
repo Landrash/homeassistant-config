@@ -74,3 +74,51 @@ sensor.fibaro_system_fgms001_motion_sensor_general:
   name:
   platform: zwave
   unique_id: 4-72057594111787009
+light.level:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210516993
+sensor.unknown:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210713602
+sensor.alarm_type:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745793
+sensor.alarm_level:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745809
+light.fibaro_system_fgd212_dimmer_2_level:
+  name:
+  platform: zwave
+  unique_id: 10-144115188248444929
+sensor.fibaro_system_fgd212_dimmer_2_power:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210713730
+sensor.fibaro_system_fgd212_dimmer_2_exporting:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210714112
+sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745825
+sensor.fibaro_system_fgd212_dimmer_2_heat:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745905
+sensor.fibaro_system_fgd212_dimmer_2_power_management:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745969
+sensor.fibaro_system_fgd212_dimmer_2_system:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745985
+sensor.fibaro_system_fgd212_dimmer_2_power_2:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210697282
