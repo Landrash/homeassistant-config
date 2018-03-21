@@ -82,8 +82,6 @@ group:
       - sensor.plantmonitor1_conductivity
       - sensor.plantmonitor2_moisture
       - sensor.plantmonitor2_conductivity
-      - sensor.plantmonitor2_light_intensity
-
 
 ################################################
 ## Sensors

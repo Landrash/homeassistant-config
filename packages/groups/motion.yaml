@@ -34,7 +34,7 @@ homeassistant:
     ## Sensor
     ################################################
 
-    binary_sensor.fibaro_system_fgms001_motion_sensor_sensor:
+    binary_sensor.fibaro_system_fgms001_motion_sensor:
       <<: *customize
       friendly_name: "Bathroom"
       hidden: false
@@ -48,4 +48,4 @@ group:
   motion:
     control: hidden
     entities:
-      - binary_sensor.fibaro_system_fgms001_motion_sensor_sensor
+      - binary_sensor.fibaro_system_fgms001_motion_sensor

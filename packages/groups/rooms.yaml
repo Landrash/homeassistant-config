@@ -112,7 +112,6 @@ group:
     entities:
       - light.floalt_panel_ws_60x60
       - switch.fibaro_system_fgwpef_wall_plug_switch_2
-      - sensor.fibaro_system_fgwpef_wall_plug_energy_2
 
   living_room:
     control: hidden

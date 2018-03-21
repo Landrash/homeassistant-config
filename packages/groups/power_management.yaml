@@ -43,7 +43,7 @@ group:
   power_monitors:
     control: hidden
     entities:
-      - sensor.fibaro_system_fgwpef_wall_plug_power
-      - sensor.fibaro_system_fgwpef_wall_plug_energy
+      - sensor.fibaro_system_fgwpef_wall_plug_power_2
+      - sensor.fibaro_system_fgwpef_wall_plug_energy_2
       - sensor.fibaro_system_fgd212_dimmer_2_power
       - sensor.fibaro_system_fgd212_dimmer_2_energy
