@@ -25,52 +25,17 @@ homeassistant:
     ## Binary Sensor
     ################################################
 
-    binary_sensor.master_bathroom_sensor:
-      <<: *customize
-      friendly_name: "Master Bathroom Motion"
-      device_class: motion
-
     ################################################
     ## Input Select
     ################################################
-
 
     ################################################
     ## Light
     ################################################
 
-    sensor.fibaro_system_fgd212_dimmer_2_exporting:
-      <<: *customize
-      hidden: true
-
-    sensor.fibaro_system_fgd212_dimmer_2_heat:
-      <<: *customize
-      hidden: true
-
-    sensor.fibaro_system_fgd212_dimmer_2_power:
-      <<: *customize
-      hidden: true
-
-    sensor.fibaro_system_fgd212_dimmer_2_power_2:
-      <<: *customize
-      hidden: true
-
-    sensor.fibaro_system_fgd212_dimmer_2_power_management:
-      <<: *customize
-      hidden: true
-
-    sensor.fibaro_system_fgd212_dimmer_2_system:
-      <<: *customize
-      hidden: true
-
-    sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid:
-      <<: *customize
-      hidden: true
-
     ################################################
     ## Lock
     ################################################
-
 
     ################################################
     ## Thermostat
@@ -84,34 +49,9 @@ homeassistant:
       <<: *expose
       hidden: false
 
-
     ################################################
     ## Sensor
     ################################################
-
-    sensor.fibaro_system_fgwpef_wall_plug_power_4:
-      <<: *expose
-      hidden: true
-
-    sensor.fibaro_system_fgwpef_wall_plug_exporting_2:
-      <<: *expose
-      hidden: true
-
-    sensor.fibaro_system_fgwpef_wall_plug_power_3:
-      <<: *expose
-      hidden: true
-
-    sensor.fibaro_system_fgms001_motion_sensor_temperature::
-      <<: *expose
-      hidden: false
-
-    sensor.fibaro_system_fgms001_motion_sensor_luminance:
-      <<: *expose
-      hidden: true
-
-    sensor.fibaro_system_fgms001_motion_sensor_general:
-      <<: *expose
-      hidden: false
 
   ################################################
   ## Customize Domain
@@ -120,7 +60,7 @@ homeassistant:
   customize_domain:
     zwave:
       <<: *customize
-      # hidden: true
+
 
 ################################################
 ## Z-Wave
@@ -129,3 +69,28 @@ homeassistant:
 zwave:
   usb_path: !secret zwave_usb_path
   network_key: !secret zwave_network_key
+
+group:
+  zwave_hidden:
+    name: "Hidden Z-wave"
+    entities:
+      - sensor.fibaro_system_fgd212_dimmer_2_exporting
+      - sensor.fibaro_system_fgd212_dimmer_2_heat
+      - sensor.fibaro_system_fgd212_dimmer_2_power
+      - sensor.fibaro_system_fgd212_dimmer_2_power_2
+      - sensor.fibaro_system_fgd212_dimmer_2_power_management
+      - sensor.fibaro_system_fgd212_dimmer_2_system
+      - sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid
+      - sensor.fibaro_system_fgd212_dimmer_2_alarm_level
+      - sensor.fibaro_system_fgd212_dimmer_2_alarm_type
+      - sensor.fibaro_system_fgd212_dimmer_2_exporting
+      - sensor.fibaro_system_fgd212_dimmer_2_heat
+      - sensor.fibaro_system_fgd212_dimmer_2_power_management
+      - sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid
+      - sensor.fibaro_system_fgwpef_wall_plug_power
+      - sensor.fibaro_system_fgwpef_wall_plug_power_4
+      - sensor.fibaro_system_fgwpef_wall_plug_power_3
+      - sensor.fibaro_system_fgwpef_wall_plug_exporting_2
+      - sensor.fibaro_system_fgms001_motion_sensor_temperature
+      - sensor.fibaro_system_fgms001_motion_sensor_general
+      - sensor.fibaro_system_fgms001_motion_sensor_luminance

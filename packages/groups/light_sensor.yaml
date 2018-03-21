@@ -1,5 +1,5 @@
 ###############################################################
-## Packages / Groups / Motion
+## Packages / Groups / Light Sensors
 ################################################################
 
 ################################################
@@ -14,38 +14,43 @@ homeassistant:
 
     package.node_anchors:
       customize: &customize
-        package: 'motion'
+        package: 'light_sensors'
 
       expose: &expose
         <<: *customize
         haaska_hidden: false
         homebridge_hidden: false
+        hidden: false
 
     ################################################
     ## Group
     ################################################
 
-    group.motion:
+    group.light_sensors:
       <<: *customize
-      friendly_name: "Motion"
+      friendly_name: "Light Sensor"
       icon: mdi:run
 
     ################################################
     ## Sensor
     ################################################
 
-    binary_sensor.fibaro_system_fgms001_motion_sensor_sensor:
+    sensor.plantmonitor1_light_intensity:
       <<: *customize
-      friendly_name: "Bathroom"
-      hidden: false
-      icon: mdi:run
+      friendly_name: "Luminance Spathiphyllum Kochii"
+
+    sensor.plantmonitor2_light_intensity:
+      <<: *customize
+      friendly_name: "Luminance Spathiphyllum Gold Cupid"
 
 ################################################
 ## Group
 ################################################
 
 group:
-  motion:
+  light_sensors:
     control: hidden
     entities:
-      - binary_sensor.fibaro_system_fgms001_motion_sensor_sensor
+      - sensor.plantmonitor1_light_intensity
+      - sensor.plantmonitor2_light_intensity
+      - sensor.fibaro_system_fgms001_motion_sensor_luminance

@@ -31,6 +31,11 @@ homeassistant:
       friendly_name: "Plants"
       hidden: false
 
+    group.plants_source:
+      <<: *customize
+      friendly_name: "Plants sources"
+      hidden: true
+
     ################################################
     ## Plants
     ################################################
@@ -70,6 +75,14 @@ group:
     entities:
       - plant.plant_1
       - plant.plant_2
+  plants_source:
+    control: hidden
+    entities:
+      - sensor.plantmonitor1_moisture
+      - sensor.plantmonitor1_conductivity
+      - sensor.plantmonitor2_moisture
+      - sensor.plantmonitor2_conductivity
+      - sensor.plantmonitor2_light_intensity
 
 
 ################################################

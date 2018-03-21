@@ -1,5 +1,5 @@
 ###############################################################
-## Packages / Groups / Motion
+## Packages / Groups / Power Management
 ################################################################
 
 ################################################
@@ -14,7 +14,7 @@ homeassistant:
 
     package.node_anchors:
       customize: &customize
-        package: 'motion'
+        package: 'power_management'
 
       expose: &expose
         <<: *customize
@@ -25,27 +25,25 @@ homeassistant:
     ## Group
     ################################################
 
-    group.motion:
+    group.power_monitors:
       <<: *customize
-      friendly_name: "Motion"
+      friendly_name: "Power Monitors"
       icon: mdi:run
 
     ################################################
     ## Sensor
     ################################################
 
-    binary_sensor.fibaro_system_fgms001_motion_sensor_sensor:
-      <<: *customize
-      friendly_name: "Bathroom"
-      hidden: false
-      icon: mdi:run
 
 ################################################
 ## Group
 ################################################
 
 group:
-  motion:
+  power_monitors:
     control: hidden
     entities:
-      - binary_sensor.fibaro_system_fgms001_motion_sensor_sensor
+      - sensor.fibaro_system_fgwpef_wall_plug_power
+      - sensor.fibaro_system_fgwpef_wall_plug_energy
+      - sensor.fibaro_system_fgd212_dimmer_2_power
+      - sensor.fibaro_system_fgd212_dimmer_2_energy

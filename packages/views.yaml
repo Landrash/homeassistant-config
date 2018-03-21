@@ -84,10 +84,11 @@ homeassistant:
 ################################################
 
 group:
-  #house:
-  default_view:
+  house:
+  #default_view:
     view: yes
     entities:
+      - group.bathroom_entry
       - group.back_porch
       - group.entry
       - group.front_porch
@@ -96,6 +97,7 @@ group:
       - group.laundry_room
       - group.living_room
       - group.master_bedroom
+      - group.second_bedroom
       - group.geek_room
       - group.walkin_closet
 
@@ -118,14 +120,14 @@ group:
   sensors:
     view: yes
     entities:
-      - group.weather
       - group.batteries
       - group.temperature
       - group.thermostat
       - group.humidity
       - group.motion
-      - group.occupancy
       - group.plants
+      - group.light_sensors
+      - group.power_monitors
 
   media:
     view: yes

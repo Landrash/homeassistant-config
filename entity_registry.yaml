@@ -58,7 +58,7 @@ media_player.living_room_tv:
   name:
   platform: cast
   unique_id: 22d90e6e-8c53-2740-982d-12d92bcf4571
-binary_sensor.sensor:
+binary_sensor.fibaro_system_fgms001_motion_sensor:
   name:
   platform: zwave
   unique_id: 4-72057594110017536
@@ -74,22 +74,6 @@ sensor.fibaro_system_fgms001_motion_sensor_general:
   name:
   platform: zwave
   unique_id: 4-72057594111787009
-light.level:
-  name:
-  platform: zwave
-  unique_id: 10-72057594210516993
-sensor.unknown:
-  name:
-  platform: zwave
-  unique_id: 10-72057594210713602
-sensor.alarm_type:
-  name:
-  platform: zwave
-  unique_id: 10-72057594211745793
-sensor.alarm_level:
-  name:
-  platform: zwave
-  unique_id: 10-72057594211745809
 light.fibaro_system_fgd212_dimmer_2_level:
   name:
   platform: zwave
@@ -122,3 +106,19 @@ sensor.fibaro_system_fgd212_dimmer_2_power_2:
   name:
   platform: zwave
   unique_id: 10-72057594210697282
+light.fibaro_system_fgd212_dimmer_2_level_2:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210516993
+sensor.fibaro_system_fgd212_dimmer_2_energy:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210713602
+sensor.fibaro_system_fgd212_dimmer_2_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745793
+sensor.fibaro_system_fgd212_dimmer_2_alarm_level:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745809
