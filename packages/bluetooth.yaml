@@ -77,6 +77,7 @@ group:
       - plant.plant_2
   plants_source:
     control: hidden
+    name: "Plant Source Sensors"
     entities:
       - sensor.plantmonitor1_moisture
       - sensor.plantmonitor1_conductivity
