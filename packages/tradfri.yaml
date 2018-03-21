@@ -58,3 +58,7 @@ scene:
         state: off
       light.tradfri_bulb_e27_cws_opal_600lm:
         state: off
+      light.fibaro_system_fgd212_dimmer_2_level:
+        state: off
+      light.tradfri_bulb_e27_w_opal_1000lm_4:
+        state: off
