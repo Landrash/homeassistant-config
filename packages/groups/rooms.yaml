@@ -29,6 +29,10 @@ homeassistant:
       <<: *customize
       friendly_name: "Back Porch"
 
+    group.bathroom_entry:
+    <<: *customize
+    friendly_name: "Bathroom Entry"
+
     group.entry:
       <<: *customize
       friendly_name: "Entry"
@@ -77,7 +81,7 @@ group:
   bathroom_entry:
     control: hidden
     entities:
-      - light.fibaro_system_fgd212_dimmer_2_level
+      - light.fibaro_system_fgd212_dimmer_2_level_2
 
   back_porch:
     control: hidden
@@ -104,8 +108,8 @@ group:
     control: hidden
     entities:
       - light.tradfri_bulb_e27_ws_opal_980lm_7
-      - light.tradfri_bulb_e27_w_opal_1000lm_4
-      - light.tradfri_bulb_e27_cws_opal_600lm
+      - light.tradfri_bulb_e27_ws_opal_980lm_8
+      - light.tradfri_bulb_e27_ws_opal_980lm_9
 
   laundry_room:
     control: hidden
@@ -117,6 +121,7 @@ group:
     control: hidden
     entities:
       - light.tradfri_bulb_e14_w_opch_400lm_3
+      - light.tradfri_bulb_e27_w_opal_1000lm_4
       - switch.433_mhz_outlet_3
       - media_player.living_room_tv
       - vacuum.xiaomi_vacuum_cleaner

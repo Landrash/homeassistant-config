@@ -122,3 +122,7 @@ sensor.fibaro_system_fgd212_dimmer_2_alarm_level:
   name:
   platform: zwave
   unique_id: 10-72057594211745809
+sensor.fibaro_system_fgms001_motion_sensor_direction:
+  name:
+  platform: zwave
+  unique_id: 4-72057594110034034
