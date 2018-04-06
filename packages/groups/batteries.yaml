@@ -111,3 +111,4 @@ group:
       - sensor.tradfri_motion_sensor_3
       - sensor.plantmonitor1_battery
       - sensor.plantmonitor2_battery
+      - sensor.low_battery

@@ -21,3 +21,4 @@ logbook:
       - sensor.ups_status_date
     domains:
       - sun
+      - weather

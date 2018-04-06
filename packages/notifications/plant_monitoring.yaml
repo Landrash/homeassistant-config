@@ -1,0 +1,49 @@
+################################################################
+## Packages / Plant Monitoring
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'notification_plant_monitoring'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Alerts
+    ################################################
+
+    alert.plant_monitors:
+      <<: *customize
+      friendly_name: "Notification Plant Monitoring"
+
+################################################
+## Alerts
+################################################
+
+alert:
+  plant_monitors:
+    name: "Your plants needs your attention."
+    done_message: "Your plants have been cared for."
+    entity_id: group.plant_monitors
+    state: 'problem'
+    repeat:
+      - 15
+      - 60
+      - 240
+      - 720
+    skip_first: True
+    notifiers:
+      - telegram_house

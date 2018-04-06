@@ -21,6 +21,25 @@ recorder:
       - sun
     entities:
       - automation.startup_notification
+      - group.batteries
+      - group.front_porch ## Implement when tracking lights on front_porch
+      - group.guests ## Remove if guest tracking when implemented
+      - group.humidity
+      - group.light_sensors
+      - group.network_devices
+      - group.network_devices_source
+      - group.notifications
+      - group.plants_source
+      - group.power_monitors
+      - group.temperature
+      - group.thermostat
+      - group.weather_camera
+      - group.weather_darksky
+      - group.weather_general
+      - group.weather_wunderground
+      - group.weather_yr
+      - group.zwave
+      - group.zwave_hidden
       - sensor.date
       - sensor.ha_github_version
       - sensor.ha_pypi_version
@@ -28,3 +47,4 @@ recorder:
       - sensor.ha_version
       - sensor.secrets
       - sensor.time
+      - sensor.uptime
