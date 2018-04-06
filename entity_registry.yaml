@@ -126,3 +126,7 @@ sensor.fibaro_system_fgms001_motion_sensor_direction:
   name:
   platform: zwave
   unique_id: 4-72057594110034034
+media_player.master_bedroom_tv:
+  name:
+  platform: cast
+  unique_id: f3d32547-45b6-b0d8-228d-ba9fddce09c0

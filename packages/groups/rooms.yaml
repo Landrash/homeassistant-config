@@ -30,8 +30,8 @@ homeassistant:
       friendly_name: "Back Porch"
 
     group.bathroom_entry:
-    <<: *customize
-    friendly_name: "Bathroom Entry"
+      <<: *customize
+      friendly_name: "Bathroom Entry"
 
     group.entry:
       <<: *customize
@@ -149,3 +149,4 @@ group:
     control: hidden
     entities:
       - light.tradfri_bulb_e14_w_opch_400lm_2
+      - light.tradfri_bulb_e27_cws_opal_600lm

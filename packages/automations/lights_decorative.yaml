@@ -1,0 +1,110 @@
+################################################################
+## Packages / Lights Decorative
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'automation_light_decorative'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Automation
+    ################################################
+
+    automation.lights_decorative_time_night_on:
+      <<: *customize
+      friendly_name: "Decorative Lights Timer On"
+    automation.lights_decorative_time_night_off:
+      <<: *customize
+      friendly_name: "Decorative Lights Timer Off"
+
+    ################################################
+    ## Input Select
+    ################################################
+
+    input_datetime.lights_decorative_time_night_off:
+      <<: *customize
+      friendly_name: "Decorative Lights Night Time Off"
+
+    input_datetime.lights_decorative_time_morning_on:
+      <<: *customize
+      friendly_name: "Decorative Lights Morning Time On"
+
+    ################################################
+    ## Group
+    ################################################
+
+    group.timer_lights_decorative:
+      <<: *customize
+      friendly_name: "Automation Decorative Lights"
+      icon: mdi:lightbulb
+
+################################################
+## Group
+################################################
+
+group:
+  timer_lights_decorative:
+    control: hidden
+    entities:
+      - automation.lights_decorative_time_night_off
+      - input_datetime.lights_decorative_time_night_off
+      - automation.lights_decorative_time_night_on
+      - input_datetime.lights_decorative_time_morning_on
+
+################################################
+## Automation
+################################################
+
+automation:
+  - alias: lights_decorative_time_night_off
+    trigger:
+      - platform: template
+        value_template: >-
+          "{{ states('sensor.time') == (states.input_datetime.lights_decorative_time_night_off.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+      - platform: sun
+        event: sunrise
+    action:
+      - service: homeassistant.turn_off
+        entity_id:
+          - light.tradfri_bulb_e27_ws_opal_980lm_8
+          - light.tradfri_bulb_e27_ws_opal_980lm_9
+
+  - alias: lights_decorative_time_night_on
+    trigger:
+      - platform: template
+        value_template: >-
+          "{{ states('sensor.time') == (states.input_datetime.lights_decorative_time_morning_on.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+      - platform: sun
+        event: sunset
+    action:
+      - service: homeassistant.turn_on
+        entity_id:
+          - light.tradfri_bulb_e27_ws_opal_980lm_8
+          - light.tradfri_bulb_e27_ws_opal_980lm_9
+
+################################################
+## Input Date/time
+################################################
+
+input_datetime:
+  lights_decorative_time_night_off:
+    has_time: true
+    initial: '22:00:00'
+  lights_decorative_time_morning_on:
+    has_time: true
+    initial: '06:00:00'

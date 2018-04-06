@@ -41,14 +41,6 @@ homeassistant:
     ## Thermostat
     ################################################
 
-    zwave.danfoss_z_thermostat_014g0013:
-      <<: *expose
-      hidden: false
-
-    climate.danfoss_z_thermostat_014g0013_heating_1_2:
-      <<: *expose
-      hidden: false
-
     ################################################
     ## Sensor
     ################################################
@@ -88,10 +80,8 @@ group:
       - sensor.fibaro_system_fgd212_dimmer_2_heat
       - sensor.fibaro_system_fgd212_dimmer_2_power_management
       - sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid
-      - sensor.fibaro_system_fgwpef_wall_plug_power
-      - sensor.fibaro_system_fgwpef_wall_plug_power_4
       - sensor.fibaro_system_fgwpef_wall_plug_power_3
+      - sensor.fibaro_system_fgwpef_wall_plug_power_2
       - sensor.fibaro_system_fgwpef_wall_plug_exporting_2
-      - sensor.fibaro_system_fgms001_motion_sensor_temperature
       - sensor.fibaro_system_fgms001_motion_sensor_general
-      - sensor.fibaro_system_fgms001_motion_sensor_luminance
+      - sensor.fibaro_system_fgms001_motion_sensor_direction

@@ -139,7 +139,8 @@ group:
       - group.automation_override
       - group.all_automations
       - group.all_scripts
-      - group.back_porch_timers
+      - group.timer_lights_exterior
+      - group.timer_lights_decorative
 
   weather:
     view: yes

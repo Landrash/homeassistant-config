@@ -22,11 +22,11 @@ homeassistant:
     ## Device Tracker
     ################################################
 
-    device_tracker.net_chromecast_living_room:
+    binary_sensor.net_chromecast_living_room:
       friendly_name: "Chromecast (Living Room)"
       hidden: true
 
-    device_tracker.net_chromecast_master_bedroom:
+    binary_sensor.net_chromecast_master_bedroom:
       friendly_name: "Chromecast (Master Bedroom)"
       hidden: true
 
@@ -65,15 +65,12 @@ group:
   network_devices_source:
     control: hidden
     entities:
-      - device_tracker.net_chromecast_living_room
-      - device_tracker.net_chromecast_master_bedroom
+      - binary_sensor.net_chromecast_living_room
+      - binary_sensor.net_chromecast_master_bedroom
       - binary_sensor.tradfrigateway
-      - device_tracker.net_raspberry_pi
       - binary_sensor.openmqttgateway1
       - binary_sensor.openmqttgateway2
-      - device_tracker.openmqttgateway1
-      - device_tracker.openmqttgateway2
-      - device_tracker.xiaomi_miio_vacuum
+      - binary_sensor.xiaomi_miio_vacuum
 
   network_devices:
     control: hidden
@@ -95,6 +92,7 @@ group:
       - zwave.zwaveme_zme_uzb1_usb_stick
       - zwave.danfoss_z_thermostat_014g0013
       - zwave.danfoss_z_thermostat_014g0013_2
+      - zwave.danfoss_z_thermostat_014g0013_3
 
 ################################################
 ## Sensor
@@ -104,20 +102,16 @@ sensor:
   - platform: template
     sensors:
       net_chromecast_living_room:
-        value_template: "{{ 'online' if is_state('device_tracker.net_chromecast_living_room', 'home') else 'offline' }}"
-        icon_template: "{{ 'mdi:check-circle-outline' if is_state('device_tracker.net_chromecast_living_room', 'home') else 'mdi:alert-circle' }}"
+        value_template: "{{ 'online' if is_state('binary_sensor.net_chromecast_living_room', 'on') else 'offline' }}"
+        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.net_chromecast_living_room', 'on') else 'mdi:alert-circle' }}"
 
       net_chromecast_master_bedroom:
-        value_template: "{{ 'online' if is_state('device_tracker.net_chromecast_master_bedroom', 'home') else 'offline' }}"
-        icon_template: "{{ 'mdi:check-circle-outline' if is_state('device_tracker.net_chromecast_master_bedroom', 'home') else 'mdi:alert-circle' }}"
+        value_template: "{{ 'online' if is_state('binary_sensor.net_chromecast_master_bedroom', 'on') else 'offline' }}"
+        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.net_chromecast_master_bedroom', 'on') else 'mdi:alert-circle' }}"
 
       net_ikea_tradfri:
         value_template: "{{ 'online' if is_state('binary_sensor.tradfrigateway', 'on') else 'offline' }}"
         icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.tradfrigateway', 'on') else 'mdi:alert-circle' }}"
-
-      net_raspberry_pi:
-        value_template: "{{ 'online' if is_state('device_tracker.net_raspberry_pi', 'home') else 'offline' }}"
-        icon_template: "{{ 'mdi:check-circle-outline' if is_state('device_tracker.net_raspberry_pi', 'home') else 'mdi:alert-circle' }}"
 
       net_openmqttgateway1:
         value_template: "{{ 'online' if is_state('binary_sensor.openmqttgateway1', 'on') else 'offline' }}"
@@ -128,8 +122,8 @@ sensor:
         icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.openmqttgateway2', 'on') else 'mdi:alert-circle' }}"
 
       net_xiaomi_miio_vacuum:
-        value_template: "{{ 'online' if is_state('device_tracker.xiaomi_miio_vacuum', 'home') else 'offline' }}"
-        icon_template: "{{ 'mdi:check-circle-outline' if is_state('device_tracker.xiaomi_miio_vacuum', 'home') else 'mdi:alert-circle' }}"
+        value_template: "{{ 'online' if is_state('binary_sensor.xiaomi_miio_vacuum', 'on') else 'offline' }}"
+        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.xiaomi_miio_vacuum', 'on') else 'mdi:alert-circle' }}"
 
 #  - platform: shodan
 #    api_key: !secret shodan_api_key
@@ -139,8 +133,16 @@ sensor:
 ## Sensor
 ################################################
 
-
 binary_sensor:
   - platform: ping
     host: !secret tradfri_host
     name: tradfrigateway
+  - platform: ping
+    host: !secret vacuum_miio_host
+    name: xiaomi_miio_vacuum
+  - platform: ping
+    host: !secret chromecast_living_room_host
+    name: net_chromecast_living_room
+  - platform: ping
+    host: !secret chromecast_master_bedroom_host
+    name: net_chromecast_master_bedroom

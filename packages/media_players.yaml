@@ -45,6 +45,6 @@ group:
 
 media_player:
   - platform: cast
-    host: 10.0.110.46
+    host: !secret chromecast_living_room_host
   - platform: cast
-    host: 192.168.0.16
+    host: !secret chromecast_master_bedroom_host
