@@ -87,6 +87,7 @@ automation:
     trigger:
       - platform: template
         value_template: >-
+
           "{{ states('sensor.time') == (states.input_datetime.lights_exterior_time_morning_on.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
       - platform: sun
         event: sunset
@@ -102,7 +103,7 @@ automation:
 input_datetime:
   lights_exterior_time_night_off:
     has_time: true
-    initial: '22:30:00'
+    initial: '22:30'
   lights_exterior_time_morning_on:
     has_time: true
-    initial: '05:45:00'
+    initial: '05:45'

@@ -37,7 +37,7 @@ alert:
   plant_monitors:
     name: "Your plants needs your attention."
     done_message: "Your plants have been cared for."
-    entity_id: group.plant_monitors
+    entity_id: group.plants
     state: 'problem'
     repeat:
       - 15

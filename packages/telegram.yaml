@@ -56,8 +56,11 @@ automation:
     action:
       - service: notify.telegram_house
         data_template:
+          title: >-
+            {% set title = trigger.event.data.service_data.title %}
+            {{ title }}
           message: >-
-            {% set message = "{trigger.event.data.service_data.title}:{trigger.event.data.service_data.message}" %}
+            {% set message = trigger.event.data.service_data.message %}
             {{ message }}
 
 #  - alias: telegram_restart

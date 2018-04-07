@@ -28,6 +28,7 @@ homeassistant:
     sensor.low_battery:
       <<: *customize
       friendly_name: "Low Battery Sensor"
+      hidden: true
 
 ################################################
 ## Sensor

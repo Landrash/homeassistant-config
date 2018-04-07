@@ -1,0 +1,90 @@
+################################################################
+## Packages / Lights Motion Entry Bathroom
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'automation_lights_motion_entry_bathroom'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Automation
+    ################################################
+
+    automation.motion_in_the_entry_bathroom_turn_off_light:
+      <<: *customize
+      friendly_name: "Motion in the Entry Bathroom - Turn on Light"
+    automation.motion_in_the_entry_bathroom_turn_on_light:
+      <<: *customize
+      friendly_name: "Motion in the Entry Bathroom - Turn off Light"
+
+    ################################################
+    ## Group
+    ################################################
+
+    automation_lights_motion_entry_bathroom:
+      <<: *customize
+      friendly_name: "Automation Motion Controlled Lights Entry Bathroom"
+      icon: mdi:lightbulb
+
+################################################
+## Group
+################################################
+
+group:
+  automation_lights_motion_entry_bathroom:
+    control: hidden
+    entities:
+      - automation.motion_in_the_entry_bathroom__turn_on_light
+      - automation.motion_in_the_entry_bathroom__turn_off_light
+
+################################################
+## Automation
+################################################
+
+automation:
+  - alias: 'Motion in the Entry Bathroom - Turn on Light'
+    trigger:
+      - platform: state
+        entity_id:
+          - binary_sensor.fibaro_system_fgms001_motion_sensor
+        to: 'on'
+        from: 'off'
+    condition:
+      - condition: state
+        entity_id: light.fibaro_system_fgd212_dimmer_2_level_2
+        state: 'off'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: light.fibaro_system_fgd212_dimmer_2_level_2
+
+  - alias: 'Motion in the Entry Bathroom - Turn off Light'
+    trigger:
+      - platform: state
+        entity_id:
+          - binary_sensor.fibaro_system_fgms001_motion_sensor
+        to: 'off'
+        from: 'on'
+        for:
+          minutes: 5
+    condition:
+      - condition: state
+        entity_id: light.fibaro_system_fgd212_dimmer_2_level_2
+        state: 'on'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: light.fibaro_system_fgd212_dimmer_2_level_2
