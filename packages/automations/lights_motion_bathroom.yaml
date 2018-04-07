@@ -25,11 +25,11 @@ homeassistant:
     ## Automation
     ################################################
 
-    automation.motion_in_the_entry_bathroom_turn_off_light:
+    automation.motion_in_the_entry_bathroom__turn_on_light:
       <<: *customize
       friendly_name: "Motion in the Entry Bathroom - Turn on Light"
       icon: mdi:lightbulb
-    automation.motion_in_the_entry_bathroom_turn_on_light:
+    automation.motion_in_the_entry_bathroom__turn_off_light:
       <<: *customize
       friendly_name: "Motion in the Entry Bathroom - Turn off Light"
       icon: mdi:lightbulb
