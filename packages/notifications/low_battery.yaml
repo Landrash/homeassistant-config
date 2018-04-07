@@ -22,6 +22,15 @@ homeassistant:
         homebridge_hidden: false
 
     ################################################
+    ## Automation
+    ################################################
+
+    automation.battery_alert:
+      <<: *customize
+      friendly_name: "Notification Low Battery"
+      icon: mdi:message-text
+
+    ################################################
     ## Sensors
     ################################################
 

@@ -28,9 +28,11 @@ homeassistant:
     automation.lights_exterior_time_night_on:
       <<: *customize
       friendly_name: "Exterior Lights Timer On"
+      icon: mdi:lightbulb
     automation.lights_exterior_time_night_off:
       <<: *customize
       friendly_name: "Exterior Lights Timer Off"
+      icon: mdi:lightbulb
 
     ################################################
     ## Input Select

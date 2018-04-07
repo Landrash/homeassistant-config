@@ -28,15 +28,17 @@ homeassistant:
     automation.motion_in_the_entry_bathroom_turn_off_light:
       <<: *customize
       friendly_name: "Motion in the Entry Bathroom - Turn on Light"
+      icon: mdi:lightbulb
     automation.motion_in_the_entry_bathroom_turn_on_light:
       <<: *customize
       friendly_name: "Motion in the Entry Bathroom - Turn off Light"
+      icon: mdi:lightbulb
 
     ################################################
     ## Group
     ################################################
 
-    automation_lights_motion_entry_bathroom:
+    group.automation_lights_motion_entry_bathroom:
       <<: *customize
       friendly_name: "Automation Motion Controlled Lights Entry Bathroom"
       icon: mdi:lightbulb

@@ -28,9 +28,11 @@ homeassistant:
     automation.lights_decorative_time_night_on:
       <<: *customize
       friendly_name: "Decorative Lights Timer On"
+      icon: mdi:lightbulb
     automation.lights_decorative_time_night_off:
       <<: *customize
       friendly_name: "Decorative Lights Timer Off"
+      icon: mdi:lightbulb
 
     ################################################
     ## Input Select
