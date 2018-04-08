@@ -1,5 +1,5 @@
 ################################################################
-## Packages / Network Devices
+## Packages / Network Device Monitoring
 ################################################################
 
 homeassistant:
@@ -10,7 +10,7 @@ homeassistant:
 
     package.node_anchors:
       customize: &customize
-        package: 'network_devices'
+        package: 'network_device_monitoring'
 
       expose: &expose
         <<: *customize

@@ -76,8 +76,7 @@ automation:
   - alias: lights_exterior_time_night_off
     trigger:
       - platform: template
-        value_template: >-
-          "{{ states('sensor.time') == (states.input_datetime.lights_exterior_time_night_off.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+        value_template: "{{ states.sensor.time.state == (states.input_datetime.lights_exterior_time_night_off.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
       - platform: sun
         event: sunrise
         offset: '-00:15:00'
@@ -88,9 +87,7 @@ automation:
   - alias: lights_exterior_time_night_on
     trigger:
       - platform: template
-        value_template: >-
-
-          "{{ states('sensor.time') == (states.input_datetime.lights_exterior_time_morning_on.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+        value_template: "{{ states.sensor.time.state == (states.input_datetime.lights_exterior_time_morning_on.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
       - platform: sun
         event: sunset
         offset: '-00:15:00'
@@ -105,7 +102,7 @@ automation:
 input_datetime:
   lights_exterior_time_night_off:
     has_time: true
-    initial: '22:30'
+    initial: '22:35'
   lights_exterior_time_morning_on:
     has_time: true
     initial: '05:45'

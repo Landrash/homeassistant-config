@@ -76,10 +76,10 @@ automation:
   - alias: lights_decorative_time_night_off
     trigger:
       - platform: template
-        value_template: >-
-          "{{ states('sensor.time') == (states.input_datetime.lights_decorative_time_night_off.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+        value_template: "{{ states.sensor.time.state == (states.input_datetime.lights_decorative_time_night_off.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
       - platform: sun
         event: sunrise
+        offset: '-00:10:00'
     action:
       - service: homeassistant.turn_off
         entity_id:
@@ -89,10 +89,10 @@ automation:
   - alias: lights_decorative_time_night_on
     trigger:
       - platform: template
-        value_template: >-
-          "{{ states('sensor.time') == (states.input_datetime.lights_decorative_time_morning_on.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+        value_template: "{{ states.sensor.time.state == (states.input_datetime.lights_decorative_time_morning_on.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
       - platform: sun
         event: sunset
+        offset: '-00:10:00'
     action:
       - service: homeassistant.turn_on
         entity_id:
@@ -106,7 +106,7 @@ automation:
 input_datetime:
   lights_decorative_time_night_off:
     has_time: true
-    initial: '22:00'
+    initial: '22:22'
   lights_decorative_time_morning_on:
     has_time: true
-    initial: '06:00'
+    initial: '05:59'
