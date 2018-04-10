@@ -93,6 +93,14 @@ automation:
       - platform: sun
         event: sunset
         offset: '-00:10:00'
+    condition:
+      condition: or
+      conditions:
+        - condition: sun
+          after: sunset
+          after_offset: '-00:30:00'
+        - condition: sun
+          before: sunrise
     action:
       - service: homeassistant.turn_on
         entity_id:
