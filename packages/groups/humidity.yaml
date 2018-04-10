@@ -47,6 +47,19 @@ homeassistant:
       icon: mdi:thermometer
 
 ################################################
+## Graph
+################################################
+
+history_graph:
+  humidity:
+    name: 'Humidity Graph'
+    entities:
+      - sensor.openmqttgateway2_humidity
+      - sensor.openmqttgateway1_humidity
+    hours_to_show: 24
+    refresh: 60
+
+################################################
 ## Group
 ################################################
 
@@ -56,3 +69,4 @@ group:
     entities:
       - sensor.openmqttgateway2_humidity
       - sensor.openmqttgateway1_humidity
+      - history_graph.humidity_graph

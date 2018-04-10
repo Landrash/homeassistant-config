@@ -94,6 +94,28 @@ homeassistant:
       icon: mdi:battery
 
 ################################################
+## Graph
+################################################
+
+history_graph:
+  batteries:
+    name: 'Batteries Graph'
+    entities:
+      - sensor.battery_nexus5x
+      - sensor.battery_samsunga3
+      - sensor.tradfri_remote_control
+      - sensor.tradfri_remote_control_2
+      - sensor.tradfri_remote_control_3
+      - sensor.tradfri_motion_sensor
+      - sensor.tradfri_motion_sensor_2
+      - sensor.tradfri_motion_sensor_3
+      - sensor.plantmonitor1_battery
+      - sensor.plantmonitor2_battery
+      - sensor.low_battery
+    hours_to_show: 24
+    refresh: 60
+
+################################################
 ## Group
 ################################################
 
@@ -112,3 +134,4 @@ group:
       - sensor.plantmonitor1_battery
       - sensor.plantmonitor2_battery
       - sensor.low_battery
+      - history_graph.batteries_graph

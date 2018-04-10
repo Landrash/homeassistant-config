@@ -39,6 +39,17 @@ homeassistant:
       friendly_name: "Bathroom"
       hidden: false
       icon: mdi:run
+################################################
+## Graph
+################################################
+
+history_graph:
+  motion:
+    name: 'Motion Graph'
+    entities:
+      - binary_sensor.fibaro_system_fgms001_motion_sensor
+    hours_to_show: 24
+    refresh: 60
 
 ################################################
 ## Group
@@ -49,3 +60,4 @@ group:
     control: hidden
     entities:
       - binary_sensor.fibaro_system_fgms001_motion_sensor
+      - history_graph.motion_graph

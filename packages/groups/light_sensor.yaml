@@ -44,6 +44,20 @@ homeassistant:
       friendly_name: "Luminance Spathiphyllum Gold Cupid"
 
 ################################################
+## Graph
+################################################
+
+history_graph:
+  lux:
+    name: 'Lux Graph'
+    entities:
+      - sensor.plantmonitor1_light_intensity
+      - sensor.plantmonitor2_light_intensity
+      - sensor.fibaro_system_fgms001_motion_sensor_luminance
+    hours_to_show: 24
+    refresh: 60
+
+################################################
 ## Group
 ################################################
 
@@ -54,3 +68,4 @@ group:
       - sensor.plantmonitor1_light_intensity
       - sensor.plantmonitor2_light_intensity
       - sensor.fibaro_system_fgms001_motion_sensor_luminance
+      - history_graph.lux_graph

@@ -34,6 +34,20 @@ homeassistant:
     ## Sensor
     ################################################
 
+################################################
+## Graph
+################################################
+
+history_graph:
+  power_monitors:
+    name: 'Power Monitors Graph'
+    entities:
+      - sensor.fibaro_system_fgwpef_wall_plug_power_4
+      - sensor.fibaro_system_fgwpef_wall_plug_energy_2
+      - sensor.fibaro_system_fgd212_dimmer_2_power
+      - sensor.fibaro_system_fgd212_dimmer_2_energy
+    hours_to_show: 24
+    refresh: 60
 
 ################################################
 ## Group
@@ -47,3 +61,4 @@ group:
       - sensor.fibaro_system_fgwpef_wall_plug_energy_2
       - sensor.fibaro_system_fgd212_dimmer_2_power
       - sensor.fibaro_system_fgd212_dimmer_2_energy
+      - history_graph.power_monitors_graph

@@ -70,6 +70,30 @@ homeassistant:
       hidden: false
 
 ################################################
+## Graph
+################################################
+
+history_graph:
+  temperature:
+    name: 'Temperature Graph'
+    entities:
+      - sensor.openmqttgateway2_temperature
+      - sensor.openmqttgateway1_temperature
+      - sensor.fibaro_system_fgms001_motion_sensor_temperature
+      - sensor.plantmonitor1_temperature
+      - sensor.plantmonitor2_temperature
+    hours_to_show: 24
+    refresh: 60
+  thermostat:
+    name: 'Thermostat Graph'
+    entities:
+      - climate.danfoss_z_thermostat_014g0013_heating_1
+      - climate.danfoss_z_thermostat_014g0013_heating_1_2
+      - climate.danfoss_z_thermostat_014g0013_heating_1_3
+    hours_to_show: 24
+    refresh: 60
+
+################################################
 ## Group
 ################################################
 
@@ -82,9 +106,11 @@ group:
       - sensor.fibaro_system_fgms001_motion_sensor_temperature
       - sensor.plantmonitor1_temperature
       - sensor.plantmonitor2_temperature
+      - history_graph.temperature_graph
   thermostat:
     control: hidden
     entities:
       - climate.danfoss_z_thermostat_014g0013_heating_1
       - climate.danfoss_z_thermostat_014g0013_heating_1_2
       - climate.danfoss_z_thermostat_014g0013_heating_1_3
+      - history_graph.thermostat_graph
