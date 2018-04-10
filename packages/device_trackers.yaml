@@ -42,16 +42,16 @@ device_tracker:
 ## Camera
 ################################################
 
-camera:
-  - platform: generic
-    name: 'Landrash Map'
-    still_image_url: !secret google_map_landrash
-    limit_refetch_to_url_change: true
+#camera:
+#  - platform: generic
+#    name: 'Landrash Map'
+#    still_image_url: !secret google_map_landrash
+#    limit_refetch_to_url_change: true
 
-  - platform: generic
-    name: 'Jojo Map'
-    still_image_url: !secret google_map_landrash
-    limit_refetch_to_url_change: true
+#  - platform: generic
+#    name: 'Jojo Map'
+#    still_image_url: !secret google_map_jojo
+#    limit_refetch_to_url_change: true
 
 ################################################
 ## Sensor
