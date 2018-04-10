@@ -63,7 +63,11 @@ group:
     control: hidden
     entities:
       - group.person_landrash
+      - sensor.landrash_to_home
+      - camera.landrash_map
       - group.person_jojo
+      - sensor.jojo_to_home
+      - camera.jojo_map
 
   person_landrash:
     control: hidden
