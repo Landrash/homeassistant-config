@@ -1,5 +1,5 @@
 ################################################################
-## Packages / Bluetooth
+## Packages / Plants
 ################################################################
 
 ################################################
@@ -14,7 +14,7 @@ homeassistant:
 
     package.node_anchors:
       customize: &customize
-        package: 'bluetooth'
+        package: 'plants'
 
       expose: &expose
         <<: *customize
