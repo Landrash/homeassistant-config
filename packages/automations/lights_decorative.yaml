@@ -101,7 +101,7 @@ automation:
           after_offset: '-00:30:00'
         - condition: sun
           before: sunrise
-          after_offset: '00:01:00'
+          after_offset: '-00:01:00'
     action:
       - service: homeassistant.turn_on
         entity_id:
