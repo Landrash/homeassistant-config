@@ -40,4 +40,4 @@ group:
       - automation.forward_persistent_notifications
       - automation.startup_notification
       - automation.update_notification
-      - automation.nightly_config_backup
+      - automation.battery_alert

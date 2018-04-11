@@ -63,8 +63,6 @@ homeassistant:
       friendly_name: "Temperature Spathiphyllum Gold Cupid"
       hidden: false
 
-
-
 ################################################
 ## Group
 ################################################

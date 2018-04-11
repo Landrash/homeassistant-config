@@ -23,20 +23,6 @@ homeassistant:
         homebridge_hidden: false
 
     ################################################
-    ## Automation
-    ################################################
-
-    automation.startup_notification:
-      <<: *customize
-      friendly_name: "Startup Notification"
-      icon: mdi:message-text
-
-    automation.update_notification:
-      <<: *customize
-      friendly_name: "Update Notification"
-      icon: mdi:message-text
-
-    ################################################
     ## Device Tracker
     ################################################
 
@@ -117,49 +103,6 @@ group:
       - sensor.ha_version
       - sensor.ha_github_version
       - sensor.ha_pypi_version
-
-################################################
-## Automation
-################################################
-
-automation:
-  - alias: startup_notification
-    initial_state: 'on'
-    trigger:
-      - platform: homeassistant
-        event: start
-      - platform: time
-        seconds: '/5'
-    action:
-      - service: automation.turn_off
-        data:
-          entity_id: automation.startup_notification
-      - service: notify.telegram_house
-        data:
-          message: "Home Assistant is now up and running."
-
-  - alias: update_notification
-    initial_state: 'on'
-    trigger:
-      - platform: state
-        entity_id: sensor.ha_github_version
-      - platform: state
-        entity_id: sensor.ha_pypi_version
-    condition:
-      - condition: template
-        value_template: >-
-          {{ trigger.to_state.state }}
-      - condition: template
-        value_template: >-
-          {{ trigger.to_state.state != states('sensor.ha_version') }}
-      - condition: template
-        value_template: >-
-          {{ trigger.to_state.state != 'unknown' }}
-    action:
-      - service: notify.telegram_house
-        data_template:
-          message: >-
-            Home Assistant {{ trigger.to_state.state }} is now available on {{ trigger.to_state.name.split(' ')[0] }}.
 
 ################################################
 ## Sensor

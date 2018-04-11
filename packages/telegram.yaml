@@ -16,19 +16,14 @@ homeassistant:
       customize: &customize
         package: 'telegram'
 
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-
-    ################################################
-    ## Automation
-    ################################################
-
-    automation.forward_persistent_notifications:
-      <<: *customize
-      friendly_name: "Forward Persistent Notifications"
-      icon: mdi:message-text
+#      expose: &expose
+#        <<: *customize
+#        haaska_hidden: false
+#        homebridge_hidden: false
+#
+#    ################################################
+#    ## Automation
+#    ################################################
 
 #    automation.telegram_restart:
 #      <<: *customize
@@ -44,25 +39,7 @@ homeassistant:
 ## Automation
 ################################################
 
-automation:
-  - alias: forward_persistent_notifications
-    initial_state: 'on'
-    trigger:
-      - platform: event
-        event_type: call_service
-        event_data:
-          domain: persistent_notification
-          service: create
-    action:
-      - service: notify.telegram_house
-        data_template:
-          title: >-
-            {% set title = trigger.event.data.service_data.title %}
-            {{ title }}
-          message: >-
-            {% set message = trigger.event.data.service_data.message %}
-            {{ message }}
-
+# automation:
 #  - alias: telegram_restart
 #    trigger:
 #      - platform: event

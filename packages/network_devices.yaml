@@ -17,53 +17,60 @@ homeassistant:
         haaska_hidden: false
         homebridge_hidden: false
 
-    ################################################
-    ## Group
-    ################################################
+################################################
+## Device Tracker
+################################################
+
+    binary_sensor.net_chromecast_living_room:
+      <<: *customize
+      friendly_name: "Chromecast (Living Room)"
+
+    binary_sensor.net_chromecast_master_bedroom:
+      <<: *customize
+      friendly_name: "Chromecast (Master Bedroom)"
+
+    binary_sensor.tradfrigateway:
+      <<: *customize
+      friendly_name: "IKEA Tradfri"
+
+    device_tracker.net_raspberry_pi:
+      <<: *customize
+      friendly_name: "Raspberry Pi"
+
+################################################
+## Group
+################################################
 
     group.network_devices_source:
+      <<: *customize
       friendly_name: "Network Device Sources"
 
     group.network_devices:
+      <<: *customize
       friendly_name: "Network Devices"
-
-    ################################################
-    ## Device Tracker
-    ################################################
-
-    binary_sensor.net_chromecast_living_room:
-      friendly_name: "Chromecast (Living Room)"
-      hidden: true
-
-    binary_sensor.net_chromecast_master_bedroom:
-      friendly_name: "Chromecast (Master Bedroom)"
-      hidden: true
-
-    binary_sensor.tradfrigateway:
-      friendly_name: "IKEA Trådfri"
-      hidden: true
-
-    device_tracker.net_raspberry_pi:
-      friendly_name: "Raspberry Pi"
-      hidden: true
 
     ################################################
     ## Sensor
     ################################################
 
     sensor.net_chromecast_living_room:
+      <<: *customize
       friendly_name: "Chromecast (Living Room)"
 
     sensor.net_chromecast_master_bedroom:
+      <<: *customize
       friendly_name: "Chromecast (Master Bedroom)"
 
     sensor.net_ikea_tradfri:
-      friendly_name: "IKEA Trådfri"
+      <<: *customize
+      friendly_name: "IKEA Tradfri"
 
     sensor.net_raspberry_pi:
+      <<: *customize
       friendly_name: "Raspberry Pi"
 
-    net_xiaomi_miio_vacuum:
+    sensor.net_xiaomi_miio_vacuum:
+      <<: *customize
       friendly_name: "Xiaomi Miio Vacuum"
 
 ################################################
@@ -133,10 +140,6 @@ sensor:
       net_xiaomi_miio_vacuum:
         value_template: "{{ 'online' if is_state('binary_sensor.xiaomi_miio_vacuum', 'on') else 'offline' }}"
         icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.xiaomi_miio_vacuum', 'on') else 'mdi:alert-circle' }}"
-
-#  - platform: shodan
-#    api_key: !secret shodan_api_key
-#    query: 'home-assistant'
 
 ################################################
 ## Sensor

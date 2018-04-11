@@ -137,11 +137,12 @@ group:
     view: yes
     entities:
       - group.automation_override
-      - group.all_automations
-      - group.all_scripts
       - group.timer_lights_exterior
       - group.timer_lights_decorative
       - group.automation_lights_motion_entry_bathroom
+#      - group.all_automations
+#      - group.all_scripts
+
 
   weather:
     view: yes
