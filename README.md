@@ -41,8 +41,8 @@ A few software suites from [Hassbian] are used:
 [Mosquitto]:https://mosquitto.org/
 [CloudMQTT]:https://www.cloudmqtt.com/
 [Owntracks]:https://www.home-assistant.io/components/device_tracker.owntracks/
-[Chromecast]:[https://en.wikipedia.org/wiki/Chromecast
-[Trådfri Gateway]:[https://www.ikea.com/se/sv/catalog/products/40337806/
+[Chromecast]:https://en.wikipedia.org/wiki/Chromecast
+[Trådfri Gateway]:https://www.ikea.com/se/sv/catalog/products/40337806/
 [Trådfri Motion]:https://www.ikea.com/se/sv/catalog/products/30383511/
 [Trådfri Remote]:https://www.ikea.com/se/sv/catalog/products/30338849/
 [Trådfri Light]:https://www.ikea.com/se/sv/catalog/products/10318263/
