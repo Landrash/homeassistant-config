@@ -72,9 +72,11 @@ group:
   person_landrash:
     control: hidden
     entities:
-      - device_tracker.hasshibblelandrashmobile_landrash
+      - device_tracker.google_maps_111139059226501305048
+#      - device_tracker.hasshibblelandrashmobile_landrash
 
   person_jojo:
     control: hidden
     entities:
-      - device_tracker.hasshibblejojomobile_a3jojo
+      - device_tracker.google_maps_105177297270781888222
+#      - device_tracker.hasshibblejojomobile_a3jojo

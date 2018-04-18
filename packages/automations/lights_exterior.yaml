@@ -101,8 +101,10 @@ automation:
           before: sunrise
           after_offset: '-00:01:00'
     action:
-      - service: homeassistant.turn_on
-        entity_id: group.back_porch
+      - service: light.turn_on
+        data:
+          entity_id: group.back_porch
+          brightness_pct: '40'
 
 ################################################
 ## Input Date/time

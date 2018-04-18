@@ -46,3 +46,4 @@ ip_bans.yaml
 known_devices.yaml
 secrets.env
 secrets.yaml
+*.cookies

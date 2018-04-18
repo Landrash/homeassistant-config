@@ -108,10 +108,10 @@ plant:
       conductivity: sensor.plantmonitor1_conductivity
       brightness: sensor.plantmonitor1_light_intensity
     min_moisture: 20
-    max_moisture: 60
-    min_battery: 17
-    min_conductivity: 250
-    min_temperature: 15
+    max_moisture: 70
+    min_battery: 10
+    min_conductivity: 225
+    min_temperature: 10
   plant_2:
     sensors:
       moisture: sensor.plantmonitor2_moisture
@@ -120,7 +120,7 @@ plant:
       conductivity: sensor.plantmonitor2_conductivity
       brightness: sensor.plantmonitor2_light_intensity
     min_moisture: 20
-    max_moisture: 60
-    min_battery: 17
-    min_conductivity: 250
-    min_temperature: 15
+    max_moisture: 70
+    min_battery: 10
+    min_conductivity: 225
+    min_temperature: 10

@@ -130,3 +130,63 @@ media_player.master_bedroom_tv:
   name:
   platform: cast
   unique_id: f3d32547-45b6-b0d8-228d-ba9fddce09c0
+light.tradfri_bulb_e14_ws_opal_400lm:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c41520440005e-65538
+light.tradfri_bulb_e27_ws_opal_980lm_6:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c41520440005e-65547
+light.floalt_panel_ws_60x60:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c41520440005e-65553
+light.tradfri_bulb_e14_w_opch_400lm_2:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c41520440005e-65540
+light.tradfri_bulb_e27_ws_opal_980lm_9:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c41520440005e-65557
+light.tradfri_bulb_e14_w_opch_400lm_3:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c41520440005e-65548
+light.tradfri_bulb_e27_w_opal_1000lm_4:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c41520440005e-65556
+light.tradfri_bulb_e27_ws_opal_980lm_8:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c41520440005e-65558
+light.tradfri_bulb_e27_ws_clear_950lm_6:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c41520440005e-65551
+light.tradfri_bulb_e27_ws_opal_980lm_7:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c41520440005e-65554
+light.tradfri_bulb_e27_ws_opal_980lm_3:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c41520440005e-65541
+light.tradfri_bulb_e27_cws_opal_600lm:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c41520440005e-65542
+light.tradfri_bulb_e27_w_opal_1000lm:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c41520440005e-65537
+light.tradfri_bulb_e14_ws_opal_400lm_2:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c41520440005e-65539
+light.tradfri_bulb_e27_ws_clear_950lm_5:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c41520440005e-65546

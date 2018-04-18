@@ -27,16 +27,20 @@ homeassistant:
 ################################################
 
 device_tracker:
-  - platform: owntracks
-    max_gps_accuracy: 200
-    waypoints: false
-    waypoint_whitelist:
-      - landrash
+#  - platform: owntracks
+#    max_gps_accuracy: 200
+#    waypoints: false
+#    waypoint_whitelist:
+#      - landrash
 
-  - platform: unifi_direct
-    host: !secret unifi_host
-    username: !secret unifi_username
-    password: !secret unifi_password
+#  - platform: unifi_direct
+#    host: !secret unifi_host
+#    username: !secret unifi_username
+#    password: !secret unifi_password
+
+  - platform: google_maps
+    username: !secret google_maps_account
+    password: !secret google_maps_password
 
 ################################################
 ## Camera
@@ -58,28 +62,28 @@ device_tracker:
 ################################################
 
 sensor:
-  - platform: mqtt
-    state_topic: "owntracks/hassHibbleLandrashMobile/landrash"
-    unit_of_measurement: "%"
-    value_template: '{{ value_json.batt }}'
-    name: "Battery A1"
-
-  - platform: mqtt
-    state_topic: "owntracks/hassHibbleJoJoMobile/a3Jojo"
-    unit_of_measurement: "%"
-    value_template: '{{ value_json.batt }}'
-    name: "Battery Samsung A3"
+#  - platform: mqtt
+#    state_topic: "owntracks/hassHibbleLandrashMobile/landrash"
+#    unit_of_measurement: "%"
+#    value_template: '{{ value_json.batt }}'
+#    name: "Battery A1"
+#
+#  - platform: mqtt
+#    state_topic: "owntracks/hassHibbleJoJoMobile/a3Jojo"
+#    unit_of_measurement: "%"
+#    value_template: '{{ value_json.batt }}'
+#    name: "Battery Samsung A3"
 
   - platform: google_travel_time
     name: 'Landrash To Home'
     api_key: !secret google_api_key
-    origin: device_tracker.hasshibblelandrashmobile_landrash
+    origin: device_tracker.google_maps_111139059226501305048
     destination: zone.home
 
   - platform: google_travel_time
     name: 'Jojo To Home'
     api_key: !secret google_api_key
-    origin: device_tracker.hasshibblejojomobile_a3jojo
+    origin: device_tracker.google_maps_105177297270781888222
     destination: zone.home
 
 ################################################

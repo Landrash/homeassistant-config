@@ -103,10 +103,12 @@ automation:
           before: sunrise
           after_offset: '-00:01:00'
     action:
-      - service: homeassistant.turn_on
-        entity_id:
-          - light.tradfri_bulb_e27_ws_opal_980lm_8
-          - light.tradfri_bulb_e27_ws_opal_980lm_9
+      - service: light.turn_on
+        data:
+          entity_id:
+            - light.tradfri_bulb_e27_ws_opal_980lm_8
+            - light.tradfri_bulb_e27_ws_opal_980lm_9
+          brightness_pct: '20'
 
 ################################################
 ## Input Date/time
