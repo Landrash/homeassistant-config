@@ -27,11 +27,11 @@ homeassistant:
 
     automation.lights_forgotten_time_night_off:
       <<: *customize
-      friendly_name: "Forgotten Lights Timer On"
+      friendly_name: "Forgotten Lights Timer Night Off"
       icon: mdi:lightbulb
     automation.lights_forgotten_time_morning_off:
       <<: *customize
-      friendly_name: "Forgotten Lights Timer Off"
+      friendly_name: "Forgotten Lights Timer Morning Off"
       icon: mdi:lightbulb
 
     ################################################
@@ -52,7 +52,7 @@ homeassistant:
 
     group.timer_lights_forgotten:
       <<: *customize
-      friendly_name: "Automation Decorative Lights"
+      friendly_name: "Automation Forgotten Lights"
       icon: mdi:lightbulb
 
 ################################################
@@ -80,7 +80,6 @@ automation:
     action:
       - service: light.turn_off
         entity_id:
-        entity_id:
           - light.floalt_panel_ws_60x60
           - light.tradfri_bulb_e14_w_opch_400lm_2
           - light.tradfri_bulb_e14_w_opch_400lm_3
@@ -94,6 +93,12 @@ automation:
           - light.tradfri_bulb_e27_ws_opal_980lm_7
           - light.tradfri_bulb_e27_ws_opal_980lm_8
           - light.tradfri_bulb_e27_ws_opal_980lm_9
+          - light.sonoffs201
+          - light.sonoffs202
+          - light.rgb_christmas_tree
+          - light.onboard_led_christmas_tree
+          - light.blue_balls
+          - light.onboard_led_blue_balls
 
   - alias: lights_forgotten_time_morning_off
     trigger:
@@ -117,8 +122,6 @@ automation:
           - light.floalt_panel_ws_60x60
           - light.tradfri_bulb_e14_w_opch_400lm_2
           - light.tradfri_bulb_e14_w_opch_400lm_3
-          - light.tradfri_bulb_e14_ws_opal_400lm
-          - light.tradfri_bulb_e14_ws_opal_400lm_2
           - light.tradfri_bulb_e27_cws_opal_600lm
           - light.tradfri_bulb_e27_w_opal_1000lm
           - light.tradfri_bulb_e27_w_opal_1000lm_4
@@ -129,6 +132,12 @@ automation:
           - light.tradfri_bulb_e27_ws_opal_980lm_7
           - light.tradfri_bulb_e27_ws_opal_980lm_8
           - light.tradfri_bulb_e27_ws_opal_980lm_9
+          - light.sonoffs201
+          - light.sonoffs202
+          - light.rgb_christmas_tree
+          - light.onboard_led_christmas_tree
+          - light.blue_balls
+          - light.onboard_led_blue_balls
 
 ################################################
 ## Input Date/time
@@ -137,7 +146,7 @@ automation:
 input_datetime:
   lights_forgotten_time_night_off:
     has_time: true
-    initial: '23:00'
+    initial: '23:30'
   lights_forgotten_time_morning_off:
     has_time: true
     initial: '08:00'

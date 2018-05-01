@@ -73,6 +73,14 @@ homeassistant:
       <<: *customize
       friendly_name: "Xiaomi Miio Vacuum"
 
+    sensor.net_blue_balls_status:
+      <<: *customize
+      friendly_name: "Blå Bollar"
+
+    sensor.rgb_christmas_tree_status:
+      <<: *customize
+      friendly_name: "RGB Christmas Tree"
+
 ################################################
 ## Group
 ################################################
@@ -87,6 +95,8 @@ group:
       - binary_sensor.openmqttgateway1
       - binary_sensor.openmqttgateway2
       - binary_sensor.xiaomi_miio_vacuum
+      - binary_sensor.blue_balls_status
+      - binary_sensor.rgb_christmas_tree_status
 
   network_devices:
     control: hidden
@@ -98,6 +108,8 @@ group:
       - sensor.net_openmqttgateway1
       - sensor.net_openmqttgateway2
       - sensor.net_xiaomi_miio_vacuum
+      - sensor.net_blue_balls_status
+      - sensor.net_rgb_christmas_tree_status
 
   zwave:
     control: hidden
@@ -140,6 +152,18 @@ sensor:
       net_xiaomi_miio_vacuum:
         value_template: "{{ 'online' if is_state('binary_sensor.xiaomi_miio_vacuum', 'on') else 'offline' }}"
         icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.xiaomi_miio_vacuum', 'on') else 'mdi:alert-circle' }}"
+
+      net_blue_balls_status:
+        value_template: "{{ 'online' if is_state('binary_sensor.blue_balls_status', 'on') else 'offline' }}"
+        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.blue_balls_status', 'on') else 'mdi:alert-circle' }}"
+
+      net_rgb_christmas_tree_status:
+        value_template: "{{ 'online' if is_state('binary_sensor.rgb_christmas_tree_status', 'on') else 'offline' }}"
+        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.rgb_christmas_tree_status', 'on') else 'mdi:alert-circle' }}"
+
+#  - platform: snmp
+#    host: !secret unifi_edge_host
+#    baseoid: !secret unifi_edge_host
 
 ################################################
 ## Sensor

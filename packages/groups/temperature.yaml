@@ -32,7 +32,7 @@ homeassistant:
     group.thermostat:
       <<: *customize
       friendly_name: "Thermostat"
-      icon: mdi:nest-thermostat
+      icon: mdi:thermostat
 
     ################################################
     ## Sensor

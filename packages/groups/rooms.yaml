@@ -87,7 +87,6 @@ group:
     control: hidden
     entities:
       - light.tradfri_bulb_e27_ws_opal_980lm_6
-      - switch.433_mhz_outlet_1
 
   entry:
     control: hidden
@@ -122,7 +121,7 @@ group:
     entities:
       - light.tradfri_bulb_e14_w_opch_400lm_3
       - light.tradfri_bulb_e27_w_opal_1000lm_4
-      - switch.433_mhz_outlet_3
+      - light.sonoffs201
       - media_player.living_room_tv
       - vacuum.xiaomi_vacuum_cleaner
 
@@ -131,8 +130,9 @@ group:
     entities:
       - light.tradfri_bulb_e14_ws_opal_400lm
       - light.tradfri_bulb_e14_ws_opal_400lm_2
+      - light.sonoffs202
+      - light.rgb_christmas_tree
       - media_player.master_bedroom_tv
-      - switch.433_mhz_outlet_2
       - scene.good_night
 
   walkin_closet:
@@ -144,6 +144,7 @@ group:
     control: hidden
     entities:
       - light.tradfri_bulb_e27_ws_clear_950lm_6
+      - light.blue_balls
 
   geek_room:
     control: hidden

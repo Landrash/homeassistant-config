@@ -14,7 +14,7 @@ homeassistant:
 
     package.node_anchors:
       customize: &customize
-        package: 'mqtt'
+        package: 'sonoff'
 
       expose: &expose
         <<: *customize
@@ -24,10 +24,18 @@ homeassistant:
 ################################################
 ## MQTT
 ################################################
-
-mqtt:
-  broker: !secret mqtt_broker
-  port: !secret mqtt_port
-  username: !secret mqtt_username
-  password: !secret mqtt_password
-  discovery: True
+light:
+  - platform: mqtt
+    name: sonoffs201
+    state_topic: "stat/sonoffs201/POWER"
+    command_topic: "cmnd/sonoffs201/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - platform: mqtt
+    name: sonoffs202
+    state_topic: "stat/sonoffs202/POWER"
+    command_topic: "cmnd/sonoffs202/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true

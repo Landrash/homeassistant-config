@@ -42,6 +42,11 @@ device_tracker:
     username: !secret google_maps_account
     password: !secret google_maps_password
 
+#  - platform: snmp
+#    host: !secret unifi_edge_host
+#    community: public
+#    baseoid: !secret unifi_edge_baseoid
+
 ################################################
 ## Camera
 ################################################

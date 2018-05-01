@@ -84,8 +84,8 @@ homeassistant:
 ################################################
 
 group:
-  #house:
-  default_view:
+  house:
+  #default_view:
     view: yes
     entities:
       - group.bathroom_entry
