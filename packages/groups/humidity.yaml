@@ -54,8 +54,8 @@ history_graph:
   humidity:
     name: 'Humidity Graph'
     entities:
-      - sensor.openmqttgateway2_humidity
-      - sensor.openmqttgateway1_humidity
+      - sensor.living_room_humidity
+      - sensor.geek_room_humidity
     hours_to_show: 24
     refresh: 60
 
@@ -67,6 +67,6 @@ group:
   humidity:
     control: hidden
     entities:
-      - sensor.openmqttgateway2_humidity
-      - sensor.openmqttgateway1_humidity
+      - sensor.living_room_humidity
+      - sensor.geek_room_humidity
       - history_graph.humidity_graph

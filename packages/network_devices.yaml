@@ -92,8 +92,8 @@ group:
       - binary_sensor.net_chromecast_living_room
       - binary_sensor.net_chromecast_master_bedroom
       - binary_sensor.tradfrigateway
-      - binary_sensor.openmqttgateway1
-      - binary_sensor.openmqttgateway2
+      - binary_sensor.living_room_sensornode_status
+      - binary_sensor.geek_room_sensornode_status
       - binary_sensor.xiaomi_miio_vacuum
       - binary_sensor.blue_balls_status
       - binary_sensor.rgb_christmas_tree_status
@@ -105,8 +105,8 @@ group:
       - sensor.net_chromecast_master_bedroom
       - sensor.net_ikea_tradfri
       - sensor.net_raspberry_pi
-      - sensor.net_openmqttgateway1
-      - sensor.net_openmqttgateway2
+      - sensor.net_living_room_sensornode_status
+      - sensor.net_geek_room_sensornode_status
       - sensor.net_xiaomi_miio_vacuum
       - sensor.net_blue_balls_status
       - sensor.net_rgb_christmas_tree_status
@@ -141,13 +141,13 @@ sensor:
         value_template: "{{ 'online' if is_state('binary_sensor.tradfrigateway', 'on') else 'offline' }}"
         icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.tradfrigateway', 'on') else 'mdi:alert-circle' }}"
 
-      net_openmqttgateway1:
-        value_template: "{{ 'online' if is_state('binary_sensor.openmqttgateway1', 'on') else 'offline' }}"
-        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.openmqttgateway1', 'on') else 'mdi:alert-circle' }}"
+      net_living_room_sensornode_status:
+        value_template: "{{ 'online' if is_state('binary_sensor.living_room_sensornode_status', 'on') else 'offline' }}"
+        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.living_room_sensornode_status', 'on') else 'mdi:alert-circle' }}"
 
-      net_openmqttgateway2:
-        value_template: "{{ 'online' if is_state('binary_sensor.openmqttgateway2', 'on') else 'offline' }}"
-        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.openmqttgateway2', 'on') else 'mdi:alert-circle' }}"
+      net_geek_room_sensornode_status:
+        value_template: "{{ 'online' if is_state('binary_sensor.geek_room_sensornode_status', 'on') else 'offline' }}"
+        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.geek_room_sensornode_status', 'on') else 'mdi:alert-circle' }}"
 
       net_xiaomi_miio_vacuum:
         value_template: "{{ 'online' if is_state('binary_sensor.xiaomi_miio_vacuum', 'on') else 'offline' }}"

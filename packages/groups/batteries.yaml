@@ -54,7 +54,7 @@ homeassistant:
 
     sensor.tradfri_remote_control_2:
       <<: *customize
-      friendly_name: "Trådfri controll Bedoom"
+      friendly_name: "Trådfri controll Living Room"
       hidden: false
       icon: mdi:battery
 
@@ -87,9 +87,22 @@ homeassistant:
       friendly_name: "Spathiphyllum Kochii"
       hidden: false
       icon: mdi:battery
+
     sensor.plantmonitor2_battery:
       <<: *customize
       friendly_name: "Spathiphyllum Gold Cupid"
+      hidden: false
+      icon: mdi:battery
+
+    sensor.plantmonitor3_battery:
+      <<: *customize
+      friendly_name: "Capsicum Bomba red"
+      hidden: false
+      icon: mdi:battery
+
+    sensor.plantmonitor4_battery:
+      <<: *customize
+      friendly_name: "Cherry Tomato"
       hidden: false
       icon: mdi:battery
 
@@ -111,7 +124,8 @@ history_graph:
       - sensor.tradfri_motion_sensor_3
       - sensor.plantmonitor1_battery
       - sensor.plantmonitor2_battery
-      - sensor.low_battery
+      - sensor.plantmonitor3_battery
+      - sensor.plantmonitor4_battery
     hours_to_show: 24
     refresh: 60
 
@@ -133,5 +147,7 @@ group:
       - sensor.tradfri_motion_sensor_3
       - sensor.plantmonitor1_battery
       - sensor.plantmonitor2_battery
+      - sensor.plantmonitor3_battery
+      - sensor.plantmonitor4_battery
       - sensor.low_battery
       - history_graph.batteries_graph

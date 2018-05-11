@@ -77,11 +77,13 @@ history_graph:
   temperature:
     name: 'Temperature Graph'
     entities:
-      - sensor.openmqttgateway2_temperature
-      - sensor.openmqttgateway1_temperature
+      - sensor.living_room_temperature
+      - sensor.geek_room_temperature
       - sensor.fibaro_system_fgms001_motion_sensor_temperature
       - sensor.plantmonitor1_temperature
       - sensor.plantmonitor2_temperature
+      - sensor.plantmonitor3_temperature
+      - sensor.plantmonitor4_temperature
     hours_to_show: 24
     refresh: 60
   thermostat:
@@ -101,11 +103,13 @@ group:
   temperature:
     control: hidden
     entities:
-      - sensor.openmqttgateway2_temperature
-      - sensor.openmqttgateway1_temperature
+      - sensor.living_room_temperature
+      - sensor.geek_room_temperature
       - sensor.fibaro_system_fgms001_motion_sensor_temperature
       - sensor.plantmonitor1_temperature
       - sensor.plantmonitor2_temperature
+      - sensor.plantmonitor3_temperature
+      - sensor.plantmonitor4_temperature
       - history_graph.temperature_graph
   thermostat:
     control: hidden

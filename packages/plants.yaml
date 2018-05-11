@@ -49,6 +49,17 @@ homeassistant:
       friendly_name: "Spathiphyllum Gold Cupid"
       hidden: false
 
+    plant.plant_3:
+      <<: *customize
+      friendly_name: "Capsicum Bomba red"
+      hidden: false
+
+    plant.plant_4:
+      <<: *customize
+      friendly_name: "Cherry Tomato"
+      hidden: false
+
+
     ################################################
     ## Sensors
     ################################################
@@ -63,6 +74,16 @@ homeassistant:
       friendly_name: "Temperature Spathiphyllum Gold Cupid"
       hidden: false
 
+    sensor.plantmonitor3_temperature:
+      <<: *customize
+      friendly_name: "Temperature Capsicum Bomba red"
+      hidden: false
+
+    sensor.plantmonitor4_temperature:
+      <<: *customize
+      friendly_name: "Temperature Cherry Tomato"
+      hidden: false
+
 ################################################
 ## Group
 ################################################
@@ -72,6 +93,8 @@ group:
     entities:
       - plant.plant_1
       - plant.plant_2
+      - plant.plant_3
+      - plant.plant_4
 
   plants_source:
     control: hidden
@@ -80,6 +103,10 @@ group:
     - sensor.plantmonitor1_conductivity
     - sensor.plantmonitor2_moisture
     - sensor.plantmonitor2_conductivity
+    - sensor.plantmonitor3_moisture
+    - sensor.plantmonitor3_conductivity
+    - sensor.plantmonitor4_moisture
+    - sensor.plantmonitor4_conductivity
 
 ################################################
 ## Sensors
@@ -93,6 +120,14 @@ sensor:
   - platform: miflora
     mac: !secret plantmonitor2
     name: plantmonitor2
+    median: 3
+  - platform: miflora
+    mac: !secret plantmonitor3
+    name: plantmonitor3
+    median: 3
+  - platform: miflora
+    mac: !secret plantmonitor4
+    name: plantmonitor4
     median: 3
 
 ################################################
@@ -108,7 +143,7 @@ plant:
       conductivity: sensor.plantmonitor1_conductivity
       brightness: sensor.plantmonitor1_light_intensity
     min_moisture: 20
-    max_moisture: 70
+    max_moisture: 75
     min_battery: 10
     min_conductivity: 225
     min_temperature: 10
@@ -120,7 +155,31 @@ plant:
       conductivity: sensor.plantmonitor2_conductivity
       brightness: sensor.plantmonitor2_light_intensity
     min_moisture: 20
-    max_moisture: 70
+    max_moisture: 75
     min_battery: 10
     min_conductivity: 225
+    min_temperature: 10
+  plant_3:
+    sensors:
+      moisture: sensor.plantmonitor3_moisture
+      battery: sensor.plantmonitor3_battery
+      temperature: sensor.plantmonitor3_temperature
+      conductivity: sensor.plantmonitor3_conductivity
+      brightness: sensor.plantmonitor3_light_intensity
+    min_moisture: 2
+    max_moisture: 75
+    min_battery: 10
+    min_conductivity: 105
+    min_temperature: 10
+  plant_4:
+    sensors:
+      moisture: sensor.plantmonitor4_moisture
+      battery: sensor.plantmonitor4_battery
+      temperature: sensor.plantmonitor4_temperature
+      conductivity: sensor.plantmonitor4_conductivity
+      brightness: sensor.plantmonitor4_light_intensity
+    min_moisture: 2
+    max_moisture: 75
+    min_battery: 10
+    min_conductivity: 105
     min_temperature: 10

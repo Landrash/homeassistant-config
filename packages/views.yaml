@@ -84,8 +84,8 @@ homeassistant:
 ################################################
 
 group:
-  house:
-  #default_view:
+  #house:
+  default_view:
     view: yes
     entities:
       - group.bathroom_entry
@@ -141,6 +141,7 @@ group:
       - group.timer_lights_decorative
       - group.automation_lights_motion_entry_bathroom
       - group.timer_lights_forgotten
+      - group.battery_alert
 #      - group.all_automations
 #      - group.all_scripts
 

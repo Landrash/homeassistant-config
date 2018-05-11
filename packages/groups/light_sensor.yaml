@@ -37,11 +37,19 @@ homeassistant:
 
     sensor.plantmonitor1_light_intensity:
       <<: *customize
-      friendly_name: "Luminance Spathiphyllum Kochii"
+      friendly_name: "Spathiphyllum Kochii"
 
     sensor.plantmonitor2_light_intensity:
       <<: *customize
-      friendly_name: "Luminance Spathiphyllum Gold Cupid"
+      friendly_name: "Spathiphyllum Gold Cupid"
+
+    sensor.plantmonitor3_light_intensity:
+      <<: *customize
+      friendly_name: "Capsicum Bomba red"
+
+    sensor.plantmonitor4_light_intensity:
+      <<: *customize
+      friendly_name: "Cherry Tomato"
 
 ################################################
 ## Graph
@@ -53,6 +61,8 @@ history_graph:
     entities:
       - sensor.plantmonitor1_light_intensity
       - sensor.plantmonitor2_light_intensity
+      - sensor.plantmonitor3_light_intensity
+      - sensor.plantmonitor4_light_intensity
       - sensor.fibaro_system_fgms001_motion_sensor_luminance
     hours_to_show: 24
     refresh: 60
@@ -67,5 +77,7 @@ group:
     entities:
       - sensor.plantmonitor1_light_intensity
       - sensor.plantmonitor2_light_intensity
+      - sensor.plantmonitor3_light_intensity
+      - sensor.plantmonitor4_light_intensity
       - sensor.fibaro_system_fgms001_motion_sensor_luminance
       - history_graph.lux_graph

@@ -190,3 +190,51 @@ light.tradfri_bulb_e27_ws_clear_950lm_5:
   name:
   platform: tradfri
   unique_id: light-7e0c41520440005e-65546
+sensor.pws_precip_today_in:
+  name:
+  platform: wunderground
+  unique_id: '@18.254960,59.248580,precip_today_in'
+sensor.pws_relative_humidity:
+  name:
+  platform: wunderground
+  unique_id: '@18.254960,59.248580,relative_humidity'
+sensor.pws_temp_c:
+  name:
+  platform: wunderground
+  unique_id: '@18.254960,59.248580,temp_c'
+sensor.pws_weather:
+  name:
+  platform: wunderground
+  unique_id: '@18.254960,59.248580,weather'
+sensor.pws_feelslike_c:
+  name:
+  platform: wunderground
+  unique_id: '@18.254960,59.248580,feelslike_c'
+sensor.pws_heat_index_c:
+  name:
+  platform: wunderground
+  unique_id: '@18.254960,59.248580,heat_index_c'
+zwave.zwaveme_zme_uzb1_usb_stick:
+  name:
+  platform: zwave
+  unique_id: node-1
+zwave.fibaro_system_fgms001_motion_sensor:
+  name:
+  platform: zwave
+  unique_id: node-4
+zwave.danfoss_z_thermostat_014g0013:
+  name:
+  platform: zwave
+  unique_id: node-7
+zwave.danfoss_z_thermostat_014g0013_2:
+  name:
+  platform: zwave
+  unique_id: node-8
+zwave.fibaro_system_fgwpef_wall_plug:
+  name:
+  platform: zwave
+  unique_id: node-9
+zwave.fibaro_system_fgd212_dimmer_2:
+  name:
+  platform: zwave
+  unique_id: node-10
