@@ -18,7 +18,6 @@ logger:
   default: error
   logs:
     # debug
-    homeassistant.components.sensor.darksky: info
 
     # info
     homeassistant.bootstrap: info
@@ -48,9 +47,6 @@ logger:
     homeassistant.components.telegram_bot: warn
     homeassistant.helpers: warn
     homeassistant.loader: warn
-    pychromecast: warn
-    libopenzwave: warn
-    openzwave: warn
     pytradfri: warn
     telegram: warn
     urllib3: warn

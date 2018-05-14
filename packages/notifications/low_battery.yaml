@@ -44,9 +44,9 @@ homeassistant:
       friendly_name: "Battery Notification Clear"
       icon: mdi:comment-remove-outline
 
-    automation.battery_alert_slack:
+    automation.battery_alert_telegram:
       <<: *customize
-      friendly_name: "Battery Slack Notification"
+      friendly_name: "Battery Telegram Notification"
       icon: mdi:comment-alert-outline
 
     automation.battery_sensor_from_battery_level_attribute:
@@ -252,8 +252,7 @@ automation:
         {{ battery_level() | trim != "" }}
     - service: notify.telegram_house
       data_template:
-        message: "Low Battery Levels"
-        data:
+        message:
           title: "These devices have low battery levels"
           text: >
             {% macro battery_level() %}

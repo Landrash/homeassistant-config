@@ -115,6 +115,7 @@ group:
       - group.utilities
       - group.zwave
       - group.notifications
+      - group.pihole
 
   sensors:
     view: yes

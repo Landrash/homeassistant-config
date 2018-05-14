@@ -44,49 +44,14 @@ homeassistant:
     ## Sensors
     ################################################
 
-    sensor.low_battery:
-      <<: *customize
-      friendly_name: "Low Battery Sensor"
-      hidden: true
-
 ################################################
 ## Sensor
 ################################################
-
-sensor:
-- platform: template
-  sensors:
-    low_battery:
-      friendly_name: "Low Battery"
-      value_template: >
-        {%- set threshold = 15 -%}
-        {%- set domains = ['light', 'lock', 'plant', 'sensor', 'switch', 'vacuum' 'zwave'] -%}
-        {%- for domain in domains -%}
-        {%- for item in states[domain] if ((item.attributes.battery_level is defined and item.attributes['battery_level'] | int < threshold) or ("battery" in item.name | lower and ((item.state | int < threshold and item.state|int != 0) or item.state | lower == "low" or item.state | lower == "unknown"))) -%}
-            {{ item.attributes.friendly_name }}{%- if not loop.last %}, {% endif -%}
-        {%- endfor -%}
-        {%- endfor -%}
 
 ################################################
 ## Notification
 ################################################
 automation:
-  - alias: 'Battery Alert'
-    trigger:
-      - platform: time
-        at: '08:00:00'
-      - platform: time
-        at: '16:00:00'
-    condition:
-      condition: template
-      value_template: "{% if states('sensor.low_battery') %}true{% endif %}"
-    action:
-      - service: persistent_notification.create
-        data_template:
-          title: '\ud83d\udd0b Low Battery'
-          message: "{{ states('sensor.low_battery') }}"
-          notification_id: low-battery-alert
-
   - alias: forward_persistent_notifications
     initial_state: 'on'
     trigger:
@@ -111,7 +76,7 @@ automation:
       - platform: homeassistant
         event: start
       - platform: time
-        seconds: '/10'
+        seconds: '/30'
     action:
       - service: automation.turn_off
         data:

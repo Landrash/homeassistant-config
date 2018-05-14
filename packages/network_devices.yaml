@@ -77,9 +77,17 @@ homeassistant:
       <<: *customize
       friendly_name: "Blå Bollar"
 
-    sensor.rgb_christmas_tree_status:
+    sensor.net_rgb_christmas_tree_status:
       <<: *customize
       friendly_name: "RGB Christmas Tree"
+
+    sensor.net_living_room_sensornode_status:
+      <<: *customize
+      friendly_name: "Living Room Sensor Node"
+
+    sensor.net_geek_room_sensornode_status:
+      <<: *customize
+      friendly_name: "Living Room Sensor Node"
 
 ################################################
 ## Group
