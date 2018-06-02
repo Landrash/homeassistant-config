@@ -88,6 +88,7 @@ group:
   default_view:
     view: yes
     entities:
+      - group.robot_vacuum
       - group.bathroom_entry
       - group.back_porch
       - group.entry

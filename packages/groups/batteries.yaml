@@ -34,18 +34,6 @@ homeassistant:
     ## Sensor
     ################################################
 
-    sensor.battery_nexus5x:
-      <<: *customize
-      friendly_name: "Nexus5X Battery Level"
-      hidden: false
-      icon: mdi:battery
-
-    sensor.battery_samsunga3:
-      <<: *customize
-      friendly_name: "Samsung A3 Battery Level"
-      hidden: false
-      icon: mdi:battery
-
     sensor.tradfri_remote_control:
       <<: *customize
       friendly_name: "Trådfri controll Bedroom"
@@ -114,8 +102,6 @@ history_graph:
   batteries:
     name: 'Batteries Graph'
     entities:
-      - sensor.battery_nexus5x
-      - sensor.battery_samsunga3
       - sensor.tradfri_remote_control
       - sensor.tradfri_remote_control_2
       - sensor.tradfri_remote_control_3
@@ -137,8 +123,6 @@ group:
   batteries:
     control: hidden
     entities:
-      - sensor.battery_nexus5x
-      - sensor.battery_samsunga3
       - sensor.tradfri_remote_control
       - sensor.tradfri_remote_control_2
       - sensor.tradfri_remote_control_3

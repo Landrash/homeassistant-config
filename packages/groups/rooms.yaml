@@ -122,18 +122,18 @@ group:
       - light.tradfri_bulb_e14_w_opch_400lm_3
       - light.tradfri_bulb_e27_w_opal_1000lm_4
       - light.sonoffs201
+      - light.living_room_sensornode_light
       - media_player.living_room_tv
-      - vacuum.xiaomi_vacuum_cleaner
 
   master_bedroom:
     control: hidden
     entities:
       - light.tradfri_bulb_e14_ws_opal_400lm
       - light.tradfri_bulb_e14_ws_opal_400lm_2
-      - light.sonoffs202
+      - switch.table_fan
       - light.rgb_christmas_tree
-      - media_player.master_bedroom_tv
       - scene.good_night
+      - media_player.master_bedroom_tv
 
   walkin_closet:
     control: hidden

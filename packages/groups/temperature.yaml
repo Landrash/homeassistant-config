@@ -38,18 +38,6 @@ homeassistant:
     ## Sensor
     ################################################
 
-    sensor.openmqttgateway1_temperature:
-      <<: *customize
-      friendly_name: "Temperature Living Room"
-      hidden: false
-      icon: mdi:thermometer
-
-    sensor.openmqttgateway2_temperature:
-      <<: *customize
-      friendly_name: "Temperature Geek Room"
-      hidden: false
-      icon: mdi:thermometer
-
     ################################################
     ## Thermostat
     ################################################

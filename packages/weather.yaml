@@ -146,10 +146,6 @@ group:
     control: hidden
     entities:
       - weather.dark_sky
-#      - sensor.dark_sky_cloud_coverage
-#      - sensor.dark_sky_humidity
-#      - sensor.dark_sky_precip_probability
-#      - sensor.dark_sky_temperature
 
   weather_wunderground:
     control: hidden
@@ -179,14 +175,6 @@ group:
 ################################################
 
 sensor:
-#  - platform: darksky
-#    api_key: !secret darksky_api_key
-#    monitored_conditions:
-#      - cloud_cover
-#      - humidity
-#      - precip_probability
-#      - temperature
-
   - platform: wunderground
     api_key: !secret wunderground_api_key
     monitored_conditions:

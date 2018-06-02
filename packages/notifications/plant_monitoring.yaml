@@ -40,10 +40,9 @@ alert:
     entity_id: group.plants
     state: 'problem'
     repeat:
-      - 15
       - 60
       - 240
-      - 720
+      - 480
     skip_first: True
     notifiers:
       - telegram_house

@@ -59,7 +59,6 @@ homeassistant:
       friendly_name: "Cherry Tomato"
       hidden: false
 
-
     ################################################
     ## Sensors
     ################################################
@@ -143,10 +142,9 @@ plant:
       conductivity: sensor.plantmonitor1_conductivity
       brightness: sensor.plantmonitor1_light_intensity
     min_moisture: 20
-    max_moisture: 75
     min_battery: 10
-    min_conductivity: 225
-    min_temperature: 10
+    min_conductivity: 200
+    min_temperature: 5
   plant_2:
     sensors:
       moisture: sensor.plantmonitor2_moisture
@@ -155,10 +153,9 @@ plant:
       conductivity: sensor.plantmonitor2_conductivity
       brightness: sensor.plantmonitor2_light_intensity
     min_moisture: 20
-    max_moisture: 75
     min_battery: 10
-    min_conductivity: 225
-    min_temperature: 10
+    min_conductivity: 200
+    min_temperature: 5
   plant_3:
     sensors:
       moisture: sensor.plantmonitor3_moisture
@@ -166,11 +163,10 @@ plant:
       temperature: sensor.plantmonitor3_temperature
       conductivity: sensor.plantmonitor3_conductivity
       brightness: sensor.plantmonitor3_light_intensity
-    min_moisture: 2
-    max_moisture: 75
+    min_moisture: 10
     min_battery: 10
-    min_conductivity: 105
-    min_temperature: 10
+    min_conductivity: 100
+    min_temperature: 5
   plant_4:
     sensors:
       moisture: sensor.plantmonitor4_moisture
@@ -178,8 +174,7 @@ plant:
       temperature: sensor.plantmonitor4_temperature
       conductivity: sensor.plantmonitor4_conductivity
       brightness: sensor.plantmonitor4_light_intensity
-    min_moisture: 2
-    max_moisture: 75
+    min_moisture: 10
     min_battery: 10
-    min_conductivity: 105
-    min_temperature: 10
+    min_conductivity: 100
+    min_temperature: 5

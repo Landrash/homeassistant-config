@@ -41,83 +41,38 @@ homeassistant:
 ## Group
 ################################################
 
-    group.network_devices_source:
-      <<: *customize
-      friendly_name: "Network Device Sources"
-
     group.network_devices:
       <<: *customize
       friendly_name: "Network Devices"
 
     ################################################
-    ## Sensor
+    ## Binary Sensor
     ################################################
 
-    sensor.net_chromecast_living_room:
-      <<: *customize
-      friendly_name: "Chromecast (Living Room)"
-
-    sensor.net_chromecast_master_bedroom:
-      <<: *customize
-      friendly_name: "Chromecast (Master Bedroom)"
-
-    sensor.net_ikea_tradfri:
-      <<: *customize
-      friendly_name: "IKEA Tradfri"
-
-    sensor.net_raspberry_pi:
-      <<: *customize
-      friendly_name: "Raspberry Pi"
-
-    sensor.net_xiaomi_miio_vacuum:
+    binary_sensor.xiaomi_miio_vacuum:
       <<: *customize
       friendly_name: "Xiaomi Miio Vacuum"
-
-    sensor.net_blue_balls_status:
-      <<: *customize
-      friendly_name: "Blå Bollar"
-
-    sensor.net_rgb_christmas_tree_status:
-      <<: *customize
-      friendly_name: "RGB Christmas Tree"
-
-    sensor.net_living_room_sensornode_status:
-      <<: *customize
-      friendly_name: "Living Room Sensor Node"
-
-    sensor.net_geek_room_sensornode_status:
-      <<: *customize
-      friendly_name: "Living Room Sensor Node"
 
 ################################################
 ## Group
 ################################################
 
 group:
-  network_devices_source:
-    control: hidden
-    entities:
-      - binary_sensor.net_chromecast_living_room
-      - binary_sensor.net_chromecast_master_bedroom
-      - binary_sensor.tradfrigateway
-      - binary_sensor.living_room_sensornode_status
-      - binary_sensor.geek_room_sensornode_status
-      - binary_sensor.xiaomi_miio_vacuum
-      - binary_sensor.blue_balls_status
-      - binary_sensor.rgb_christmas_tree_status
-
   network_devices:
     control: hidden
     entities:
-      - sensor.net_chromecast_living_room
-      - sensor.net_chromecast_master_bedroom
-      - sensor.net_ikea_tradfri
-      - sensor.net_raspberry_pi
-      - sensor.net_living_room_sensornode_status
-      - sensor.net_geek_room_sensornode_status
-      - sensor.net_xiaomi_miio_vacuum
-      - sensor.net_blue_balls_status
-      - sensor.net_rgb_christmas_tree_status
+      - binary_sensor.tradfrigateway
+      - binary_sensor.net_chromecast_living_room
+      - binary_sensor.net_chromecast_master_bedroom
+      - binary_sensor.xiaomi_miio_vacuum
+      - binary_sensor.geek_room_sensornode_status
+      - binary_sensor.living_room_sensornode_status
+      - binary_sensor.blue_balls_status
+      - binary_sensor.rgb_christmas_tree_status
+      - binary_sensor.floor_light_status
+      - binary_sensor.table_fan_status
+      - history_graph.network_wired
+      - history_graph.network_wireless
 
   zwave:
     control: hidden
@@ -129,49 +84,55 @@ group:
       - zwave.danfoss_z_thermostat_014g0013
       - zwave.danfoss_z_thermostat_014g0013_2
       - zwave.danfoss_z_thermostat_014g0013_3
+      - history_graph.zwave
 
 ################################################
 ## Sensor
 ################################################
 
 sensor:
-  - platform: template
-    sensors:
-      net_chromecast_living_room:
-        value_template: "{{ 'online' if is_state('binary_sensor.net_chromecast_living_room', 'on') else 'offline' }}"
-        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.net_chromecast_living_room', 'on') else 'mdi:alert-circle' }}"
+  - platform: snmp
+    host: !secret unifi_edge_host
+    baseoid: !secret unifi_edge_host
+    community: !secret unifi_community
 
-      net_chromecast_master_bedroom:
-        value_template: "{{ 'online' if is_state('binary_sensor.net_chromecast_master_bedroom', 'on') else 'offline' }}"
-        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.net_chromecast_master_bedroom', 'on') else 'mdi:alert-circle' }}"
+################################################
+## Sensor
+################################################
 
-      net_ikea_tradfri:
-        value_template: "{{ 'online' if is_state('binary_sensor.tradfrigateway', 'on') else 'offline' }}"
-        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.tradfrigateway', 'on') else 'mdi:alert-circle' }}"
-
-      net_living_room_sensornode_status:
-        value_template: "{{ 'online' if is_state('binary_sensor.living_room_sensornode_status', 'on') else 'offline' }}"
-        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.living_room_sensornode_status', 'on') else 'mdi:alert-circle' }}"
-
-      net_geek_room_sensornode_status:
-        value_template: "{{ 'online' if is_state('binary_sensor.geek_room_sensornode_status', 'on') else 'offline' }}"
-        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.geek_room_sensornode_status', 'on') else 'mdi:alert-circle' }}"
-
-      net_xiaomi_miio_vacuum:
-        value_template: "{{ 'online' if is_state('binary_sensor.xiaomi_miio_vacuum', 'on') else 'offline' }}"
-        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.xiaomi_miio_vacuum', 'on') else 'mdi:alert-circle' }}"
-
-      net_blue_balls_status:
-        value_template: "{{ 'online' if is_state('binary_sensor.blue_balls_status', 'on') else 'offline' }}"
-        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.blue_balls_status', 'on') else 'mdi:alert-circle' }}"
-
-      net_rgb_christmas_tree_status:
-        value_template: "{{ 'online' if is_state('binary_sensor.rgb_christmas_tree_status', 'on') else 'offline' }}"
-        icon_template: "{{ 'mdi:check-circle-outline' if is_state('binary_sensor.rgb_christmas_tree_status', 'on') else 'mdi:alert-circle' }}"
-
-#  - platform: snmp
-#    host: !secret unifi_edge_host
-#    baseoid: !secret unifi_edge_host
+history_graph:
+  network_wired:
+    name: 'Network Wired'
+    entities:
+      - binary_sensor.tradfrigateway
+    hours_to_show: 72
+    refresh: 60
+  network_wireless:
+    name: 'Network Wireless'
+    entities:
+      - binary_sensor.net_chromecast_living_room
+      - binary_sensor.net_chromecast_master_bedroom
+      - binary_sensor.xiaomi_miio_vacuum
+      - binary_sensor.geek_room_sensornode_status
+      - binary_sensor.living_room_sensornode_status
+      - binary_sensor.blue_balls_status
+      - binary_sensor.rgb_christmas_tree_status
+      - binary_sensor.floor_light_status
+      - binary_sensor.table_fan_status
+    hours_to_show: 72
+    refresh: 60
+  zwave:
+    name: 'Z-Wave Devices'
+    entities:
+      - zwave.fibaro_system_fgwpef_wall_plug
+      - zwave.fibaro_system_fgms001_motion_sensor
+      - zwave.fibaro_system_fgd212_dimmer_2
+      - zwave.zwaveme_zme_uzb1_usb_stick
+      - zwave.danfoss_z_thermostat_014g0013
+      - zwave.danfoss_z_thermostat_014g0013_2
+      - zwave.danfoss_z_thermostat_014g0013_3
+    hours_to_show: 72
+    refresh: 60
 
 ################################################
 ## Sensor
