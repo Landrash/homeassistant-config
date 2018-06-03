@@ -15,8 +15,8 @@ homeassistant:
   ################################################
     group.robot_vacuum:
       <<: *customize
-      friendly_name: "Battery Alert"
-      icon: mdi:steam
+      friendly_name: "Vacuum"
+      icon: mdi:robot-vacuum
 
   ################################################
   ## Script
@@ -66,11 +66,11 @@ vacuum:
 
 input_select:
   vacuum_room:
-    name: Choose a room to clean
+    name: Choose a area to clean
     options:
       - Select Input
-      - All
       - Kitchen
+      - Kitchen Counter
       - Dining Room
       - Living Room
 
@@ -90,14 +90,6 @@ sensor:
   ################################################
 
 script:
-  vacuum_all:
-        alias: "Vacuum All"
-        sequence:
-          - service: vacuum.send_command
-            data:
-              entity_id: vacuum.xiaomi_vacuum_cleaner
-              command: app_zoned_clean
-              params: [[16034,19737,26234,29237,1],[19487,29248,26237,32198,1]]
   vacuum_kitchen:
         alias: "Vacuum Kitchen"
         sequence:
@@ -105,7 +97,15 @@ script:
             data:
               entity_id: vacuum.xiaomi_vacuum_cleaner
               command: app_zoned_clean
-              params: [[12038,27467,16088,32017,1]]
+              params: [[26601,24654,32451,25654,1],[28554,20965,32204,25365,1],[26549,23770,28549,24620,1]]
+  vacuum_kitchen_counter:
+        alias: "Vacuum Kitchen Counter"
+        sequence:
+          - service: vacuum.send_command
+            data:
+              entity_id: vacuum.xiaomi_vacuum_cleaner
+              command: app_zoned_clean
+              params: [[26601,24654,32451,25654,1]]
   vacuum_dining_room:
         alias: "Vacuum Dining Room"
         sequence:
@@ -113,7 +113,7 @@ script:
             data:
               entity_id: vacuum.xiaomi_vacuum_cleaner
               command: app_zoned_clean
-              params: [[25316,23644,28916,27044,1]] #Updated
+              params: [[25316,23644,28916,27044,1]]
   vacuum_living_room:
         alias: "Vacuum Living Room"
         sequence:
@@ -121,7 +121,7 @@ script:
             data:
               entity_id: vacuum.xiaomi_vacuum_cleaner
               command: app_zoned_clean
-              params: [[18266,19661,23016,25061,1]]
+              params: [[22415,19013,26465,26063,1],[26451,18976,28551,23126,1]]
 
   ###############################################################################
   # Automation
@@ -137,12 +137,12 @@ automation:
     - service: script.turn_on
       data_template:
         entity_id: >
-          {% if is_state("input_select.vacuum_room", "All") %}
-            script.vacuum_all
-          {% elif is_state("input_select.vacuum_room", "Dining Room") %}
+          {% if is_state("input_select.vacuum_room", "Dining Room") %}
             script.vacuum_dining_room
           {% elif is_state("input_select.vacuum_room", "Kitchen") %}
             script.vacuum_kitchen
+          {% elif is_state("input_select.vacuum_room", "Kitchen Counter") %}
+            script.vacuum_kitchen_counter
           {% elif is_state("input_select.vacuum_room", "Living Room") %}
             script.vacuum_living_room
           {% else %}
