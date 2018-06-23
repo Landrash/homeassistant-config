@@ -43,8 +43,7 @@ group:
 ## Media Players
 ################################################
 
-media_player:
-  - platform: cast
-    host: !secret chromecast_living_room_host
-  - platform: cast
-    host: !secret chromecast_master_bedroom_host
+cast:
+  media_player:
+  - host: !secret chromecast_living_room_host
+  - host: !secret chromecast_master_bedroom_host

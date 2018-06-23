@@ -121,8 +121,7 @@ group:
     entities:
       - light.tradfri_bulb_e14_w_opch_400lm_3
       - light.tradfri_bulb_e27_w_opal_1000lm_4
-      - light.sonoffs201
-      - light.living_room_sensornode_light
+      - light.floor_light
       - media_player.living_room_tv
 
   master_bedroom:
@@ -151,3 +150,4 @@ group:
     entities:
       - light.tradfri_bulb_e14_w_opch_400lm_2
       - light.tradfri_bulb_e27_cws_opal_600lm
+      - light.living_room_sensornode_light

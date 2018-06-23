@@ -238,3 +238,7 @@ zwave.fibaro_system_fgd212_dimmer_2:
   name:
   platform: zwave
   unique_id: node-10
+sensor.wifi_signal_sensor:
+  name:
+  platform: mqtt
+  unique_id: 18fe34cd04b3-wifisignal
