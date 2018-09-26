@@ -1,0 +1,48 @@
+{
+    "data": {
+        "entries": [
+            {
+                "data": {},
+                "domain": "cast",
+                "entry_id": "e061df90d19a4723b97ee175e082b12f",
+                "source": "user",
+                "title": "Google Cast",
+                "version": 1
+            },
+            {
+                "data": {
+                    "api_key": "63c5f22124adc3df06759afbe8db87b7",
+                    "binary_sensors": {
+                        "monitored_conditions": [
+                            "uv_protection_window"
+                        ]
+                    },
+                    "elevation": 34,
+                    "latitude": 59.24858,
+                    "longitude": 18.25496,
+                    "sensors": {
+                        "monitored_conditions": [
+                            "safe_exposure_time_type_2",
+                            "safe_exposure_time_type_3",
+                            "safe_exposure_time_type_1",
+                            "max_uv_index",
+                            "safe_exposure_time_type_4",
+                            "safe_exposure_time_type_6",
+                            "safe_exposure_time_type_5",
+                            "current_uv_level",
+                            "current_uv_index",
+                            "current_ozone_level"
+                        ]
+                    }
+                },
+                "domain": "openuv",
+                "entry_id": "3dc134d711584746a29f50ac032fa423",
+                "source": "import",
+                "title": "59.24858, 18.25496",
+                "version": 1
+            }
+        ]
+    },
+    "key": "core.config_entries",
+    "version": 1
+}

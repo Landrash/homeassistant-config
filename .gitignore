@@ -47,3 +47,6 @@ known_devices.yaml
 secrets.env
 secrets.yaml
 *.cookies
+
+# Storage
+.storage/*

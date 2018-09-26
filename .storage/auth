@@ -1,0 +1,156 @@
+{
+    "data": {
+        "credentials": [
+            {
+                "auth_provider_id": null,
+                "auth_provider_type": "homeassistant",
+                "data": {
+                    "username": "landrash"
+                },
+                "id": "c0aec98337cb47df9c20e6f6b43edf09",
+                "user_id": "39dae5c1a9f44ed5b392b273d91ca771"
+            },
+            {
+                "auth_provider_id": null,
+                "auth_provider_type": "homeassistant",
+                "data": {
+                    "username": "jojo"
+                },
+                "id": "8b089a13c61446fab7c2717d5869d256",
+                "user_id": "cfa0ce919912455f817fae26e2d416a1"
+            }
+        ],
+        "refresh_tokens": [
+            {
+                "access_token_expiration": 1800.0,
+                "client_icon": null,
+                "client_id": "http://10.0.110.10:8123/",
+                "client_name": null,
+                "created_at": "2018-09-17T19:22:23.841427+00:00",
+                "id": "a94c7e10778b465fa13289ba90073896",
+                "jwt_key": "5b795de95a3887cd6ff13876809a9c604df874f56bf2db7e764587f4ba0639a8bec83e383ceb70ec8bbaccbdab3bef41f6bb0fa7cfc27534aab4e15fdab247f4",
+                "last_used_at": "2018-09-26T20:31:55.426410+00:00",
+                "last_used_ip": "10.0.110.56",
+                "token": "da1f70827d14d0f5871376712fdf48bf9e877e78a5227a20f31382392365940c8c55883e0fbbc62efdef7c84a2945607984a63ae8dd707d9f3e40cedb48ce3f2",
+                "token_type": "normal",
+                "user_id": "39dae5c1a9f44ed5b392b273d91ca771"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_icon": null,
+                "client_id": "http://10.0.110.10:8123/",
+                "client_name": null,
+                "created_at": "2018-09-02T17:56:44.782583+00:00",
+                "id": "399efc745e844a7fa92da0d451fe63df",
+                "jwt_key": "9220ad001bf8cae5323b53738c84ff1a2a8a2e4ed30664180f58243d4ee314d77a6b78b21c287449e0a46ef46050f8ae0b54638034683dcfae6acc777bd0d4ed",
+                "last_used_at": "2018-09-26T21:09:06.319673+00:00",
+                "last_used_ip": "10.0.110.49",
+                "token": "df9c5e1530b8484f96939b403253ef4ca623dee2e8fab228684d2c8810a538ca026f4328f74d4860b10c9b7ad97c8a9caf59d56fa6730ddac219cfefa5493b14",
+                "token_type": "normal",
+                "user_id": "39dae5c1a9f44ed5b392b273d91ca771"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_icon": null,
+                "client_id": "http://10.0.110.10:8123/",
+                "client_name": null,
+                "created_at": "2018-09-02T18:06:34.138062+00:00",
+                "id": "cdabcd75965e455e99acb8b830fdd0c5",
+                "jwt_key": "2164be3cb6d7f0846a1ecdbda181a24b45e7d08859489302d85cbaf1d443b1ccba5de4f272bc5755551e209284a4a13d9ca2dc5f0be98fc9ef42c6d79c7d0e6c",
+                "last_used_at": "2018-09-26T18:49:58.900315+00:00",
+                "last_used_ip": "10.0.110.42",
+                "token": "f3504fb0ecbe9d65ac0fcba84363366d8a50b8bd5997164780fd42511709b9de02bc2c75ab453ca39efc2b36760d517c599a16d97ed0d49d3b0870c0ad1eb850",
+                "token_type": "normal",
+                "user_id": "cfa0ce919912455f817fae26e2d416a1"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_icon": null,
+                "client_id": "http://10.0.110.10:8123/",
+                "client_name": null,
+                "created_at": "2018-08-30T20:26:44.476155+00:00",
+                "id": "a527b920d815431d871516ac3adc3a9b",
+                "jwt_key": "8ae11e97840a81a6e517a576babdeead138afc3dd8e9dab9c6aa79709c24b52219b519729fd1410830098b283fc55053966160fa509016e550e8de5f486ecdc8",
+                "last_used_at": null,
+                "last_used_ip": null,
+                "token": "b33bde28cabcf4bbc79c3ff7b18e7a78ada210f078e4438ba3cbe67dff94f2ff4e7bd75e827ae762728bccb9553da75907dd06e66c0eaa6b013270e6da149e9f",
+                "token_type": "normal",
+                "user_id": "cfa0ce919912455f817fae26e2d416a1"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_icon": null,
+                "client_id": "http://10.0.110.10:8123/",
+                "client_name": null,
+                "created_at": "2018-08-30T19:42:02.934742+00:00",
+                "id": "a5d3e7e18be1461db69da0bb47f6c809",
+                "jwt_key": "5eba3da8d2985320aaab2e057c339abfca0024cc4aea2f4a086fcce74cfda2be6563163262dbf50fb4cd357c6bc6f4fc78b5f28c4ff238155af73bfa566fb3ad",
+                "last_used_at": null,
+                "last_used_ip": null,
+                "token": "f73409906b841ef7311fd391fc781a1f3b6f869738e7a66aaf2b2ebff96bb0770fadc03815b1b8f88f7c58fa7470d7e7a34ea04f7fd72b460107588974ecdab1",
+                "token_type": "normal",
+                "user_id": "cfa0ce919912455f817fae26e2d416a1"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_icon": null,
+                "client_id": "http://10.0.110.10:8123/",
+                "client_name": null,
+                "created_at": "2018-09-02T17:50:28.711842+00:00",
+                "id": "34b6d9a92a774940bef70fefa99046ff",
+                "jwt_key": "344d8d32673ed3fc0a85f270e7f4d5dca3e0998746fcc2662b70d5b9dd036fa9ef2266fd80967a533a3ae83bf5704c9e210a606ea284009c05260b64f45f362f",
+                "last_used_at": null,
+                "last_used_ip": null,
+                "token": "9c3cf2238887a116fa4b8eaba71f1711bff4061e4c408c2b7f4629c801acde09a698c99c2d22cd6d1540e4bfa43919cf7f64210eae82f0e6f84fd6d5b44d590b",
+                "token_type": "normal",
+                "user_id": "cfa0ce919912455f817fae26e2d416a1"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_icon": null,
+                "client_id": "http://10.0.110.10:8123/",
+                "client_name": null,
+                "created_at": "2018-08-31T17:31:35.492218+00:00",
+                "id": "7bc9e8909b6a41f499f766db9517c7ef",
+                "jwt_key": "db891819710b4418235b5e1efc5547b491460203795a32c40906904365ceab16669a9f97aa500729b17ce4255e72cadd5f1bc757e70186dbaefab981b03017e6",
+                "last_used_at": null,
+                "last_used_ip": null,
+                "token": "deaeb4e0b2374a7c711cbc9d09a59bab9d5bd93dbbc5e475e932a0239e405ff56d8697320e3f065016c99b4d2d5836a29d4b51dd0e79118f493540fbb73b1546",
+                "token_type": "normal",
+                "user_id": "cfa0ce919912455f817fae26e2d416a1"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_icon": null,
+                "client_id": "http://10.0.110.10:8123/",
+                "client_name": null,
+                "created_at": "2018-08-30T20:26:07.619617+00:00",
+                "id": "fb09d637f60e4d819d0543f72d4dcf9f",
+                "jwt_key": "dbca839d2ccc632db030f88d1379175154f27b154d85b81b34bd0fbf3d9f4897d36616928efc69a13f56629489e092afde9640da299005bf8ff710a1bd88ddd4",
+                "last_used_at": null,
+                "last_used_ip": null,
+                "token": "f9c518da9314649d0a2f082ddb2d02bb14269d308a158b6a3a1c4690bc93d1c5ed5fe976daa0538b6cce9adf054fb693965417fb6aefc6bae6e26097a8f05499",
+                "token_type": "normal",
+                "user_id": "cfa0ce919912455f817fae26e2d416a1"
+            }
+        ],
+        "users": [
+            {
+                "id": "39dae5c1a9f44ed5b392b273d91ca771",
+                "is_active": true,
+                "is_owner": true,
+                "name": "Landrash",
+                "system_generated": false
+            },
+            {
+                "id": "cfa0ce919912455f817fae26e2d416a1",
+                "is_active": true,
+                "is_owner": false,
+                "name": "Jojo",
+                "system_generated": false
+            }
+        ]
+    },
+    "key": "auth",
+    "version": 1
+}

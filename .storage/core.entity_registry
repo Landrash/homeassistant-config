@@ -1,0 +1,584 @@
+{
+    "data": {
+        "entities": [
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "switch.fibaro_system_fgwpef_wall_plug_switch",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-72057594143391744"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgwpef_wall_plug_power",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-72057594143588418"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgwpef_wall_plug_energy",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-72057594143604738"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgwpef_wall_plug_previous_reading",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-72057594143604754"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgwpef_wall_plug_interval",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-72057594143604771"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgwpef_wall_plug_power_2",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-72057594143604866"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgwpef_wall_plug_exporting",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-72057594143605248"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "climate.danfoss_z_thermostat_014g0013_heating_1",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "7-72057594160660498"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "climate.danfoss_z_thermostat_014g0013_heating_1_2",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "8-72057594177437714"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgwpef_wall_plug_power_3",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "9-72057594193936514"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgwpef_wall_plug_exporting_2",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "9-72057594193936896"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgwpef_wall_plug_power_4",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "9-72057594193920066"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "switch.fibaro_system_fgwpef_wall_plug_switch_2",
+                "name": "Cirkulationspump golvv\u00e4rme",
+                "platform": "zwave",
+                "unique_id": "9-72057594193723392"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgwpef_wall_plug_energy_2",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "9-72057594193936386"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "media_player.living_room_tv",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "22d90e6e-8c53-2740-982d-12d92bcf4571"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "binary_sensor.fibaro_system_fgms001_motion_sensor",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "4-72057594110017536"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgms001_motion_sensor_temperature",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "4-72057594110033938"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgms001_motion_sensor_luminance",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "4-72057594110033970"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgms001_motion_sensor_general",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "4-72057594111787009"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "light.fibaro_system_fgd212_dimmer_2_level",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "10-144115188248444929"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgd212_dimmer_2_power",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "10-72057594210713730"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgd212_dimmer_2_exporting",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "10-72057594210714112"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "10-72057594211745825"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgd212_dimmer_2_heat",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "10-72057594211745905"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgd212_dimmer_2_power_management",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "10-72057594211745969"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgd212_dimmer_2_system",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "10-72057594211745985"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgd212_dimmer_2_power_2",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "10-72057594210697282"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "light.fibaro_system_fgd212_dimmer_2_level_2",
+                "name": "Taklampa nedre badrum",
+                "platform": "zwave",
+                "unique_id": "10-72057594210516993"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgd212_dimmer_2_energy",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "10-72057594210713602"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgd212_dimmer_2_alarm_type",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "10-72057594211745793"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgd212_dimmer_2_alarm_level",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "10-72057594211745809"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.fibaro_system_fgms001_motion_sensor_direction",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "4-72057594110034034"
+            },
+            {
+                "config_entry_id": "e061df90d19a4723b97ee175e082b12f",
+                "device_id": null,
+                "entity_id": "media_player.master_bedroom_tv",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "f3d32547-45b6-b0d8-228d-ba9fddce09c0"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "light.tradfri_bulb_e14_ws_opal_400lm",
+                "name": "S\u00e4nglampa Fredrik",
+                "platform": "tradfri",
+                "unique_id": "light-7e0c41520440005e-65538"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "light.tradfri_bulb_e27_ws_opal_980lm_6",
+                "name": "V\u00e4gglampa Altan",
+                "platform": "tradfri",
+                "unique_id": "light-7e0c41520440005e-65547"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "light.floalt_panel_ws_60x60",
+                "name": "Taklampa tv\u00e4ttstuga",
+                "platform": "tradfri",
+                "unique_id": "light-7e0c41520440005e-65553"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "light.tradfri_bulb_e14_w_opch_400lm_2",
+                "name": "Legolampa ",
+                "platform": "tradfri",
+                "unique_id": "light-7e0c41520440005e-65540"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "light.tradfri_bulb_e27_ws_opal_980lm_9",
+                "name": null,
+                "platform": "tradfri",
+                "unique_id": "light-7e0c41520440005e-65557"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "light.tradfri_bulb_e14_w_opch_400lm_3",
+                "name": null,
+                "platform": "tradfri",
+                "unique_id": "light-7e0c41520440005e-65548"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "light.tradfri_bulb_e27_w_opal_1000lm_4",
+                "name": null,
+                "platform": "tradfri",
+                "unique_id": "light-7e0c41520440005e-65556"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "light.tradfri_bulb_e27_ws_opal_980lm_8",
+                "name": null,
+                "platform": "tradfri",
+                "unique_id": "light-7e0c41520440005e-65558"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "light.tradfri_bulb_e27_ws_clear_950lm_6",
+                "name": "Taklampa bebis rum",
+                "platform": "tradfri",
+                "unique_id": "light-7e0c41520440005e-65551"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "light.tradfri_bulb_e27_ws_opal_980lm_7",
+                "name": null,
+                "platform": "tradfri",
+                "unique_id": "light-7e0c41520440005e-65554"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "light.tradfri_bulb_e27_ws_opal_980lm_3",
+                "name": "Taklampa hall",
+                "platform": "tradfri",
+                "unique_id": "light-7e0c41520440005e-65541"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "light.tradfri_bulb_e27_cws_opal_600lm",
+                "name": "Taklampa kontor",
+                "platform": "tradfri",
+                "unique_id": "light-7e0c41520440005e-65542"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "light.tradfri_bulb_e27_w_opal_1000lm",
+                "name": null,
+                "platform": "tradfri",
+                "unique_id": "light-7e0c41520440005e-65537"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "light.tradfri_bulb_e14_ws_opal_400lm_2",
+                "name": "S\u00e4nglampa Jenny",
+                "platform": "tradfri",
+                "unique_id": "light-7e0c41520440005e-65539"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "light.tradfri_bulb_e27_ws_clear_950lm_5",
+                "name": "Taklampa hall",
+                "platform": "tradfri",
+                "unique_id": "light-7e0c41520440005e-65546"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.pws_precip_today_in",
+                "name": null,
+                "platform": "wunderground",
+                "unique_id": "@18.254960,59.248580,precip_today_in"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.pws_relative_humidity",
+                "name": null,
+                "platform": "wunderground",
+                "unique_id": "@18.254960,59.248580,relative_humidity"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.pws_temp_c",
+                "name": null,
+                "platform": "wunderground",
+                "unique_id": "@18.254960,59.248580,temp_c"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.pws_weather",
+                "name": null,
+                "platform": "wunderground",
+                "unique_id": "@18.254960,59.248580,weather"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.pws_feelslike_c",
+                "name": null,
+                "platform": "wunderground",
+                "unique_id": "@18.254960,59.248580,feelslike_c"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.pws_heat_index_c",
+                "name": null,
+                "platform": "wunderground",
+                "unique_id": "@18.254960,59.248580,heat_index_c"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "zwave.zwaveme_zme_uzb1_usb_stick",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-1"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "zwave.fibaro_system_fgms001_motion_sensor",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-4"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "zwave.danfoss_z_thermostat_014g0013",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-7"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "zwave.danfoss_z_thermostat_014g0013_2",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-8"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "zwave.fibaro_system_fgwpef_wall_plug",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-9"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "zwave.fibaro_system_fgd212_dimmer_2",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-10"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "binary_sensor.protection_window",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "59.24858_18.25496_uv_protection_window"
+            },
+            {
+                "config_entry_id": "3dc134d711584746a29f50ac032fa423",
+                "device_id": null,
+                "entity_id": "sensor.current_ozone_level",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "59.24858_18.25496_current_ozone_level"
+            },
+            {
+                "config_entry_id": "3dc134d711584746a29f50ac032fa423",
+                "device_id": null,
+                "entity_id": "sensor.skin_type_3_safe_exposure_time",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "59.24858_18.25496_safe_exposure_time_type_3"
+            },
+            {
+                "config_entry_id": "3dc134d711584746a29f50ac032fa423",
+                "device_id": null,
+                "entity_id": "sensor.current_uv_index",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "59.24858_18.25496_current_uv_index"
+            },
+            {
+                "config_entry_id": "3dc134d711584746a29f50ac032fa423",
+                "device_id": null,
+                "entity_id": "sensor.skin_type_6_safe_exposure_time",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "59.24858_18.25496_safe_exposure_time_type_6"
+            },
+            {
+                "config_entry_id": "3dc134d711584746a29f50ac032fa423",
+                "device_id": null,
+                "entity_id": "sensor.skin_type_4_safe_exposure_time",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "59.24858_18.25496_safe_exposure_time_type_4"
+            },
+            {
+                "config_entry_id": "3dc134d711584746a29f50ac032fa423",
+                "device_id": null,
+                "entity_id": "sensor.skin_type_2_safe_exposure_time",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "59.24858_18.25496_safe_exposure_time_type_2"
+            },
+            {
+                "config_entry_id": "3dc134d711584746a29f50ac032fa423",
+                "device_id": null,
+                "entity_id": "sensor.skin_type_5_safe_exposure_time",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "59.24858_18.25496_safe_exposure_time_type_5"
+            },
+            {
+                "config_entry_id": "3dc134d711584746a29f50ac032fa423",
+                "device_id": null,
+                "entity_id": "sensor.max_uv_index",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "59.24858_18.25496_max_uv_index"
+            },
+            {
+                "config_entry_id": "3dc134d711584746a29f50ac032fa423",
+                "device_id": null,
+                "entity_id": "sensor.skin_type_1_safe_exposure_time",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "59.24858_18.25496_safe_exposure_time_type_1"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.wifi_signal_sensor",
+                "name": null,
+                "platform": "mqtt",
+                "unique_id": "18fe34cd04b3-wifisignal"
+            },
+            {
+                "config_entry_id": "3dc134d711584746a29f50ac032fa423",
+                "device_id": null,
+                "entity_id": "sensor.current_uv_level",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "59.24858_18.25496_current_uv_level"
+            }
+        ]
+    },
+    "key": "core.entity_registry",
+    "version": 1
+}
