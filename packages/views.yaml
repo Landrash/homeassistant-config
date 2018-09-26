@@ -117,6 +117,7 @@ group:
       - group.zwave
       - group.notifications
       - group.pihole
+      - group.zigbee_group
 
   sensors:
     view: yes
@@ -152,6 +153,7 @@ group:
     entities:
       - group.weather_general
       - group.weather_darksky
+      - group.weather_uv
       - group.weather_wunderground
       - group.weather_yr
       - group.weather_camera

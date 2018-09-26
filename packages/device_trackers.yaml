@@ -47,6 +47,8 @@ device_tracker:
 #    community: public
 #    baseoid: !secret unifi_edge_baseoid
 
+#  - platform: bluetooth_le_tracker
+
 ################################################
 ## Camera
 ################################################
@@ -66,7 +68,7 @@ device_tracker:
 ## Sensor
 ################################################
 
-sensor:
+# sensor:
 #  - platform: mqtt
 #    state_topic: "owntracks/hassHibbleLandrashMobile/landrash"
 #    unit_of_measurement: "%"
@@ -79,17 +81,17 @@ sensor:
 #    value_template: '{{ value_json.batt }}'
 #    name: "Battery Samsung A3"
 
-  - platform: google_travel_time
-    name: 'Landrash To Home'
-    api_key: !secret google_api_key
-    origin: device_tracker.google_maps_111139059226501305048
-    destination: zone.home
+#  - platform: google_travel_time
+#    name: 'Landrash To Home'
+#    api_key: !secret google_api_key
+#    origin: device_tracker.google_maps_111139059226501305048
+#    destination: zone.home
 
-  - platform: google_travel_time
-    name: 'Jojo To Home'
-    api_key: !secret google_api_key
-    origin: device_tracker.google_maps_105177297270781888222
-    destination: zone.home
+#  - platform: google_travel_time
+#    name: 'Jojo To Home'
+#    api_key: !secret google_api_key
+#    origin: device_tracker.google_maps_105177297270781888222
+#    destination: zone.home
 
 ################################################
 ## Map

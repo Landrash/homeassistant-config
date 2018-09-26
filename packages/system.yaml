@@ -103,6 +103,7 @@ group:
       - sensor.ha_version
       - sensor.ha_github_version
       - sensor.ha_pypi_version
+      - sensor.rpi_power_status
 
 ################################################
 ## Sensor
@@ -145,8 +146,10 @@ sensor:
       {{ value_json.info.version }}
     scan_interval: 1800
 
+  - platform: rpi_power
+
 ################################################
-## DNS & SSL
+## Workday
 ################################################
 
 binary_sensor:
@@ -156,9 +159,39 @@ binary_sensor:
 ################################################
 ## DNS & SSL
 ################################################
+
 duckdns:
   domain: !secret duckdns_domain
   access_token: !secret duckdns_token
+
+################################################
+## Python scripts
+################################################
+
+python_script:
+
+script:
+  scan_orphans:
+    alias: Scan ungrouped Orphans
+    sequence:
+      - service: python_script.scan_orphans
+        data:
+          ignore_items:
+            - sensor.ghosts_sensor
+            - sensor.orphans_sensor
+            - sensor.orphans_badge
+          ignore_domains:
+            - scene
+            - zwave
+            - weblink
+  light_counter:
+    alias: Lights on
+    sequence:
+      - service: python_script.light_counter
+  populate_catchall_group:
+    alias: Group ungrouped entities
+    sequence:
+      - service: python_script.populate_catchall_group
 
 ################################################
 ## Base Components

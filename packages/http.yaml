@@ -7,15 +7,15 @@
 ################################################
 
 homeassistant:
-#  customize:
+# Authentication provider
+  auth_providers:
+   - type: homeassistant
 
 ################################################
 ## HTTP
 ################################################
 
 http:
-  api_password: !secret http_api_password
   base_url: !secret http_base_url
-  use_x_forwarded_for: true
   ip_ban_enabled: true
   login_attempts_threshold: 3

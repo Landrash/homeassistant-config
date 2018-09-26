@@ -33,6 +33,10 @@ homeassistant:
       <<: *customize
       friendly_name: "General"
 
+    group.uv:
+      <<: *customize
+      friendly_name: "OpenUV"
+
     group.weather_wunderground:
       <<: *customize
       friendly_name: "Weather Underground"
@@ -147,6 +151,20 @@ group:
     entities:
       - weather.dark_sky
 
+  weather_uv:
+    control: hidden
+    entities:
+      - binary_sensor.protection_window
+      - sensor.current_ozone_level
+      - sensor.current_uv_index
+      - sensor.max_uv_index
+      - sensor.skin_type_1_safe_exposure_time
+      - sensor.skin_type_2_safe_exposure_time
+      - sensor.skin_type_3_safe_exposure_time
+      - sensor.skin_type_4_safe_exposure_time
+      - sensor.skin_type_5_safe_exposure_time
+      - sensor.skin_type_6_safe_exposure_time
+
   weather_wunderground:
     control: hidden
     entities:
@@ -207,6 +225,11 @@ sensor:
   - platform: moon
 
 sun:
+
+openuv:
+  api_key: !secret openuv_api_key
+
+
 
 ################################################
 ## Weather Forecast

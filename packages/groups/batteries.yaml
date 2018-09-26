@@ -112,6 +112,19 @@ history_graph:
       - sensor.plantmonitor2_battery
       - sensor.plantmonitor3_battery
       - sensor.plantmonitor4_battery
+      - sensor.motion_sensor_walkin_closet_battery
+      - sensor.tradfri_controll_bedroom_battery
+      - sensor.motion_sensor_entry_battery
+      - sensor.tradfri_controll_babys_room_battery
+      - sensor.spathiphyllum_kochii_battery
+      - sensor.motion_sensor_laundry_room_battery
+      - sensor.fibaro_system_fgms001_motion_sensor_battery
+      - sensor.capsicum_bomba_red_battery
+      - sensor.cherry_tomato_battery
+      - sensor.danfoss_z_thermostat_014g0013_battery
+      - sensor.tradfri_controll_living_room_battery
+      - sensor.xiaomi_vacuum_cleaner_battery
+      - sensor.spathiphyllum_gold_cupid_battery
     hours_to_show: 24
     refresh: 60
 
@@ -133,5 +146,18 @@ group:
       - sensor.plantmonitor2_battery
       - sensor.plantmonitor3_battery
       - sensor.plantmonitor4_battery
+      - sensor.motion_sensor_walkin_closet_battery
+      - sensor.tradfri_controll_bedroom_battery
+      - sensor.motion_sensor_entry_battery
+      - sensor.tradfri_controll_babys_room_battery
+      - sensor.spathiphyllum_kochii_battery
+      - sensor.motion_sensor_laundry_room_battery
+      - sensor.fibaro_system_fgms001_motion_sensor_battery
+      - sensor.capsicum_bomba_red_battery
+      - sensor.cherry_tomato_battery
+      - sensor.danfoss_z_thermostat_014g0013_battery
+      - sensor.tradfri_controll_living_room_battery
+      - sensor.xiaomi_vacuum_cleaner_battery
+      - sensor.spathiphyllum_gold_cupid_battery
       - sensor.low_battery
       - history_graph.batteries_graph

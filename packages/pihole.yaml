@@ -46,9 +46,10 @@ group:
       - sensor.pihole_dns_queries_cached
       - sensor.pihole_dns_queries_forwarded
       - sensor.pihole_dns_queries_today
-      - sensor.pihole_dns_unique_clients
       - sensor.pihole_dns_unique_domains
       - sensor.pihole_domains_blocked
+      - sensor.pihole_dns_unique_clients
+      - sensor.pihole_seen_clients
 
 ################################################
 ## Sensors
@@ -57,3 +58,13 @@ group:
 sensor:
   - platform: pi_hole
     host: localhost
+    monitored_conditions:
+      - ads_blocked_today
+      - ads_percentage_today
+      - dns_queries_today
+      - domains_being_blocked
+      - queries_cached
+      - queries_forwarded
+      - unique_clients
+      - unique_domains
+      - clients_ever_seen

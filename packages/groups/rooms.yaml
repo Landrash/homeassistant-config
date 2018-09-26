@@ -123,6 +123,7 @@ group:
       - light.tradfri_bulb_e27_w_opal_1000lm_4
       - light.floor_light
       - media_player.living_room_tv
+      - media_player.kodi_master_bedroom_host
 
   master_bedroom:
     control: hidden
