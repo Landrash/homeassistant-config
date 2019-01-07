@@ -14,7 +14,7 @@ homeassistant:
 
     package.node_anchors:
       customize: &customize
-        package: 'automation_light_forgotten'
+        package: 'automation_lights_forgotten'
 
       expose: &expose
         <<: *customize
@@ -93,12 +93,6 @@ automation:
           - light.tradfri_bulb_e27_ws_opal_980lm_7
           - light.tradfri_bulb_e27_ws_opal_980lm_8
           - light.tradfri_bulb_e27_ws_opal_980lm_9
-          - light.sonoffs201
-          - light.sonoffs202
-          - light.rgb_christmas_tree
-          - light.onboard_led_christmas_tree
-          - light.blue_balls
-          - light.onboard_led_blue_balls
 
   - alias: lights_forgotten_time_morning_off
     trigger:
@@ -106,7 +100,7 @@ automation:
         value_template: "{{ states.sensor.time.state == (states.input_datetime.lights_decorative_time_morning_on.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
       - platform: sun
         event: sunrise
-        offset: '-00:15:00'
+        offset: '-00:30:00'
     condition:
       condition: or
       conditions:
@@ -132,12 +126,7 @@ automation:
           - light.tradfri_bulb_e27_ws_opal_980lm_7
           - light.tradfri_bulb_e27_ws_opal_980lm_8
           - light.tradfri_bulb_e27_ws_opal_980lm_9
-          - light.sonoffs201
-          - light.sonoffs202
           - light.rgb_christmas_tree
-          - light.onboard_led_christmas_tree
-          - light.blue_balls
-          - light.onboard_led_blue_balls
 
 ################################################
 ## Input Date/time

@@ -34,18 +34,6 @@ homeassistant:
     ## Sensor
     ################################################
 
-    sensor.openmqttgateway1_humidity:
-      <<: *customize
-      friendly_name: "Humidity Living Room"
-      hidden: false
-      icon: mdi:thermometer
-
-    sensor.openmqttgateway2_humidity:
-      <<: *customize
-      friendly_name: "Humidity Geek Room"
-      hidden: false
-      icon: mdi:thermometer
-
 ################################################
 ## Graph
 ################################################
@@ -54,8 +42,8 @@ history_graph:
   humidity:
     name: 'Humidity Graph'
     entities:
-      - sensor.living_room_humidity
-      - sensor.geek_room_humidity
+      - sensor.climate_bathroom_upstairs_humidity
+      - sensor.climate_master_bedroom_humidity
     hours_to_show: 24
     refresh: 60
 
@@ -67,6 +55,6 @@ group:
   humidity:
     control: hidden
     entities:
-      - sensor.living_room_humidity
-      - sensor.geek_room_humidity
+      - sensor.climate_bathroom_upstairs_humidity
+      - sensor.climate_master_bedroom_humidity
       - history_graph.humidity_graph

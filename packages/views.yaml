@@ -35,6 +35,11 @@ homeassistant:
       friendly_name: "Cameras"
       icon: mdi:camcorder
 
+    group.robot:
+      <<: *customize
+      friendly_name: "Robots"
+      icon: mdi:robot-vacuum
+
     group.default_view:
       <<: *customize
       friendly_name: "Home"
@@ -88,7 +93,6 @@ group:
   default_view:
     view: yes
     entities:
-      - group.robot_vacuum
       - group.bathroom_entry
       - group.back_porch
       - group.entry
@@ -99,7 +103,7 @@ group:
       - group.living_room
       - group.master_bedroom
       - group.second_bedroom
-      - group.geek_room
+      - group.office
       - group.walkin_closet
 
   household:
@@ -107,6 +111,11 @@ group:
     entities:
       - group.family
       - group.guests
+
+  robot:
+    view: yes
+    entities:
+      - group.robot_vacuum
 
   network:
     view: yes
@@ -124,17 +133,23 @@ group:
     entities:
       - group.batteries
       - group.temperature
-      - group.thermostat
+      - group.heating
       - group.humidity
+      - group.pressure
       - group.motion
       - group.plants
       - group.light_sensors
       - group.power_monitors
+      - group.fire_alarm
+      - group.water_alarm
+      - group.buttons
+      - group.multiaxis
 
   media:
     view: yes
     entities:
       - group.media_players
+      - group.radio
 
   automation:
     view: yes
@@ -142,11 +157,13 @@ group:
       - group.automation_override
       - group.timer_lights_exterior
       - group.timer_lights_decorative
+      - group.timer_lights_master_bedroom
+      - group.timer_lights_kitchen
       - group.automation_lights_motion_entry_bathroom
       - group.timer_lights_forgotten
+      - group.notification_door_chime
       - group.battery_alert
-#      - group.all_automations
-#      - group.all_scripts
+      - group.monitor_bluetooth
 
   weather:
     view: yes
@@ -156,4 +173,18 @@ group:
       - group.weather_uv
       - group.weather_wunderground
       - group.weather_yr
+      - group.weather_smhi
       - group.weather_camera
+
+  unwanted:
+    view: no
+    entities:
+      - group.all_automations
+      - group.all_lights
+      - group.all_plants
+      - group.all_devices
+      - group.all_scripts
+      - group.all_switches
+      - group.all_vacuum_cleaners
+      - group.plants_source
+      - group.zwave_hidden

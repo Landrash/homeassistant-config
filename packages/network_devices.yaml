@@ -29,29 +29,21 @@ homeassistant:
       <<: *customize
       friendly_name: "Chromecast (Master Bedroom)"
 
+    binary_sensor.net_google_home_mini_kitchen:
+      <<: *customize
+      friendly_name: "Google Home Mini (Kitchen)"
+
+    binary_sensor.net_google_home_mini_office:
+      <<: *customize
+      friendly_name: "Google Home Mini (Office)"
+
     binary_sensor.net_kodi_master_bedroom:
       <<: *customize
       friendly_name: "Kodi (Master Bedroom)"
 
-    binary_sensor.tradfrigateway:
+    binary_sensor.net_tradfrigateway:
       <<: *customize
-      friendly_name: "IKEA Tradfri"
-
-    device_tracker.net_raspberry_pi:
-      <<: *customize
-      friendly_name: "Raspberry Pi"
-
-################################################
-## Group
-################################################
-
-    group.network_devices:
-      <<: *customize
-      friendly_name: "Network Devices"
-
-    ################################################
-    ## Binary Sensor
-    ################################################
+      friendly_name: "IKEA Tradfri Gateway"
 
     binary_sensor.xiaomi_miio_vacuum:
       <<: *customize
@@ -61,21 +53,26 @@ homeassistant:
 ## Group
 ################################################
 
+    group.network_devices:
+      <<: *customize
+      friendly_name: "Network Devices"
+
+################################################
+## Group
+################################################
+
 group:
   network_devices:
     control: hidden
     entities:
-      - binary_sensor.tradfrigateway
+      - binary_sensor.net_tradfrigateway
       - binary_sensor.net_chromecast_living_room
       - binary_sensor.net_chromecast_master_bedroom
       - binary_sensor.net_kodi_master_bedroom
       - binary_sensor.xiaomi_miio_vacuum
-      - binary_sensor.geek_room_sensornode_status
-      - binary_sensor.living_room_sensornode_status
-      - binary_sensor.blue_balls_status
       - binary_sensor.rgb_christmas_tree_status
-      - binary_sensor.floor_light_status
-      - binary_sensor.table_fan_status
+      - binary_sensor.net_google_home_mini_kitchen
+      - binary_sensor.net_google_home_mini_office
       - history_graph.network_wired
       - history_graph.network_wireless
 
@@ -89,7 +86,7 @@ group:
       - zwave.danfoss_z_thermostat_014g0013
       - zwave.danfoss_z_thermostat_014g0013_2
       - zwave.danfoss_z_thermostat_014g0013_3
-      - history_graph.zwave
+      - history_graph.zwave_devices
 
 ################################################
 ## Sensor
@@ -97,8 +94,8 @@ group:
 
 #sensor:
 #  - platform: snmp
-#    host: !secret unifi_edge_host
-##    community: !secret unifi_community
+#      host: !secret unifi_ubiquiti_ap1_host
+#      community: !secret unifi_community
 
 ################################################
 ## Sensor
@@ -108,7 +105,7 @@ history_graph:
   network_wired:
     name: 'Network Wired'
     entities:
-      - binary_sensor.tradfrigateway
+      - binary_sensor.net_tradfrigateway
     hours_to_show: 72
     refresh: 60
   network_wireless:
@@ -118,12 +115,9 @@ history_graph:
       - binary_sensor.net_chromecast_master_bedroom
       - binary_sensor.net_kodi_master_bedroom
       - binary_sensor.xiaomi_miio_vacuum
-      - binary_sensor.geek_room_sensornode_status
-      - binary_sensor.living_room_sensornode_status
-      - binary_sensor.blue_balls_status
       - binary_sensor.rgb_christmas_tree_status
-      - binary_sensor.floor_light_status
-      - binary_sensor.table_fan_status
+      - binary_sensor.net_google_home_mini_kitchen
+      - binary_sensor.net_google_home_mini_office
     hours_to_show: 72
     refresh: 60
   zwave:
@@ -146,7 +140,7 @@ history_graph:
 binary_sensor:
   - platform: ping
     host: !secret tradfri_host
-    name: tradfrigateway
+    name: net_tradfrigateway
   - platform: ping
     host: !secret vacuum_miio_host
     name: xiaomi_miio_vacuum
@@ -159,3 +153,9 @@ binary_sensor:
   - platform: ping
     host: !secret kodi_master_bedroom_host
     name: net_kodi_master_bedroom
+  - platform: ping
+    host: !secret google_home_mini_office
+    name: net_google_home_mini_office
+  - platform: ping
+    host: !secret google_home_mini_kitchen
+    name: net_google_home_mini_kitchen

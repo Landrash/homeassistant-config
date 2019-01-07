@@ -85,3 +85,4 @@ group:
       - sensor.fibaro_system_fgwpef_wall_plug_exporting_2
       - sensor.fibaro_system_fgms001_motion_sensor_general
       - sensor.fibaro_system_fgms001_motion_sensor_direction
+      - sensor.fibaro_system_fgd212_dimmer_2_velocity

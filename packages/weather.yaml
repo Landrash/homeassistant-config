@@ -45,9 +45,10 @@ homeassistant:
       <<: *customize
       friendly_name: "YR"
 
-    group.weather_camera:
+    group.weather_smhi:
       <<: *customize
-      friendly_name: "Weather Forecasts"
+      friendly_name: "Weather SMHI"
+
 
     ################################################
     ## Sensor
@@ -157,6 +158,7 @@ group:
       - binary_sensor.protection_window
       - sensor.current_ozone_level
       - sensor.current_uv_index
+      - sensor.current_uv_level
       - sensor.max_uv_index
       - sensor.skin_type_1_safe_exposure_time
       - sensor.skin_type_2_safe_exposure_time
@@ -175,6 +177,11 @@ group:
       - sensor.pws_temp_c
       - sensor.pws_weather
 
+  weather_smhi:
+    control: hidden
+    entities:
+      - weather.smhi_home
+
   weather_yr:
     control: hidden
     entities:
@@ -182,11 +189,6 @@ group:
       - sensor.yr_humidity
       - sensor.yr_precipitation
       - sensor.yr_temperature
-
-  weather_camera:
-    control: hidden
-    entities:
-      - camera.weather_forecast_advanced
 
 ################################################
 ## Sensor
@@ -226,20 +228,14 @@ sensor:
 
 sun:
 
-openuv:
-  api_key: !secret openuv_api_key
+#openuv:
+#  api_key: !secret openuv_api_key
 
 
 
 ################################################
 ## Weather Forecast
 ################################################
-
-camera:
-  - platform: generic
-    still_image_url: !secret forecast_home_image_advanced
-    name: Weather Forecast Advanced
-    content_type: image/svg+xml
 
 weather:
   - platform: darksky

@@ -14,7 +14,7 @@ homeassistant:
 
     package.node_anchors:
       customize: &customize
-        package: 'automation_light_exterior'
+        package: 'automation_lights_exterior'
 
       expose: &expose
         <<: *customize
@@ -83,6 +83,8 @@ automation:
     action:
       - service: homeassistant.turn_off
         entity_id: group.back_porch
+      - service: homeassistant.turn_off
+        entity_id: group.front_porch
 
   - alias: lights_exterior_time_night_on
     trigger:
@@ -104,7 +106,13 @@ automation:
       - service: light.turn_on
         data:
           entity_id: group.back_porch
-          brightness_pct: '40'
+          brightness: '90'
+          color_temp: '454'
+      - service: homeassistant.turn_on
+        entity_id: group.back_porch
+      - service: homeassistant.turn_on
+        entity_id: group.front_porch
+
 
 ################################################
 ## Input Date/time

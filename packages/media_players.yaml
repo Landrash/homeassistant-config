@@ -37,7 +37,6 @@ homeassistant:
       <<: *customize
       friendly_name: "Kodi Sovrum"
 
-
 ################################################
 ## Group
 ################################################
@@ -47,6 +46,57 @@ group:
     entities:
       - media_player.living_room_tv
       - media_player.master_bedroom_tv
+      - media_player.kodi_master_bedroom_host
+      - media_player.koks_hogtalare
+      - media_player.kontor
+  radio:
+    control: hidden
+    entities:
+    - input_select.chromecast_radio_station
+    - input_text.custom_station
+    - input_select.chromecast_radio_speakers
+    - input_number.volume_radio
+    - script.play_chromecast_radio
+    - script.stop_chromecast_radio
+
+################################################
+## Inputs
+################################################
+
+input_select:
+  chromecast_radio_station:
+    name: 'Select Radio Station'
+    options:
+      - Absolute Radio Classic Rock
+      - RealXS Manchester
+      - Capital UK
+      - Custom Station
+    icon: mdi:radio
+
+  chromecast_radio_speakers:
+    name: 'Select Speakers'
+    options:
+      - Kitchen
+      - Office
+      - Bedroom
+      - LivingRoom
+      - All
+    initial: LivingRoom
+    icon: mdi:speaker-wireless
+
+input_text:
+  custom_station:
+    name: Radio URL
+    icon: mdi:link-variant
+
+input_number:
+  volume_radio:
+    name: Volume
+    icon: mdi:volume-high
+    initial: 0.3
+    min: 0
+    max: 1
+    step: 0.05
 
 ################################################
 ## Media Players
@@ -56,6 +106,8 @@ cast:
   media_player:
   - host: !secret chromecast_living_room_host
   - host: !secret chromecast_master_bedroom_host
+  - host: !secret google_home_mini_kitchen
+  - host: !secret google_home_mini_office
 
 media_player:
   - platform: kodi
@@ -80,3 +132,59 @@ media_player:
         addonid: script.json-cec
         params:
           command: standby
+
+  ################################################
+  ## Script
+  ################################################
+
+script:
+  update_library:
+    alias: Update Kodi Library
+    sequence:
+      - alias: Call Kodi update
+        service: media_player.kodi_call_method
+        data:
+          entity_id: media_player.kodi
+          method: VideoLibrary.Scan
+  play_chromecast_radio:
+    alias: Cast Selected Radio on Chromecast Speakers
+    sequence:
+      - service: media_player.volume_set
+        data_template:
+          entity_id: >
+            {% if is_state("input_select.chromecast_radio_speakers", "LivingRoom") %} media_player.living_room_tv
+            {% elif is_state("input_select.chromecast_radio_speakers", "Bedroom") %} media_player.master_bedroom_tv
+            {% elif is_state("input_select.chromecast_radio_speakers", "Kitchen") %} media_player.koks_hogtalare
+            {% elif is_state("input_select.chromecast_radio_speakers", "Office") %} media_player.kontor
+            {% elif is_state("input_select.chromecast_radio_speakers", "All") %} media_player.home_group
+            {% endif %}
+          volume_level: '{{  states.input_number.volume_radio.state  }}'
+      - service: media_player.play_media
+        data_template:
+          entity_id: >
+            {% if is_state("input_select.chromecast_radio_speakers", "LivingRoom") %} media_player.living_room_tv
+            {% elif is_state("input_select.chromecast_radio_speakers", "Bedroom") %} media_player.master_bedroom_tv
+            {% elif is_state("input_select.chromecast_radio_speakers", "Kitchen") %} media_player.koks_hogtalare
+            {% elif is_state("input_select.chromecast_radio_speakers", "Office") %} media_player.kontor
+            {% elif is_state("input_select.chromecast_radio_speakers", "All") %} media_player.home_group
+            {% endif %}
+          media_content_id: >
+            {% if is_state("input_select.chromecast_radio_station", "Absolute Radio Classic Rock") %} http://icy-e-bab-04-cr.sharp-stream.com/absoluteclassicrock.mp3
+            {% elif is_state("input_select.chromecast_radio_station", "RealXS Manchester") %} http://media-ice.musicradio.com:80/RealXSManchesterMP3
+            {% elif is_state("input_select.chromecast_radio_station", "Capital UK") %} http://media-ice.musicradio.com:80/CapitalUKMP3
+            {% elif is_state("input_select.chromecast_radio_station", "Custom Station") %} {{states.input_text.custom_station.state}}
+            {% endif %}
+          media_content_type: 'audio/mp4'
+
+  stop_chromecast_radio:
+    alias: Stop Playing Radio on ChromeCast
+    sequence:
+      - service: media_player.turn_off
+        data_template:
+          entity_id: >
+            {% if is_state("input_select.chromecast_radio_speakers", "LivingRoom") %} media_player.living_room_speaker
+            {% elif is_state("input_select.chromecast_radio_speakers", "Bedroom") %} media_player.bedroom_speaker
+            {% elif is_state("input_select.chromecast_radio_speakers", "TV") %} media_player.chromecast0899
+            {% elif is_state("input_select.chromecast_radio_speakers", "Volumio Radio") %} media_player.volumio
+            {% elif is_state("input_select.chromecast_radio_speakers", "All") %} media_player.home_group
+            {% endif %}

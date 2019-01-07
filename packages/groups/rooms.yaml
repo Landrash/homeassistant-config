@@ -69,7 +69,7 @@ homeassistant:
       <<: *customize
       friendly_name: "Babys Room"
 
-    group.geek_room:
+    group.office:
       <<: *customize
       friendly_name: "Geek Room"
 
@@ -86,7 +86,8 @@ group:
   back_porch:
     control: hidden
     entities:
-      - light.tradfri_bulb_e27_ws_opal_980lm_6
+      - light.tradfri_bulb_e27_ws_opal_980lm_6_2
+      - switch.tradfri_control_outlet
 
   entry:
     control: hidden
@@ -96,44 +97,41 @@ group:
   front_porch:
     control: hidden
     entities:
-      - light.front_porch
+      - light.christmas_lights_front
 
   hallway:
     control: hidden
     entities:
-      - light.tradfri_bulb_e27_ws_opal_980lm_3
+      - light.light_stairs_celling
 
   kitchen:
     control: hidden
     entities:
-      - light.tradfri_bulb_e27_ws_opal_980lm_7
-      - light.tradfri_bulb_e27_ws_opal_980lm_8
-      - light.tradfri_bulb_e27_ws_opal_980lm_9
+      - light.tradfri_bulb_e14_w_opch_400lm_2_2
+      - light.tradfri_bulb_e14_w_opch_400lm_3_2
+      - media_player.koks_hogtalare
 
   laundry_room:
     control: hidden
     entities:
       - light.floalt_panel_ws_60x60
-      - switch.fibaro_system_fgwpef_wall_plug_switch_2
 
   living_room:
     control: hidden
     entities:
-      - light.tradfri_bulb_e14_w_opch_400lm_3
-      - light.tradfri_bulb_e27_w_opal_1000lm_4
-      - light.floor_light
+      - light.light_livingroom_diningtable
+      - light.tradfri_bulb_e14_ws_opal_400lm_7
       - media_player.living_room_tv
-      - media_player.kodi_master_bedroom_host
 
   master_bedroom:
     control: hidden
     entities:
       - light.tradfri_bulb_e14_ws_opal_400lm
       - light.tradfri_bulb_e14_ws_opal_400lm_2
-      - switch.table_fan
       - light.rgb_christmas_tree
       - scene.good_night
       - media_player.master_bedroom_tv
+      - media_player.kodi_master_bedroom_host
 
   walkin_closet:
     control: hidden
@@ -143,12 +141,11 @@ group:
   second_bedroom:
     control: hidden
     entities:
-      - light.tradfri_bulb_e27_ws_clear_950lm_6
-      - light.blue_balls
+      - light.light_second_bedroom_celling
+      - light.christmas_star
 
-  geek_room:
+  office:
     control: hidden
     entities:
-      - light.tradfri_bulb_e14_w_opch_400lm_2
-      - light.tradfri_bulb_e27_cws_opal_600lm
-      - light.living_room_sensornode_light
+      - light.light_office_celling
+      - media_player.kontor

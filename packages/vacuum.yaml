@@ -48,8 +48,8 @@ group:
     entities:
       - vacuum.xiaomi_vacuum_cleaner
       - input_select.vacuum_room
-      - binary_sensor.vacuum_room
       - sensor.xiaomi_vacuum_cleaner_status
+      - camera.vacuum_map
 
   ################################################
   ## Vacuum
@@ -73,6 +73,17 @@ input_select:
       - Kitchen Counter
       - Dining Room
       - Living Room
+
+  ################################################
+  ## Camera / Map
+  ################################################
+
+camera:
+  - platform: generic
+    name: Vacuum Map
+    still_image_url: !secret vacuum_miio_map
+    content_type: image/png
+    framerate: 1
 
   ################################################
   ## Sensor

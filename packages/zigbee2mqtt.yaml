@@ -45,6 +45,8 @@ group:
       - automation.enable_zigbee_joining
       - automation.disable_zigbee_joining
       - automation.disable_zigbee_joining_by_timer
+      - input_select.zigbee2mqtt_log_level
+      - automation.zigbee2mqtt_log_level
 
 #####################################################################
 #input_boolean:
@@ -54,16 +56,29 @@ input_boolean:
     name: Allow devices to join
     initial: off
     icon: mdi:cellphone-wireless
+###########################################################
+##input_select
+###########################################################
+#input_select.zigbee2mqtt_debug_level
+input_select:
+  zigbee2mqtt_log_level:
+    name: Zigbee2mqtt Log Level
+    options:
+     - debug
+     - info
+     - warn
+     - error
+    initial: info
+    icon: mdi:format-list-bulleted
+
 #####################################################################
 #timer:
 #####################################################################
 timer:
   zigbee_permit_join:
     name: Time remaining
-    duration: 120
-#
-#120 sec=2min
-#Updated this to the number of seconds you wish
+    duration: 180
+
 #####################################################################
 ##sensor:
 #####################################################################
@@ -72,6 +87,7 @@ sensor:
     name: Bridge state
     state_topic: "zigbee2mqtt/bridge/state"
     icon: mdi:router-wireless
+
 ####################################################################
 #switch:
 #####################################################################
@@ -88,7 +104,29 @@ switch:
 #automation:
 ################################################################
 automation:
-#
+#automation.zigbee2mqtt_log_level
+  - id: zigbee2mqtt_log_level
+    alias: Zigbee2mqtt Log Level
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_select.zigbee2mqtt_log_level
+        to: debug
+      - platform: state
+        entity_id: input_select.zigbee2mqtt_log_level
+        to: warn
+      - platform: state
+        entity_id: input_select.zigbee2mqtt_log_level
+        to: error
+      - platform: state
+        entity_id: input_select.zigbee2mqtt_log_level
+        to: info
+    action:
+      - service: mqtt.publish
+        data:
+          payload_template: '{{ states(''input_select.zigbee2mqtt_log_level'') }}'
+          topic: zigbee2mqtt/bridge/config/log_level
+ 
   - id: enable_zigbee_join
     alias: Enable Zigbee joining
     hide_entity: true

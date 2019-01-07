@@ -70,6 +70,24 @@ homeassistant:
       hidden: false
       icon: mdi:battery
 
+    sensor.tradfri_motion_sensor_4:
+      <<: *customize
+      friendly_name: "Motion Sensor Storage Boxes"
+      hidden: false
+      icon: mdi:battery
+
+    sensor.tradfri_motion_sensor_5:
+      <<: *customize
+      friendly_name: "Motion Sensor Storage Tools"
+      hidden: false
+      icon: mdi:battery
+
+    sensor.fibaro_system_fgms001_motion_sensor_battery:
+      <<: *customize
+      friendly_name: "Motion Sensor Entry Bathroom"
+      hidden: false
+      icon: mdi:battery
+
     sensor.plantmonitor1_battery:
       <<: *customize
       friendly_name: "Spathiphyllum Kochii"
@@ -108,23 +126,21 @@ history_graph:
       - sensor.tradfri_motion_sensor
       - sensor.tradfri_motion_sensor_2
       - sensor.tradfri_motion_sensor_3
+      - sensor.tradfri_motion_sensor_4
+      - sensor.tradfri_motion_sensor_5
+      - sensor.fibaro_system_fgms001_motion_sensor_battery
       - sensor.plantmonitor1_battery
       - sensor.plantmonitor2_battery
       - sensor.plantmonitor3_battery
       - sensor.plantmonitor4_battery
-      - sensor.motion_sensor_walkin_closet_battery
-      - sensor.tradfri_controll_bedroom_battery
-      - sensor.motion_sensor_entry_battery
-      - sensor.tradfri_controll_babys_room_battery
       - sensor.spathiphyllum_kochii_battery
-      - sensor.motion_sensor_laundry_room_battery
-      - sensor.fibaro_system_fgms001_motion_sensor_battery
+      - sensor.spathiphyllum_gold_cupid_battery
       - sensor.capsicum_bomba_red_battery
       - sensor.cherry_tomato_battery
       - sensor.danfoss_z_thermostat_014g0013_battery
-      - sensor.tradfri_controll_living_room_battery
+      - sensor.danfoss_z_thermostat_014g0013_battery_2
+      - sensor.danfoss_z_thermostat_014g0013_battery_3
       - sensor.xiaomi_vacuum_cleaner_battery
-      - sensor.spathiphyllum_gold_cupid_battery
     hours_to_show: 24
     refresh: 60
 
@@ -142,22 +158,19 @@ group:
       - sensor.tradfri_motion_sensor
       - sensor.tradfri_motion_sensor_2
       - sensor.tradfri_motion_sensor_3
+      - sensor.tradfri_motion_sensor_4
+      - sensor.tradfri_motion_sensor_5
+      - sensor.fibaro_system_fgms001_motion_sensor_battery
       - sensor.plantmonitor1_battery
       - sensor.plantmonitor2_battery
       - sensor.plantmonitor3_battery
       - sensor.plantmonitor4_battery
-      - sensor.motion_sensor_walkin_closet_battery
-      - sensor.tradfri_controll_bedroom_battery
-      - sensor.motion_sensor_entry_battery
-      - sensor.tradfri_controll_babys_room_battery
       - sensor.spathiphyllum_kochii_battery
-      - sensor.motion_sensor_laundry_room_battery
-      - sensor.fibaro_system_fgms001_motion_sensor_battery
+      - sensor.spathiphyllum_gold_cupid_battery
       - sensor.capsicum_bomba_red_battery
       - sensor.cherry_tomato_battery
       - sensor.danfoss_z_thermostat_014g0013_battery
-      - sensor.tradfri_controll_living_room_battery
+      - sensor.danfoss_z_thermostat_014g0013_battery_2
+      - sensor.danfoss_z_thermostat_014g0013_battery_3
       - sensor.xiaomi_vacuum_cleaner_battery
-      - sensor.spathiphyllum_gold_cupid_battery
-      - sensor.low_battery
       - history_graph.batteries_graph
