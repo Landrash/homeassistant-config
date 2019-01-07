@@ -1,0 +1,81 @@
+###############################################################
+## Packages / Groups / Heating
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'heating'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Group
+    ################################################
+    group.heating:
+      <<: *customize
+      friendly_name: "Heating"
+      icon: mdi:thermostat
+
+    ################################################
+    ## Sensor
+    ################################################
+
+    ################################################
+    ## Thermostat
+    ################################################
+
+    climate.danfoss_z_thermostat_014g0013_heating_1:
+      <<: *customize
+      friendly_name: "Thermostat Kitchen"
+      hidden: false
+
+    climate.danfoss_z_thermostat_014g0013_heating_1_2:
+      <<: *customize
+      friendly_name: "Thermostat Living Room Small Window"
+      hidden: false
+
+    climate.danfoss_z_thermostat_014g0013_heating_1_3:
+      <<: *customize
+      friendly_name: "Thermostat Living Room Large Window"
+      hidden: false
+
+################################################
+## Graph
+################################################
+
+history_graph:
+  thermostat:
+    name: 'Thermostat Graph'
+    entities:
+      - climate.danfoss_z_thermostat_014g0013_heating_1
+      - climate.danfoss_z_thermostat_014g0013_heating_1_2
+      - climate.danfoss_z_thermostat_014g0013_heating_1_3
+    hours_to_show: 24
+    refresh: 60
+
+################################################
+## Group
+################################################
+
+group:
+  heating:
+    control: hidden
+    entities:
+      - climate.danfoss_z_thermostat_014g0013_heating_1
+      - climate.danfoss_z_thermostat_014g0013_heating_1_2
+      - climate.danfoss_z_thermostat_014g0013_heating_1_3
+      - switch.fibaro_system_fgwpef_wall_plug_switch_2
+      - history_graph.thermostat_graph

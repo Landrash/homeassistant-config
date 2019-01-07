@@ -1,0 +1,124 @@
+################################################################
+## Packages / Lights Kitchen
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'automation_lights_kitchen'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Automation
+    ################################################
+
+    automation.lights_kitchen_time_night_on:
+      <<: *customize
+      friendly_name: "Kitchen Lights Timer On"
+      icon: mdi:lightbulb
+
+    automation.lights_kitchen_time_night_off:
+      <<: *customize
+      friendly_name: "Kitchen Lights Timer Off"
+      icon: mdi:lightbulb
+
+    ################################################
+    ## Input Select
+    ################################################
+
+    input_datetime.lights_kitchen_time_night_off:
+      <<: *customize
+      friendly_name: "Kitchen Lights Night Time Off"
+
+    input_datetime.lights_kitchen_time_morning_on:
+      <<: *customize
+      friendly_name: "Kitchen Lights Morning Time On"
+
+    ################################################
+    ## Group
+    ################################################
+
+    group.timer_lights_kitchen:
+      <<: *customize
+      friendly_name: "Automation Kitchen Lights"
+      icon: mdi:lightbulb
+
+################################################
+## Group
+################################################
+
+group:
+  timer_lights_kitchen:
+    control: hidden
+    entities:
+      - automation.lights_kitchen_time_night_off
+      - input_datetime.lights_kitchen_time_night_off
+      - automation.lights_kitchen_time_night_on
+      - input_datetime.lights_kitchen_time_morning_on
+
+################################################
+## Automation
+################################################
+
+automation:
+  - alias: lights_kitchen_time_night_off
+    trigger:
+      - platform: template
+        value_template: "{{ states.sensor.time.state == (states.input_datetime.lights_kitchen_time_night_off.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+      - platform: sun
+        event: sunrise
+        offset: '-00:10:00'
+    action:
+      - service: homeassistant.turn_off
+        entity_id:
+          - light.tradfri_bulb_e14_w_opch_400lm_2_2
+          - light.tradfri_bulb_e14_w_opch_400lm_3_2
+
+  - alias: lights_kitchen_time_night_on
+    trigger:
+      - platform: template
+        value_template: "{{ states.sensor.time.state == (states.input_datetime.lights_kitchen_time_morning_on.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+      - platform: sun
+        event: sunset
+        offset: '-00:10:00'
+    condition:
+      condition: or
+      conditions:
+        - condition: sun
+          after: sunset
+          after_offset: '-00:30:00'
+        - condition: sun
+          before: sunrise
+          after_offset: '-00:01:00'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id:
+            - light.tradfri_bulb_e14_w_opch_400lm_2_2
+            - light.tradfri_bulb_e14_w_opch_400lm_3_2
+          brightness_pct: '90'
+
+################################################
+## Input Date/time
+################################################
+
+input_datetime:
+  lights_kitchen_time_night_off:
+    has_time: true
+    initial: '22:22'
+  lights_kitchen_time_morning_on:
+    has_time: true
+    initial: '05:59'

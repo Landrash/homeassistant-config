@@ -1,0 +1,58 @@
+###############################################################
+## Packages / Groups / Pressure
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'pressure'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Group
+    ################################################
+
+    group.humidity:
+      <<: *customize
+      friendly_name: "Pressure"
+      icon: mdi:thermometer
+
+    ################################################
+    ## Sensor
+    ################################################
+
+################################################
+## Graph
+################################################
+
+history_graph:
+  pressure:
+    name: 'Pressure Graph'
+    entities:
+      - sensor.climate_bathroom_upstairs_pressure
+    hours_to_show: 24
+    refresh: 60
+
+################################################
+## Group
+################################################
+
+group:
+  pressure:
+    control: hidden
+    entities:
+      - sensor.climate_bathroom_upstairs_pressure
+      - history_graph.pressure_graph

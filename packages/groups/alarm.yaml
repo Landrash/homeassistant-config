@@ -1,0 +1,82 @@
+###############################################################
+## Packages / Groups / Alarm
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'alarm'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Group
+    ################################################
+    group.fire_alarm:
+      <<: *customize
+      friendly_name: "Fire Alarms"
+      icon: mdi:fire
+
+    group.water_alarm:
+      <<: *customize
+      friendly_name: "Water Alarms"
+      icon: mdi:water
+
+    ################################################
+    ## Sensor Fire
+    ################################################
+
+    ################################################
+    ## Sensor Water
+    ################################################
+
+################################################
+## Graph
+################################################
+
+history_graph:
+  fire_alarm:
+    name: 'Fire Alarm Graph'
+    entities:
+      - binary_sensor.fire_alarm_downstairs
+    hours_to_show: 24
+    refresh: 240
+
+  water_alarm:
+    name: 'Water Alarm Graph'
+    entities:
+      - binary_sensor.water_alarm_kitchen
+      - binary_sensor.water_laundry_room
+    hours_to_show: 24
+    refresh: 240
+
+################################################
+## Group
+################################################
+
+group:
+  fire_alarm:
+    control: hidden
+    entities:
+      - binary_sensor.fire_alarm_downstairs
+      - history_graph.fire_alarm_graph
+
+  water_alarm:
+    control: hidden
+    entities:
+      - binary_sensor.water_alarm_kitchen
+      - binary_sensor.water_alarm_laundry_room
+      - history_graph.water_alarm_graph
+

@@ -1,0 +1,121 @@
+###############################################################################
+# Packages / Monitor
+###############################################################################
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+    package.node_anchors:
+      customize: &customize
+        package: 'monitor'
+
+  ################################################
+  ## Group
+  ################################################
+    group.monitor_bluetooth:
+      <<: *customize
+      friendly_name: "Monitor Bluetooth"
+      icon: mdi:bluetooth-transfer
+
+  ################################################
+  ## Script
+  ################################################
+
+  ################################################
+  ## Automation
+  ################################################
+
+  ################################################
+  ## Input Select
+  ################################################
+
+  ################################################
+  ## Sensor
+  ################################################
+
+###############################################################################
+# Devices
+###############################################################################
+
+  ################################################
+  ## Group
+  ################################################
+
+group:
+  monitor_bluetooth:
+    control: hidden
+    entities:
+      - input_boolean.occupancy
+      - sensor.home_occupancy_confidence
+      - sensor.second_floor_landrash
+      - sensor.second_floor_landrash_band
+      - automation.occupancy_on
+      - automation.occupancy_off
+
+  ################################################
+  ## Input Boolean
+  ################################################
+
+input_boolean:
+  occupancy:
+    name: Occupancy
+    initial: off
+    icon: mdi:home-map-marker
+
+
+  ################################################
+  ## Sensor
+  ################################################
+
+sensor:
+  - platform: mqtt
+    state_topic: 'monitor/office/04:B1:67:1F:DA:A5'
+    value_template: '{{ value_json.confidence }}'
+    unit_of_measurement: '%'
+    name: 'Second floor Landrash'
+
+  - platform: mqtt
+    state_topic: 'monitor/office/C7:A7:DE:12:C4:1E'
+    value_template: '{{ value_json.confidence }}'
+    unit_of_measurement: '%'
+    name: 'Second floor Landrash Band'
+
+  - platform: min_max
+    name: "Home Occupancy Confidence"
+    type: max
+    round_digits: 0
+    entity_ids:
+      - sensor.second_floor_landrash
+      - sensor.second_floor_landrash_band
+
+  ################################################
+  ## Script
+  ################################################
+
+
+  ###############################################################################
+  # Automation
+  ###############################################################################
+automation:
+  - alias: Occupancy on
+    hide_entity: false
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.home_occupancy_confidence
+        above: 10
+    action:
+      - service: homeassistant.turn_on
+        data:
+          entity_id: input_boolean.occupancy
+  - alias: Occupancy off
+    hide_entity: false
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.home_occupancy_confidence
+        below: 10
+    action:
+      - service: homeassistant.turn_off
+        data:
+          entity_id: input_boolean.occupancy
+

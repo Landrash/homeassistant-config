@@ -50,3 +50,4 @@ secrets.yaml
 
 # Storage
 .storage/*
+.directory

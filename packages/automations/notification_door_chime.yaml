@@ -1,0 +1,72 @@
+################################################################
+## Packages / Automation Door Chime
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'automation_notification_door_chime'
+
+    ################################################
+    ## Automation
+    ################################################
+
+    automation.notification_door_chime:
+      <<: *customize
+      friendly_name: "Door Chime"
+      icon: mdi:bell-ring
+
+    ################################################
+    ## Group
+    ################################################
+
+    group.notification_door_chime:
+      <<: *customize
+      friendly_name: "Automation Door Chime"
+      icon: mdi:bell-ring
+
+################################################
+## Group
+################################################
+
+group:
+  notification_door_chime:
+    control: hidden
+    entities:
+      - automation.notification_door_chime
+
+################################################
+## Automation
+################################################
+
+automation:
+  - alias: notification_door_chime
+    trigger:
+      - platform: state
+        entity_id:
+          - group.entry_points
+#    condition:
+#      - condition: state
+#        entity_id: group.family
+#        state: 'home'
+    action:
+      - service: media_player.play_media
+        data_template:
+          entity_id: >
+            group.media_players
+          media_content_id: >
+            {% if trigger.to_state.state == 'on' %}
+            https://raw.githubusercontent.com/CCOSTAN/Home-AssistantConfig/master/config/sounds/one-tone-chime.mp3
+            {% else %}
+            https://raw.githubusercontent.com/CCOSTAN/Home-AssistantConfig/master/config/sounds/two-tone-chime.mp3
+            {% endif %}
+          media_content_type: audio/mp4

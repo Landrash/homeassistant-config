@@ -1,0 +1,65 @@
+###############################################################
+## Packages / Groups / Interfaces
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'interfaces'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Group
+    ################################################
+    group.buttons:
+      <<: *customize
+      friendly_name: "Buttons"
+      icon: mdi:gesture-double-tap
+    group.multiaxis:
+      <<: *customize
+      friendly_name: "Cubes"
+      icon: mdi:gesture-double-tap
+    ################################################
+    ## Button
+    ################################################
+
+################################################
+## Graph
+################################################
+
+history_graph:
+  button:
+    name: 'Button Graph'
+    entities:
+      - binary_sensor.garden_lights_button
+    hours_to_show: 24
+    refresh: 240
+
+################################################
+## Group
+################################################
+
+group:
+  buttons:
+    control: hidden
+    entities:
+      - binary_sensor.garden_lights_button
+      - history_graph.button_graph
+
+  multiaxis:
+    control: hidden
+    entities:
+      - sensor.xiaomi_cube

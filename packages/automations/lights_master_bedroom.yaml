@@ -1,0 +1,119 @@
+################################################################
+## Packages / Lights Master Bedrrom
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'automation_light_master_bedroom'
+
+      expose: &expose
+        <<: *customize
+        haaska_hidden: false
+        homebridge_hidden: false
+
+    ################################################
+    ## Automation
+    ################################################
+
+    automation.lights_master_bedroom_time_night_on:
+      <<: *customize
+      friendly_name: "Master Bedroom Lights Timer On"
+      icon: mdi:lightbulb
+
+    automation.lights_master_bedroom_time_night_off:
+      <<: *customize
+      friendly_name: "Master Bedroom Lights Timer Off"
+      icon: mdi:lightbulb
+
+    ################################################
+    ## Input Select
+    ################################################
+
+    input_datetime.lights_master_bedroom_time_night_off:
+      <<: *customize
+      friendly_name: "Master Bedroom Lights Night Time Off"
+
+    input_datetime.lights_master_bedroom_time_night_on:
+      <<: *customize
+      friendly_name: "Master Bedroom Lights Morning Time On"
+
+    ################################################
+    ## Group
+    ################################################
+
+    group.timer_lights_master_bedroom:
+      <<: *customize
+      friendly_name: "Automation Master Bedroom Lights"
+      icon: mdi:lightbulb
+
+################################################
+## Group
+################################################
+
+group:
+  timer_lights_master_bedroom:
+    control: hidden
+    entities:
+      - automation.lights_master_bedroom_time_night_on
+      - input_datetime.lights_master_bedroom_time_night_on
+      - automation.lights_master_bedroom_time_night_off
+      - input_datetime.lights_master_bedroom_time_night_off
+
+################################################
+## Automation
+################################################
+
+automation:
+  - alias: lights_master_bedroom_time_night_off
+    trigger:
+      - platform: template
+        value_template: "{{ states.sensor.time.state == (states.input_datetime.lights_master_bedroom_time_night_off.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+      - platform: sun
+        event: sunrise
+        offset: '-00:15:00'
+    action:
+      - service: homeassistant.turn_off
+        entity_id:
+          - light.tradfri_bulb_e14_ws_opal_400lm
+          - light.tradfri_bulb_e14_ws_opal_400lm_2
+          - light.rgb_christmas_tree
+
+  - alias: lights_master_bedroom_time_night_on
+    trigger:
+      - platform: template
+        value_template: "{{ states.sensor.time.state == (states.input_datetime.lights_master_bedroom_time_night_on.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+    action:
+      - service: light.turn_on
+        data:
+          entity_id:
+            - light.tradfri_bulb_e14_ws_opal_400lm
+            - light.tradfri_bulb_e14_ws_opal_400lm_2
+          brightness: '90'
+          color_temp: '454'
+      - service: light.turn_on
+        data:
+          entity_id:
+            - light.rgb_christmas_tree
+          brightness_pct: '95'
+
+################################################
+## Input Date/time
+################################################
+
+input_datetime:
+  lights_master_bedroom_time_night_off:
+    has_time: true
+    initial: '23:30'
+  lights_master_bedroom_time_night_on:
+    has_time: true
+    initial: '18:30'
