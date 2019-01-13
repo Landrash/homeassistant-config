@@ -12,11 +12,6 @@ homeassistant:
       customize: &customize
         package: 'network_device_monitoring'
 
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-
 ################################################
 ## Device Tracker
 ################################################
@@ -53,40 +48,9 @@ homeassistant:
 ## Group
 ################################################
 
-    group.network_devices:
-      <<: *customize
-      friendly_name: "Network Devices"
-
 ################################################
 ## Group
 ################################################
-
-group:
-  network_devices:
-    control: hidden
-    entities:
-      - binary_sensor.net_tradfrigateway
-      - binary_sensor.net_chromecast_living_room
-      - binary_sensor.net_chromecast_master_bedroom
-      - binary_sensor.net_kodi_master_bedroom
-      - binary_sensor.xiaomi_miio_vacuum
-      - binary_sensor.rgb_christmas_tree_status
-      - binary_sensor.net_google_home_mini_kitchen
-      - binary_sensor.net_google_home_mini_office
-      - history_graph.network_wired
-      - history_graph.network_wireless
-
-  zwave:
-    control: hidden
-    entities:
-      - zwave.fibaro_system_fgwpef_wall_plug
-      - zwave.fibaro_system_fgms001_motion_sensor
-      - zwave.fibaro_system_fgd212_dimmer_2
-      - zwave.zwaveme_zme_uzb1_usb_stick
-      - zwave.danfoss_z_thermostat_014g0013
-      - zwave.danfoss_z_thermostat_014g0013_2
-      - zwave.danfoss_z_thermostat_014g0013_3
-      - history_graph.zwave_devices
 
 ################################################
 ## Sensor
@@ -97,41 +61,6 @@ group:
 #      host: !secret unifi_ubiquiti_ap1_host
 #      community: !secret unifi_community
 
-################################################
-## Sensor
-################################################
-
-history_graph:
-  network_wired:
-    name: 'Network Wired'
-    entities:
-      - binary_sensor.net_tradfrigateway
-    hours_to_show: 72
-    refresh: 60
-  network_wireless:
-    name: 'Network Wireless'
-    entities:
-      - binary_sensor.net_chromecast_living_room
-      - binary_sensor.net_chromecast_master_bedroom
-      - binary_sensor.net_kodi_master_bedroom
-      - binary_sensor.xiaomi_miio_vacuum
-      - binary_sensor.rgb_christmas_tree_status
-      - binary_sensor.net_google_home_mini_kitchen
-      - binary_sensor.net_google_home_mini_office
-    hours_to_show: 72
-    refresh: 60
-  zwave:
-    name: 'Z-Wave Devices'
-    entities:
-      - zwave.fibaro_system_fgwpef_wall_plug
-      - zwave.fibaro_system_fgms001_motion_sensor
-      - zwave.fibaro_system_fgd212_dimmer_2
-      - zwave.zwaveme_zme_uzb1_usb_stick
-      - zwave.danfoss_z_thermostat_014g0013
-      - zwave.danfoss_z_thermostat_014g0013_2
-      - zwave.danfoss_z_thermostat_014g0013_3
-    hours_to_show: 72
-    refresh: 60
 
 ################################################
 ## Sensor

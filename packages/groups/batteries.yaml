@@ -16,11 +16,6 @@ homeassistant:
       customize: &customize
         package: 'batteries'
 
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-
     ################################################
     ## Group
     ################################################
@@ -129,6 +124,8 @@ history_graph:
       - sensor.tradfri_motion_sensor_4
       - sensor.tradfri_motion_sensor_5
       - sensor.fibaro_system_fgms001_motion_sensor_battery
+      - sensor.bathroom_upstairs_temperature_battery
+      - sensor.master_bedroom_temperature_battery
       - sensor.plantmonitor1_battery
       - sensor.plantmonitor2_battery
       - sensor.plantmonitor3_battery

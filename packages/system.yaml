@@ -17,31 +17,13 @@ homeassistant:
       customize: &customize
         package: 'system'
 
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-
     ################################################
     ## Device Tracker
     ################################################
 
-    device_tracker.tracked:
-      <<: *customize
-      hidden: false
-
-    device_tracker.tracked_hidden:
-      <<: *customize
-      hidden: false
-
     ################################################
     ## Group
     ################################################
-
-    group.system:
-      <<: *customize
-      friendly_name: "System"
-      icon: mdi:settings-box
 
     ################################################
     ## Sensor
@@ -90,20 +72,6 @@ homeassistant:
 ################################################
 ## Group
 ################################################
-
-group:
-  system:
-    control: hidden
-    entities:
-      - sensor.date
-      - sensor.time
-      - binary_sensor.workday_sensor
-      - sensor.uptime
-      - sensor.ha_startup_time
-      - sensor.ha_version
-      - sensor.ha_github_version
-      - sensor.ha_pypi_version
-      - sensor.rpi_power_status
 
 ################################################
 ## Sensor

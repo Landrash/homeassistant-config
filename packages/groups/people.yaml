@@ -16,11 +16,6 @@ homeassistant:
       customize: &customize
         package: 'groups/people'
 
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-
     ################################################
     ## Device Tracker
     ################################################
@@ -28,16 +23,6 @@ homeassistant:
     ################################################
     ## Group
     ################################################
-
-    group.family:
-      <<: *customize
-      friendly_name: "Family"
-      icon: mdi:human-male-female
-
-    group.guests:
-      <<: *customize
-      friendly_name: "Guests"
-      icon: mdi:human-male-female
 
     group.person_landrash:
       <<: *customize
@@ -53,28 +38,12 @@ homeassistant:
 ## Group
 ################################################
 
-group:
-  guests:
-    control: hidden
-    entities:
-      - group.person_1
-
-  family:
-    control: hidden
-    entities:
-      - group.person_landrash
-      - sensor.landrash_to_home
-      - camera.landrash_map
-      - group.person_jojo
-      - sensor.jojo_to_home
-      - camera.jojo_map
-
   person_landrash:
     control: hidden
     entities:
-      - device_tracker.google_maps_111139059226501305048
+      - device_tracker.landrash
 
   person_jojo:
     control: hidden
     entities:
-      - device_tracker.google_maps_105177297270781888222
+      - device_tracker.jojo

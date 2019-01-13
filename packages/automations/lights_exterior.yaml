@@ -16,11 +16,6 @@ homeassistant:
       customize: &customize
         package: 'automation_lights_exterior'
 
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-
     ################################################
     ## Automation
     ################################################

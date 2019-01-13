@@ -16,11 +16,6 @@ homeassistant:
       customize: &customize
         package: 'humidity'
 
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-
     ################################################
     ## Group
     ################################################
@@ -42,6 +37,7 @@ history_graph:
   humidity:
     name: 'Humidity Graph'
     entities:
+      - sensor.entry_humidity
       - sensor.climate_bathroom_upstairs_humidity
       - sensor.climate_master_bedroom_humidity
     hours_to_show: 24
@@ -55,6 +51,7 @@ group:
   humidity:
     control: hidden
     entities:
+      - sensor.entry_humidity
       - sensor.climate_bathroom_upstairs_humidity
       - sensor.climate_master_bedroom_humidity
       - history_graph.humidity_graph

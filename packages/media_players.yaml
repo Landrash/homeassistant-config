@@ -16,18 +16,10 @@ homeassistant:
       customize: &customize
         package: 'groups/media_players'
 
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-
     ################################################
     ## Group
     ################################################
 
-    group.media_players:
-      <<: *customize
-      friendly_name: "Media Players"
 
     ################################################
     ## Media Players
@@ -41,14 +33,6 @@ homeassistant:
 ## Group
 ################################################
 group:
-  media_players:
-    control: hidden
-    entities:
-      - media_player.living_room_tv
-      - media_player.master_bedroom_tv
-      - media_player.kodi_master_bedroom_host
-      - media_player.koks_hogtalare
-      - media_player.kontor
   radio:
     control: hidden
     entities:
@@ -67,9 +51,15 @@ input_select:
   chromecast_radio_station:
     name: 'Select Radio Station'
     options:
-      - Absolute Radio Classic Rock
-      - RealXS Manchester
-      - Capital UK
+      - Lugna Favoriter
+      - Mix Megapol
+      - NRJ
+      - Playdio
+      - Radio 107,5
+      - Rix FM
+      - Rock Klasisker
+      - Vinyl 107,5
+      - Sveriges Radio P1
       - Custom Station
     icon: mdi:radio
 
@@ -169,9 +159,15 @@ script:
             {% elif is_state("input_select.chromecast_radio_speakers", "All") %} media_player.home_group
             {% endif %}
           media_content_id: >
-            {% if is_state("input_select.chromecast_radio_station", "Absolute Radio Classic Rock") %} http://icy-e-bab-04-cr.sharp-stream.com/absoluteclassicrock.mp3
-            {% elif is_state("input_select.chromecast_radio_station", "RealXS Manchester") %} http://media-ice.musicradio.com:80/RealXSManchesterMP3
-            {% elif is_state("input_select.chromecast_radio_station", "Capital UK") %} http://media-ice.musicradio.com:80/CapitalUKMP3
+            {% if is_state("input_select.chromecast_radio_station", "Lugna Favoriter") %} http://stream-ice.mtgradio.com:8080/stat_lugna_favoriter.m3u
+            {% elif is_state("input_select.chromecast_radio_station", "Mix Megapol") %} http://194.16.21.227/mix_se_mp3.m3u
+            {% elif is_state("input_select.chromecast_radio_station", "NRJ") %} http://194.16.21.227/nrj_se_mp3.m3u
+            {% elif is_state("input_select.chromecast_radio_station", "Playdio") %} http://media.playdio.se/listen.pls
+            {% elif is_state("input_select.chromecast_radio_station", "Radio 107,5") %} http://194.16.21.227/1075_se_mp3.m3u
+            {% elif is_state("input_select.chromecast_radio_station", "Rix FM") %} http://stream-ice.mtgradio.com:8080/stat_rix_fm.m3u
+            {% elif is_state("input_select.chromecast_radio_station", "Rock Klasisker") %} http://194.16.21.227/rock_se_mp3.m3u
+            {% elif is_state("input_select.chromecast_radio_station", "Vinyl 107,5") %} http://194.16.21.227/vinyl_se_mp3.m3u
+            {% elif is_state("input_select.chromecast_radio_station", "Sveriges Radio P1") %} http://sverigesradio.se/topsy/direkt/132-hi-mp3.m3u
             {% elif is_state("input_select.chromecast_radio_station", "Custom Station") %} {{states.input_text.custom_station.state}}
             {% endif %}
           media_content_type: 'audio/mp4'
@@ -182,9 +178,9 @@ script:
       - service: media_player.turn_off
         data_template:
           entity_id: >
-            {% if is_state("input_select.chromecast_radio_speakers", "LivingRoom") %} media_player.living_room_speaker
-            {% elif is_state("input_select.chromecast_radio_speakers", "Bedroom") %} media_player.bedroom_speaker
-            {% elif is_state("input_select.chromecast_radio_speakers", "TV") %} media_player.chromecast0899
-            {% elif is_state("input_select.chromecast_radio_speakers", "Volumio Radio") %} media_player.volumio
+            {% if is_state("input_select.chromecast_radio_speakers", "LivingRoom") %} media_player.living_room_tv
+            {% elif is_state("input_select.chromecast_radio_speakers", "Bedroom") %} media_player.master_bedroom_tv
+            {% elif is_state("input_select.chromecast_radio_speakers", "Kitchen") %} media_player.koks_hogtalare
+            {% elif is_state("input_select.chromecast_radio_speakers", "Office") %} media_player.kontor
             {% elif is_state("input_select.chromecast_radio_speakers", "All") %} media_player.home_group
             {% endif %}

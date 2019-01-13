@@ -16,11 +16,6 @@ homeassistant:
       customize: &customize
         package: 'power_management'
 
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-
     ################################################
     ## Group
     ################################################
@@ -42,8 +37,8 @@ history_graph:
   power_monitors:
     name: 'Power Monitors Graph'
     entities:
-      - sensor.fibaro_system_fgwpef_wall_plug_power_4
-      - sensor.fibaro_system_fgwpef_wall_plug_energy_2
+      - sensor.fibaro_system_fgwpe_f_wall_plug_energy
+      - sensor.fibaro_system_fgwpe_f_wall_plug_power_2
       - sensor.fibaro_system_fgd212_dimmer_2_power
       - sensor.fibaro_system_fgd212_dimmer_2_energy
     hours_to_show: 24
@@ -57,8 +52,8 @@ group:
   power_monitors:
     control: hidden
     entities:
-      - sensor.fibaro_system_fgwpef_wall_plug_power_4
-      - sensor.fibaro_system_fgwpef_wall_plug_energy_2
+      - sensor.fibaro_system_fgwpe_f_wall_plug_energy
+      - sensor.fibaro_system_fgwpe_f_wall_plug_power_2
       - sensor.fibaro_system_fgd212_dimmer_2_power
       - sensor.fibaro_system_fgd212_dimmer_2_energy
       - history_graph.power_monitors_graph

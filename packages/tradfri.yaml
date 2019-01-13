@@ -16,11 +16,6 @@ homeassistant:
       customize: &customize
         package: 'tradfri'
 
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-
 ################################################
 ## Trådfri Hub
 ################################################
@@ -28,37 +23,3 @@ homeassistant:
 tradfri:
   host: !secret tradfri_host
   allow_tradfri_groups: false
-
-scene:
-  - name: Good Night
-    entities:
-      light.tradfri_bulb_e14_ws_opal_400lm_2:
-        state: on
-        brightness: 10
-        color_temp: 455
-      light.tradfri_bulb_e14_ws_opal_400lm:
-        state: off
-      light.tradfri_bulb_e27_ws_clear_950lm_6:
-        state: off
-      switch.433_mhz_outlet_1:
-        state: off
-      light.tradfri_bulb_e27_ws_clear_950lm_5:
-        state: off
-      light.tradfri_bulb_e27_w_opal_1000lm:
-        state: off
-      light.tradfri_bulb_e27_ws_opal_980lm_6:
-        state: off
-      light.tradfri_bulb_e14_w_opch_400lm_2:
-        state: off
-      light.tradfri_bulb_e14_w_opch_400lm_3:
-        state: off
-      light.tradfri_bulb_e27_ws_opal_980lm_3:
-        state: off
-      light.tradfri_bulb_e27_ws_opal_980lm_7:
-        state: off
-      light.tradfri_bulb_e27_cws_opal_600lm:
-        state: off
-      light.fibaro_system_fgd212_dimmer_2_level:
-        state: off
-      light.tradfri_bulb_e27_w_opal_1000lm_4:
-        state: off

@@ -33,9 +33,15 @@ device_tracker:
     community: !secret unifi_community
     baseoid: !secret unifi_edge_baseoid
 
-  - platform: google_maps
-    username: !secret google_maps_account
-    password: !secret google_maps_password
+#  - platform: google_maps
+#    username: !secret google_maps_account
+#    password: !secret google_maps_password
+
+#  - platform: googlehome
+#    host: !secret google_home_mini_kitchen
+
+#  - platform: googlehome
+#    host: !secret google_home_mini_office
 
 ################################################
 ## Camera

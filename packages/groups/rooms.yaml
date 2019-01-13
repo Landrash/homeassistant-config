@@ -16,11 +16,6 @@ homeassistant:
       customize: &customize
         package: 'groups/rooms'
 
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-
     ################################################
     ## Group
     ################################################
@@ -86,7 +81,7 @@ group:
   back_porch:
     control: hidden
     entities:
-      - light.tradfri_bulb_e27_ws_opal_980lm_6_2
+      - light.tradfri_bulb_e27_ws_opal_980lm_6
       - switch.tradfri_control_outlet
 
   entry:
@@ -102,7 +97,7 @@ group:
   hallway:
     control: hidden
     entities:
-      - light.light_stairs_celling
+      - light.hallway_stair_light
 
   kitchen:
     control: hidden
@@ -141,11 +136,11 @@ group:
   second_bedroom:
     control: hidden
     entities:
-      - light.light_second_bedroom_celling
+      - light.second_bedroom_ceiling_light
       - light.christmas_star
 
   office:
     control: hidden
     entities:
-      - light.light_office_celling
+      - light.office_ceiling_light
       - media_player.kontor

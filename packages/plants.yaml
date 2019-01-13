@@ -16,24 +16,9 @@ homeassistant:
       customize: &customize
         package: 'plants'
 
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-        hidden: true
-
     ################################################
     ## Group
     ################################################
-
-    group.plants:
-      <<: *customize
-      friendly_name: "Plants"
-      hidden: false
-
-    group.plants_source:
-      <<: *customize
-      friendly_name: "Plants sources"
 
     ################################################
     ## Plants
@@ -65,22 +50,22 @@ homeassistant:
 
     sensor.plantmonitor1_temperature:
       <<: *customize
-      friendly_name: "Temperature Spathiphyllum Kochii"
+      friendly_name: "Spathiphyllum Kochii"
       hidden: false
 
     sensor.plantmonitor2_temperature:
       <<: *customize
-      friendly_name: "Temperature Spathiphyllum Gold Cupid"
+      friendly_name: "Spathiphyllum Gold Cupid"
       hidden: false
 
     sensor.plantmonitor3_temperature:
       <<: *customize
-      friendly_name: "Temperature Capsicum Bomba red"
+      friendly_name: "Capsicum Bomba red"
       hidden: false
 
     sensor.plantmonitor4_temperature:
       <<: *customize
-      friendly_name: "Temperature Cherry Tomato"
+      friendly_name: "Cherry Tomato"
       hidden: false
 
 ################################################

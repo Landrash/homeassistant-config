@@ -16,23 +16,9 @@ homeassistant:
       customize: &customize
         package: 'alarm'
 
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-
     ################################################
     ## Group
     ################################################
-    group.fire_alarm:
-      <<: *customize
-      friendly_name: "Fire Alarms"
-      icon: mdi:fire
-
-    group.water_alarm:
-      <<: *customize
-      friendly_name: "Water Alarms"
-      icon: mdi:water
 
     ################################################
     ## Sensor Fire
@@ -42,41 +28,48 @@ homeassistant:
     ## Sensor Water
     ################################################
 
-################################################
-## Graph
-################################################
-
-history_graph:
-  fire_alarm:
-    name: 'Fire Alarm Graph'
-    entities:
-      - binary_sensor.fire_alarm_downstairs
-    hours_to_show: 24
-    refresh: 240
-
-  water_alarm:
-    name: 'Water Alarm Graph'
-    entities:
-      - binary_sensor.water_alarm_kitchen
-      - binary_sensor.water_laundry_room
-    hours_to_show: 24
-    refresh: 240
 
 ################################################
-## Group
+## Alarm
 ################################################
 
-group:
-  fire_alarm:
-    control: hidden
-    entities:
-      - binary_sensor.fire_alarm_downstairs
-      - history_graph.fire_alarm_graph
+alarm_control_panel:
+  - platform: manual
+    code: !secret alarm_code
+    pending_time: 30
+    delay_time: 20
+    trigger_time: 4
+    disarmed:
+      trigger_time: 0
+    armed_home:
+      pending_time: 0
+      delay_time: 0
 
-  water_alarm:
-    control: hidden
-    entities:
-      - binary_sensor.water_alarm_kitchen
-      - binary_sensor.water_alarm_laundry_room
-      - history_graph.water_alarm_graph
+################################################
+## Automation
+################################################
 
+automation:
+  - alias: 'Trigger alarm while armed away'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.fibaro_system_fgms001_motion_sensor
+        to: 'on'
+    condition:
+      - condition: state
+        entity_id: alarm_control_panel.ha_alarm
+        state: armed_away
+    action:
+      service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.ha_alarm
+
+  - alias: 'Send notification when alarm triggered'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.ha_alarm
+        to: 'triggered'
+    action:
+      - service: notify.telegram_house
+        data_template:
+          message: >-
+            "\u2618 Hemlarm har triggat."

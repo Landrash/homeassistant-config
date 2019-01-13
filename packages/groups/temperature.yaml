@@ -16,11 +16,6 @@ homeassistant:
       customize: &customize
         package: 'temperature'
 
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-
     ################################################
     ## Group
     ################################################
@@ -61,6 +56,7 @@ group:
     entities:
       - sensor.climate_master_bedroom_temperature
       - sensor.climate_bathroom_upstairs_temperature
+      - sensor.entry_temperature
       - sensor.fibaro_system_fgms001_motion_sensor_temperature
       - sensor.plantmonitor1_temperature
       - sensor.plantmonitor2_temperature

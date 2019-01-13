@@ -16,20 +16,15 @@ homeassistant:
       customize: &customize
         package: 'automation_lights_motion_entry_bathroom'
 
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-
     ################################################
     ## Automation
     ################################################
 
-    automation.motion_in_the_entry_bathroom__turn_on_light:
+    automation..motion_in_the_entry_bathroom_turn_on_light:
       <<: *customize
       friendly_name: "Motion in the Entry Bathroom - Turn on Light"
       icon: mdi:lightbulb
-    automation.motion_in_the_entry_bathroom__turn_off_light:
+    automation..motion_in_the_entry_bathroom_turn_off_light:
       <<: *customize
       friendly_name: "Motion in the Entry Bathroom - Turn off Light"
       icon: mdi:lightbulb
@@ -51,8 +46,8 @@ group:
   automation_lights_motion_entry_bathroom:
     control: hidden
     entities:
-      - automation.motion_in_the_entry_bathroom__turn_on_light
-      - automation.motion_in_the_entry_bathroom__turn_off_light
+      - automation.motion_in_the_entry_bathroom_turn_off_light
+      - automation.motion_in_the_entry_bathroom_turn_on_light
 
 ################################################
 ## Automation
@@ -82,7 +77,7 @@ automation:
         to: 'off'
         from: 'on'
         for:
-          minutes: 5
+          minutes: 10
     condition:
       - condition: state
         entity_id: light.fibaro_system_fgd212_dimmer_2_level_2

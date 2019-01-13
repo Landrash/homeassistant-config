@@ -11,14 +11,6 @@ homeassistant:
         package: 'vacuum'
 
   ################################################
-  ## Group
-  ################################################
-    group.robot_vacuum:
-      <<: *customize
-      friendly_name: "Vacuum"
-      icon: mdi:robot-vacuum
-
-  ################################################
   ## Script
   ################################################
 
@@ -37,19 +29,6 @@ homeassistant:
 ###############################################################################
 # Devices
 ###############################################################################
-
-  ################################################
-  ## Group
-  ################################################
-
-group:
-  robot_vacuum:
-    control: hidden
-    entities:
-      - vacuum.xiaomi_vacuum_cleaner
-      - input_select.vacuum_room
-      - sensor.xiaomi_vacuum_cleaner_status
-      - camera.vacuum_map
 
   ################################################
   ## Vacuum

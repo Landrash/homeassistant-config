@@ -16,11 +16,6 @@ homeassistant:
       customize: &customize
         package: 'telegram'
 
-#      expose: &expose
-#        <<: *customize
-#        haaska_hidden: false
-#        homebridge_hidden: false
-#
 #    ################################################
 #    ## Automation
 #    ################################################
@@ -69,19 +64,12 @@ homeassistant:
 ## Telegram Bot
 ################################################
 
-#telegram_bot:
-#  platform: webhooks
-#  api_key: !secret telegram_api_key
-#  allowed_chat_ids:
-#    - !secret telegram_chat_id
-
 telegram_bot:
   platform: polling
   api_key: !secret telegram_api_key
   allowed_chat_ids:
     - !secret telegram_chat_id_me
     - !secret telegram_chat_id_us
-
 
 ################################################
 ## Notify

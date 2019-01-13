@@ -16,11 +16,6 @@ homeassistant:
       customize: &customize
         package: 'zwave'
 
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-
     ################################################
     ## Binary Sensor
     ################################################
@@ -49,11 +44,6 @@ homeassistant:
   ## Customize Domain
   ################################################
 
-  customize_domain:
-    zwave:
-      <<: *customize
-
-
 ################################################
 ## Z-Wave
 ################################################
@@ -61,28 +51,3 @@ homeassistant:
 zwave:
   usb_path: !secret zwave_usb_path
   network_key: !secret zwave_network_key
-
-group:
-  zwave_hidden:
-    name: "Hidden Z-wave"
-    entities:
-      - light.fibaro_system_fgd212_dimmer_2_level
-      - sensor.fibaro_system_fgd212_dimmer_2_exporting
-      - sensor.fibaro_system_fgd212_dimmer_2_heat
-      - sensor.fibaro_system_fgd212_dimmer_2_power
-      - sensor.fibaro_system_fgd212_dimmer_2_power_2
-      - sensor.fibaro_system_fgd212_dimmer_2_power_management
-      - sensor.fibaro_system_fgd212_dimmer_2_system
-      - sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid
-      - sensor.fibaro_system_fgd212_dimmer_2_alarm_level
-      - sensor.fibaro_system_fgd212_dimmer_2_alarm_type
-      - sensor.fibaro_system_fgd212_dimmer_2_exporting
-      - sensor.fibaro_system_fgd212_dimmer_2_heat
-      - sensor.fibaro_system_fgd212_dimmer_2_power_management
-      - sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid
-      - sensor.fibaro_system_fgwpef_wall_plug_power_3
-      - sensor.fibaro_system_fgwpef_wall_plug_power_2
-      - sensor.fibaro_system_fgwpef_wall_plug_exporting_2
-      - sensor.fibaro_system_fgms001_motion_sensor_general
-      - sensor.fibaro_system_fgms001_motion_sensor_direction
-      - sensor.fibaro_system_fgd212_dimmer_2_velocity

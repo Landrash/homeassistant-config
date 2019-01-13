@@ -16,11 +16,6 @@ homeassistant:
       customize: &customize
         package: 'pressure'
 
-      expose: &expose
-        <<: *customize
-        haaska_hidden: false
-        homebridge_hidden: false
-
     ################################################
     ## Group
     ################################################
@@ -43,6 +38,7 @@ history_graph:
     name: 'Pressure Graph'
     entities:
       - sensor.climate_bathroom_upstairs_pressure
+      - sensor.entry_pressure
     hours_to_show: 24
     refresh: 60
 
@@ -55,4 +51,5 @@ group:
     control: hidden
     entities:
       - sensor.climate_bathroom_upstairs_pressure
+      - sensor.entry_pressure
       - history_graph.pressure_graph
